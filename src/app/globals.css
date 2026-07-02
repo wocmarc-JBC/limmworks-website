@@ -1,26 +1,59 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f8f2e8;
+  --foreground: #20241f;
+  --limm-paper: #fffaf2;
+  --limm-cream: #f3eadc;
+  --limm-ink: #1f261f;
+  --limm-olive: #45513d;
+  --limm-sage: #dce4d4;
+  --limm-brass: #ad8044;
+  --limm-clay: #8b5238;
+  --limm-charcoal: #2b2b27;
+  --limm-line: #ded2bf;
+  --limm-muted: #6a665c;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: "Geist", "Geist Fallback", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "Geist Mono", "Geist Mono Fallback", ui-monospace, monospace;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+}
+
+img {
+  max-width: 100%;
+}
+
+::selection {
+  background: var(--limm-sage);
+  color: var(--limm-ink);
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+.text-pretty {
+  text-wrap: pretty;
+}
+
+:focus-visible {
+  outline: 3px solid rgba(173, 128, 68, 0.45);
+  outline-offset: 3px;
 }
