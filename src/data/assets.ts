@@ -1,9 +1,10 @@
 export const brandAssets = {
-  useOfficialLogo: false,
+  useOfficialLogo: true,
   logoLight: "/brand/limm-logo-light.png",
   logoDark: "/brand/limm-logo-dark.png",
   icon: "/brand/limm-icon.png",
   favicon: "/brand/favicon.png",
+  socialPreview: "/brand/limm-social-preview.png",
 } as const;
 
 const processedProjectBase = "/projects/limm-real/processed";

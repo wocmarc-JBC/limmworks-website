@@ -4,7 +4,7 @@ import { JsonLd } from "@/components/json-ld";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { StickyWhatsapp } from "@/components/sticky-whatsapp";
-import { brandAssets, projectImages } from "@/data/assets";
+import { brandAssets } from "@/data/assets";
 import { siteConfig, getSiteUrl } from "@/data/site";
 import { getExistingPublicAsset } from "@/lib/public-assets";
 import { baseGraphSchema } from "@/lib/schema";
@@ -21,6 +21,7 @@ const geistMono = Geist_Mono({
 });
 
 const favicon = getExistingPublicAsset(brandAssets.favicon);
+const socialPreview = getExistingPublicAsset(brandAssets.socialPreview);
 
 export const metadata: Metadata = {
   metadataBase: new URL(getSiteUrl()),
@@ -52,10 +53,10 @@ export const metadata: Metadata = {
     description: siteConfig.description,
     images: [
       {
-        url: projectImages.homeHero,
-        width: 1600,
-        height: 900,
-        alt: "Warm renovation planning interior for LIMM Works",
+        url: socialPreview ?? brandAssets.socialPreview,
+        width: 1200,
+        height: 630,
+        alt: "LIMM Works logo",
       },
     ],
   },
@@ -63,7 +64,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: `${siteConfig.name} | ${siteConfig.tagline}`,
     description: siteConfig.description,
-    images: [projectImages.homeHero],
+    images: [socialPreview ?? brandAssets.socialPreview],
   },
 };
 

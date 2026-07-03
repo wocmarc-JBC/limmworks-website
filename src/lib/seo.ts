@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { brandAssets } from "@/data/assets";
 import { absoluteUrl, siteConfig } from "@/data/site";
 
 type MetadataInput = {
@@ -12,8 +13,10 @@ export function buildMetadata({
   title,
   description,
   path,
-  image = "/projects/limm-real/processed/hero-renovation-planning.png",
+  image = brandAssets.socialPreview,
 }: MetadataInput): Metadata {
+  const isBrandPreview = image === brandAssets.socialPreview;
+
   return {
     title,
     description,
@@ -34,8 +37,8 @@ export function buildMetadata({
       images: [
         {
           url: absoluteUrl(image),
-          width: 1600,
-          height: 900,
+          width: isBrandPreview ? 1200 : 1600,
+          height: isBrandPreview ? 630 : 900,
           alt: title,
         },
       ],

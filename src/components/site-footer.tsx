@@ -19,10 +19,10 @@ export function SiteFooter() {
           {footerLogo ? (
             <Image
               alt={siteConfig.name}
-              className="h-11 w-auto object-contain"
-              height={44}
+              className="h-32 w-auto object-contain"
+              height={128}
               src={footerLogo}
-              width={198}
+              width={100}
             />
           ) : (
             <div className="flex items-center gap-3">

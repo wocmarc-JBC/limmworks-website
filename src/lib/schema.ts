@@ -1,6 +1,6 @@
 import type { OwnerNote } from "@/data/owners-notes";
 import type { FaqItem, Service } from "@/data/services";
-import { projectImages } from "@/data/assets";
+import { brandAssets } from "@/data/assets";
 import { absoluteUrl, hasConfirmedWhatsapp, siteConfig } from "@/data/site";
 
 type BreadcrumbItem = {
@@ -30,6 +30,7 @@ export function organizationSchema() {
     "@id": absoluteUrl("/#organization"),
     name: siteConfig.name,
     url: absoluteUrl("/"),
+    logo: absoluteUrl(brandAssets.logoDark),
     email: siteConfig.email,
     sameAs: [siteConfig.instagram],
     contactPoint: [contactPoint],
@@ -42,7 +43,7 @@ export function localBusinessSchema() {
     "@id": absoluteUrl("/#localbusiness"),
     name: siteConfig.name,
     url: absoluteUrl("/"),
-    image: absoluteUrl(projectImages.homeHero),
+    image: absoluteUrl(brandAssets.socialPreview),
     email: siteConfig.email,
     ...(hasConfirmedWhatsapp() ? { telephone: siteConfig.whatsapp.display } : {}),
     address: {

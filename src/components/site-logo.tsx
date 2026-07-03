@@ -1,32 +1,23 @@
 import Image from "next/image";
 import Link from "next/link";
 import { brandAssets } from "@/data/assets";
+import { siteConfig } from "@/data/site";
 import { getExistingPublicAsset } from "@/lib/public-assets";
 
 export function SiteLogo() {
-  const officialLogo =
-    getExistingPublicAsset(brandAssets.logoDark) ??
-    getExistingPublicAsset(brandAssets.logoLight);
   const officialIcon = getExistingPublicAsset(brandAssets.icon);
 
   return (
     <Link className="flex min-w-0 items-center gap-3" href="/">
-      {officialLogo ? (
+      {officialIcon ? (
         <Image
-          alt="LIMM Works"
-          className="h-10 w-auto shrink-0 object-contain"
-          height={40}
+          alt=""
+          aria-hidden="true"
+          className="h-11 w-10 shrink-0 object-contain sm:h-12 sm:w-11"
+          height={52}
           priority
-          src={officialLogo}
-          width={180}
-        />
-      ) : officialIcon ? (
-        <Image
-          alt="LIMM Works"
-          className="h-10 w-10 shrink-0 rounded-md object-contain"
-          height={40}
           src={officialIcon}
-          width={40}
+          width={47}
         />
       ) : (
         <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md bg-[var(--limm-ink)] text-sm font-semibold text-white">
@@ -35,7 +26,7 @@ export function SiteLogo() {
       )}
       <span className="min-w-0">
         <span className="block truncate text-base font-semibold text-[var(--limm-ink)]">
-          LIMM Works
+          {siteConfig.shortName}
         </span>
         <span className="hidden text-xs text-[var(--limm-muted)] sm:block">
           Pte Ltd
