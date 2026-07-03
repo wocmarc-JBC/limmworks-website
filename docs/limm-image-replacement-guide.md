@@ -1,6 +1,23 @@
-# LIMM Image Replacement Guide
+# LIMM Asset Replacement Guide
 
-This preview uses generated project-style placeholder images because real LIMM project photos were not provided in the clean repo.
+This guide keeps brand and project-photo replacement scoped to the LIMM Works preview repo. Do not connect `limmworks.com`, change DNS or replace the current Wix site as part of asset replacement.
+
+## Brand Assets
+
+Drop official brand files into `public/brand/` using these filenames:
+
+- `limm-logo-light.png`
+- `limm-logo-dark.png`
+- `limm-icon.png`
+- `favicon.png`
+
+The site checks these files at build time:
+
+- Header logo: uses `limm-logo-dark.png` first, then `limm-logo-light.png`, then `limm-icon.png`.
+- Favicon: uses `favicon.png` when present.
+- Fallback: if the official files are missing, the clean `LW` mark remains.
+
+Logo and favicon paths are centralized in `src/data/assets.ts`.
 
 ## Folder Structure
 
@@ -11,7 +28,7 @@ This preview uses generated project-style placeholder images because real LIMM p
 
 - `public/projects/limm-real/processed/`
   - Store web-ready images used by `next/image`.
-  - Current preview filenames:
+  - Current filenames:
     - `hero-renovation-planning.png`
     - `landed-renovation.png`
     - `condo-hdb-interior.png`
@@ -26,6 +43,7 @@ This preview uses generated project-style placeholder images because real LIMM p
 2. Export processed images as `.jpg`, `.png` or `.webp` into `public/projects/limm-real/processed/`.
 3. Reuse the current filenames when possible so page code does not need to change.
 4. If filenames change, update:
+   - `src/data/assets.ts`
    - `src/data/gallery.ts`
    - `src/data/services.ts`
    - `src/app/page.tsx`
@@ -41,4 +59,5 @@ This preview uses generated project-style placeholder images because real LIMM p
 
 ## Current Asset Status
 
-The current images are preview placeholders generated for layout, mood and information architecture. They should be replaced with approved LIMM project photos before launch.
+- Brand files are not yet supplied, so the site uses the `LW` fallback mark.
+- Project visuals are temporary review assets. Replace them with approved LIMM project photos before launch.

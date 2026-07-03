@@ -4,8 +4,9 @@ import { JsonLd } from "@/components/json-ld";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { StickyWhatsapp } from "@/components/sticky-whatsapp";
-import { projectImages } from "@/data/assets";
+import { brandAssets, projectImages } from "@/data/assets";
 import { siteConfig, getSiteUrl } from "@/data/site";
+import { getExistingPublicAsset } from "@/lib/public-assets";
 import { baseGraphSchema } from "@/lib/schema";
 import "./globals.css";
 
@@ -19,6 +20,8 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const favicon = getExistingPublicAsset(brandAssets.favicon);
+
 export const metadata: Metadata = {
   metadataBase: new URL(getSiteUrl()),
   title: {
@@ -27,6 +30,13 @@ export const metadata: Metadata = {
   },
   description: siteConfig.description,
   keywords: siteConfig.keywords,
+  icons: favicon
+    ? {
+        icon: favicon,
+        shortcut: favicon,
+        apple: favicon,
+      }
+    : undefined,
   alternates: {
     canonical: "/",
     languages: {

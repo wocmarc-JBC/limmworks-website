@@ -35,7 +35,7 @@ npm run build
 - WhatsApp number is a placeholder until confirmed.
 - Owner's Notes are practical renovation notes from LIMM Works to help homeowners and businesses understand planning, site conditions, scope and coordination before works begin.
 - Images are generated placeholders until approved LIMM project photos are supplied.
-- Official brand assets can be dropped into `public/brand/` as `limm-logo-light.png`, `limm-logo-dark.png`, `limm-icon.png` and `favicon.ico` or `favicon.png`.
+- Official brand assets can be dropped into `public/brand/` as `limm-logo-light.png`, `limm-logo-dark.png`, `limm-icon.png` and `favicon.png`.
 
 See:
 

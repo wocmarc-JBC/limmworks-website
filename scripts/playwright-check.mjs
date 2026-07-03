@@ -48,6 +48,7 @@ const forbiddenPublicPatterns = [
   { label: "public unsafe-claims wording", pattern: /unsafe claims/i },
   { label: "public generated-visuals wording", pattern: /generated visuals/i },
   { label: "public approved-photos setup wording", pattern: /prepared for approved photos/i },
+  { label: "public carpentry comparison wording", pattern: /broader than carpentry/i },
   { label: "public domain/DNS warning", pattern: /No live domain|DNS changes/i },
 ];
 

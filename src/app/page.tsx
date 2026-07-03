@@ -183,7 +183,7 @@ export default function Home() {
           <SectionHeader
             eyebrow="Core services"
             title="Renovation services built around planning, coordination and execution."
-            body="LIMM Works is broader than a single-trade contractor. The website separates service pages clearly so each page can support search, AI answers and future project proof."
+            body="LIMM Works organizes renovation services around clear planning, coordinated site work and practical follow-through across the full project scope."
           />
           <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
             {services.map((service) => (
