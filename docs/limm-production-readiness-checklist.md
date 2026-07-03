@@ -2,9 +2,9 @@
 
 Do not switch Wix, DNS, domain or production hosting until every item below is reviewed and approved.
 
-- [ ] Official logo files added to `public/brand/`.
-- [ ] Favicon added to `public/brand/favicon.png`.
-- [ ] LIMM WhatsApp number confirmed and added to `src/data/site.ts`.
+- [x] Official logo files added to `public/brand/`.
+- [x] Favicon added to `public/brand/favicon.png`.
+- [x] LIMM WhatsApp number confirmed and added to `src/data/site.ts`.
 - [ ] Real project photos added to `public/projects/limm-real/raw/`.
 - [ ] Web-ready project photos exported to `public/projects/limm-real/processed/`.
 - [ ] Homepage image choices reviewed.

@@ -2,7 +2,7 @@
 
 import { Check, Clipboard, MessageCircle, Send } from "lucide-react";
 import { FormEvent, useMemo, useState } from "react";
-import { getWhatsappHref, siteConfig } from "@/data/site";
+import { getWhatsappHref } from "@/data/site";
 
 type FormState = {
   name: string;
@@ -213,12 +213,6 @@ export function ContactForm() {
           value={message}
         />
       </label>
-      {!siteConfig.whatsapp.e164 ? (
-        <p className="mt-3 text-xs leading-5 text-[var(--limm-muted)]">
-          WhatsApp: to be confirmed. The enquiry text is ready to copy while
-          the number is being confirmed.
-        </p>
-      ) : null}
     </form>
   );
 }

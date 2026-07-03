@@ -8,8 +8,10 @@ export const siteConfig = {
   email: "limmworks@gmail.com",
   instagram: "https://www.instagram.com/limmworks/",
   whatsapp: {
-    display: "to be confirmed",
-    e164: "",
+    display: "+65 8989 8278",
+    e164: "+6589898278",
+    defaultMessage:
+      "Hello LIMM Works, I would like to start an initial project review. I can share my floor plan, site photos, rough scope, budget range and preferred timeline.",
     fallbackPath: "/contact#project-review",
   },
   location: {
@@ -69,16 +71,16 @@ export function getWhatsappHref(message?: string) {
   }
 
   const base = `https://wa.me/${siteConfig.whatsapp.e164.replace(/[^\d]/g, "")}`;
+  const text =
+    message && message.trim().length > 0
+      ? message
+      : siteConfig.whatsapp.defaultMessage;
 
-  if (!message) {
-    return base;
-  }
-
-  return `${base}?text=${encodeURIComponent(message)}`;
+  return `${base}?text=${encodeURIComponent(text)}`;
 }
 
 export function getWhatsappLabel() {
-  return siteConfig.whatsapp.e164 ? siteConfig.whatsapp.display : "to be confirmed";
+  return siteConfig.whatsapp.display;
 }
 
 export function hasConfirmedWhatsapp() {
