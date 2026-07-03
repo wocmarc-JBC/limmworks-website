@@ -6,17 +6,59 @@ export const brandAssets = {
   favicon: "/brand/favicon.png",
 } as const;
 
+const processedProjectBase = "/projects/limm-real/processed";
+
+export const projectPhotoFolders = {
+  raw: {
+    landed: "/projects/limm-real/raw/landed/",
+    condoHdb: "/projects/limm-real/raw/condo-hdb/",
+    kitchenBathroom: "/projects/limm-real/raw/kitchen-bathroom/",
+    carpentryStorage: "/projects/limm-real/raw/carpentry-storage/",
+    commercial: "/projects/limm-real/raw/commercial/",
+    siteProgress: "/projects/limm-real/raw/site-progress/",
+  },
+  processed: {
+    landed: `${processedProjectBase}/landed/`,
+    condoHdb: `${processedProjectBase}/condo-hdb/`,
+    kitchenBathroom: `${processedProjectBase}/kitchen-bathroom/`,
+    carpentryStorage: `${processedProjectBase}/carpentry-storage/`,
+    commercial: `${processedProjectBase}/commercial/`,
+    siteProgress: `${processedProjectBase}/site-progress/`,
+  },
+} as const;
+
+const projectImageSlots = {
+  homeHero: "hero-renovation-planning.png",
+  landed: "landed-renovation.png",
+  landedAa: "landed-renovation.png",
+  condo: "condo-hdb-interior.png",
+  hdb: "condo-hdb-interior.png",
+  commercial: "commercial-interior.png",
+  kitchen: "kitchen-bathroom.png",
+  bathroom: "kitchen-bathroom.png",
+  carpentry: "carpentry-storage.png",
+  galleryOverview: "landed-renovation.png",
+  about: "hero-renovation-planning.png",
+  contact: "site-progress.png",
+} as const;
+
+function processedImage(filename: string) {
+  return `${processedProjectBase}/${filename}`;
+}
+
+// Page layouts read from this map only; swap filenames here when real project
+// photos are processed for web use.
 export const projectImages = {
-  homeHero: "/projects/limm-real/processed/hero-renovation-planning.png",
-  landed: "/projects/limm-real/processed/landed-renovation.png",
-  landedAa: "/projects/limm-real/processed/landed-renovation.png",
-  condo: "/projects/limm-real/processed/condo-hdb-interior.png",
-  hdb: "/projects/limm-real/processed/condo-hdb-interior.png",
-  commercial: "/projects/limm-real/processed/commercial-interior.png",
-  kitchen: "/projects/limm-real/processed/kitchen-bathroom.png",
-  bathroom: "/projects/limm-real/processed/kitchen-bathroom.png",
-  carpentry: "/projects/limm-real/processed/carpentry-storage.png",
-  galleryOverview: "/projects/limm-real/processed/landed-renovation.png",
-  about: "/projects/limm-real/processed/hero-renovation-planning.png",
-  contact: "/projects/limm-real/processed/site-progress.png",
+  homeHero: processedImage(projectImageSlots.homeHero),
+  landed: processedImage(projectImageSlots.landed),
+  landedAa: processedImage(projectImageSlots.landedAa),
+  condo: processedImage(projectImageSlots.condo),
+  hdb: processedImage(projectImageSlots.hdb),
+  commercial: processedImage(projectImageSlots.commercial),
+  kitchen: processedImage(projectImageSlots.kitchen),
+  bathroom: processedImage(projectImageSlots.bathroom),
+  carpentry: processedImage(projectImageSlots.carpentry),
+  galleryOverview: processedImage(projectImageSlots.galleryOverview),
+  about: processedImage(projectImageSlots.about),
+  contact: processedImage(projectImageSlots.contact),
 } as const;

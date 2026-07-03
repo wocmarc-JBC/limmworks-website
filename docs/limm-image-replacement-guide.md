@@ -25,9 +25,17 @@ Logo and favicon paths are centralized in `src/data/assets.ts`.
   - Store original photos from LIMM here.
   - Keep source filenames descriptive.
   - Do not reference raw files directly from pages.
+  - Category folders:
+    - `landed/`
+    - `condo-hdb/`
+    - `kitchen-bathroom/`
+    - `carpentry-storage/`
+    - `commercial/`
+    - `site-progress/`
 
 - `public/projects/limm-real/processed/`
   - Store web-ready images used by `next/image`.
+  - Category folders mirror the `raw/` folders.
   - Current filenames:
     - `hero-renovation-planning.png`
     - `landed-renovation.png`
@@ -40,15 +48,21 @@ Logo and favicon paths are centralized in `src/data/assets.ts`.
 ## Replacement Steps
 
 1. Add real source photos into `public/projects/limm-real/raw/`.
-2. Export processed images as `.jpg`, `.png` or `.webp` into `public/projects/limm-real/processed/`.
+2. Export processed images as `.jpg`, `.png` or `.webp` into the matching `public/projects/limm-real/processed/` category folder.
 3. Reuse the current filenames when possible so page code does not need to change.
 4. If filenames change, update:
    - `src/data/assets.ts`
-   - `src/data/gallery.ts`
-   - `src/data/services.ts`
-   - `src/app/page.tsx`
-   - any page hero that references a replaced image
+   - `src/data/gallery.ts` for gallery alt text
+   - `src/data/services.ts` for service hero alt text
 5. Update alt text in the same data files so it describes the real project accurately.
+
+## Asset Data System
+
+Image paths are centralized in `src/data/assets.ts`.
+
+- `projectPhotoFolders` documents the expected raw and processed folders.
+- `projectImages` is the public map used by pages, services and gallery cards.
+- Layout components should not need edits when real filenames are swapped.
 
 ## Recommended Image Specs
 

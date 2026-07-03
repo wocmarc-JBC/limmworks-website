@@ -1,14 +1,43 @@
 import { Camera, Mail, MessageCircle } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
+import { brandAssets } from "@/data/assets";
 import { serviceNav } from "@/data/services";
 import { getWhatsappHref, getWhatsappLabel, siteConfig } from "@/data/site";
+import { getExistingPublicAsset } from "@/lib/public-assets";
 
 export function SiteFooter() {
+  const footerLogo =
+    getExistingPublicAsset(brandAssets.logoLight) ??
+    getExistingPublicAsset(brandAssets.logoDark);
+  const footerIcon = getExistingPublicAsset(brandAssets.icon);
+
   return (
     <footer className="border-t border-[var(--limm-line)] bg-[var(--limm-ink)] text-white">
       <div className="mx-auto grid w-full max-w-7xl gap-10 px-4 py-12 sm:px-6 lg:grid-cols-[1.1fr_1.4fr_0.9fr] lg:px-8">
         <div>
-          <p className="text-xl font-semibold">{siteConfig.name}</p>
+          {footerLogo ? (
+            <Image
+              alt={siteConfig.name}
+              className="h-11 w-auto object-contain"
+              height={44}
+              src={footerLogo}
+              width={198}
+            />
+          ) : (
+            <div className="flex items-center gap-3">
+              {footerIcon ? (
+                <Image
+                  alt={siteConfig.name}
+                  className="h-10 w-10 rounded-md object-contain"
+                  height={40}
+                  src={footerIcon}
+                  width={40}
+                />
+              ) : null}
+              <p className="text-xl font-semibold">{siteConfig.name}</p>
+            </div>
+          )}
           <p className="mt-3 max-w-sm text-sm leading-6 text-white/72">
             {siteConfig.tagline}. Practical planning, coordination and site
             execution for homes and businesses in Singapore.
@@ -66,7 +95,7 @@ export function SiteFooter() {
         </div>
       </div>
       <div className="border-t border-white/12 px-4 py-4 text-center text-xs text-white/58">
-        © {new Date().getFullYear()} {siteConfig.name}. All rights reserved.
+        Copyright {new Date().getFullYear()} {siteConfig.name}. All rights reserved.
       </div>
     </footer>
   );

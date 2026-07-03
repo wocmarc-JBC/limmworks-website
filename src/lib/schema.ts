@@ -1,6 +1,7 @@
 import type { OwnerNote } from "@/data/owners-notes";
 import type { FaqItem, Service } from "@/data/services";
-import { absoluteUrl, siteConfig } from "@/data/site";
+import { projectImages } from "@/data/assets";
+import { absoluteUrl, hasConfirmedWhatsapp, siteConfig } from "@/data/site";
 
 type BreadcrumbItem = {
   name: string;
@@ -15,6 +16,15 @@ export function baseGraphSchema() {
 }
 
 export function organizationSchema() {
+  const contactPoint = {
+    "@type": "ContactPoint",
+    contactType: "Project review",
+    email: siteConfig.email,
+    areaServed: "SG",
+    availableLanguage: ["English"],
+    ...(hasConfirmedWhatsapp() ? { telephone: siteConfig.whatsapp.display } : {}),
+  };
+
   return {
     "@type": "Organization",
     "@id": absoluteUrl("/#organization"),
@@ -22,16 +32,7 @@ export function organizationSchema() {
     url: absoluteUrl("/"),
     email: siteConfig.email,
     sameAs: [siteConfig.instagram],
-    contactPoint: [
-      {
-        "@type": "ContactPoint",
-        contactType: "Project review",
-        telephone: siteConfig.whatsapp.display,
-        email: siteConfig.email,
-        areaServed: "SG",
-        availableLanguage: ["English"],
-      },
-    ],
+    contactPoint: [contactPoint],
   };
 }
 
@@ -41,9 +42,9 @@ export function localBusinessSchema() {
     "@id": absoluteUrl("/#localbusiness"),
     name: siteConfig.name,
     url: absoluteUrl("/"),
-    image: absoluteUrl("/projects/limm-real/processed/hero-renovation-planning.png"),
+    image: absoluteUrl(projectImages.homeHero),
     email: siteConfig.email,
-    telephone: siteConfig.whatsapp.display,
+    ...(hasConfirmedWhatsapp() ? { telephone: siteConfig.whatsapp.display } : {}),
     address: {
       "@type": "PostalAddress",
       addressLocality: siteConfig.location.locality,

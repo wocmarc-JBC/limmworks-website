@@ -80,3 +80,7 @@ export function getWhatsappHref(message?: string) {
 export function getWhatsappLabel() {
   return siteConfig.whatsapp.e164 ? siteConfig.whatsapp.display : "to be confirmed";
 }
+
+export function hasConfirmedWhatsapp() {
+  return Boolean(siteConfig.whatsapp.e164);
+}
