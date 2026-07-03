@@ -9,6 +9,7 @@ import { MotionSection } from "@/components/motion-section";
 import { OwnerNoteCard } from "@/components/owner-note-card";
 import { SectionHeader } from "@/components/section-header";
 import { ServiceCard } from "@/components/service-card";
+import { projectImages } from "@/data/assets";
 import { galleryCategories } from "@/data/gallery";
 import { ownerNotes } from "@/data/owners-notes";
 import { services } from "@/data/services";
@@ -99,14 +100,14 @@ export default function Home() {
       />
       <JsonLd data={faqSchema(quickAnswers)} />
       <section className="relative isolate overflow-hidden bg-[var(--limm-ink)] text-white">
-        <div className="absolute inset-0 -z-10">
+        <div className="pointer-events-none absolute inset-0 -z-10">
           <Image
             alt="Warm renovation planning interior for LIMM Works"
-            className="object-cover"
+            className="pointer-events-none object-cover"
             fill
             priority
             sizes="100vw"
-            src="/projects/limm-real/processed/hero-renovation-planning.png"
+            src={projectImages.homeHero}
           />
           <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(31,38,31,0.94),rgba(31,38,31,0.67),rgba(31,38,31,0.16))]" />
         </div>
@@ -182,7 +183,7 @@ export default function Home() {
           <SectionHeader
             eyebrow="Core services"
             title="Renovation services built around planning, coordination and execution."
-            body="LIMM Works is broader than a single-trade contractor. The preview site separates service pages clearly so each page can support search, AI answers and future project proof."
+            body="LIMM Works is broader than a single-trade contractor. The website separates service pages clearly so each page can support search, AI answers and future project proof."
           />
           <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
             {services.map((service) => (
@@ -196,11 +197,11 @@ export default function Home() {
         <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
           <div className="relative aspect-[4/3] overflow-hidden rounded-lg">
             <Image
-              alt="Landed renovation and A&A preview"
+              alt="Landed renovation and A&A works"
               className="object-cover"
               fill
               sizes="(min-width: 1024px) 45vw, 100vw"
-              src="/projects/limm-real/processed/landed-renovation.png"
+              src={projectImages.landed}
             />
           </div>
           <div>
@@ -239,7 +240,7 @@ export default function Home() {
           <SectionHeader
             eyebrow="Condo / HDB / Commercial"
             title="Interior renovation with property rules, access and daily use in mind."
-            body="Different property types bring different constraints. LIMM's preview structure gives each audience a practical page instead of forcing every project into one generic renovation story."
+            body="Different property types bring different constraints. LIMM's service structure gives each audience a practical page instead of forcing every project into one generic renovation story."
           />
           <div className="mt-10 grid gap-5 lg:grid-cols-3">
             {residentialCommercial.map((service) => (
@@ -269,9 +270,9 @@ export default function Home() {
           <div className="flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
             <SectionHeader
               className="mx-0"
-              eyebrow="Project gallery preview"
+              eyebrow="Project gallery"
               title="Visual categories ready for real LIMM project photos."
-              body="Preview assets are organized so real raw and processed photos can replace them cleanly later."
+              body="Project image categories are organized so approved LIMM photos can replace the current image set cleanly later."
             />
             <ButtonLink
               href="/gallery"
@@ -294,9 +295,9 @@ export default function Home() {
           <div className="flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
             <SectionHeader
               className="mx-0"
-              eyebrow="Owner's Notes preview"
+              eyebrow="Owner's Notes"
               title="Practical renovation notes for homeowners and businesses."
-              body="These are starter preview drafts, not migrated Wix articles. They are structured for future editing, SEO and AI-search answer coverage."
+              body="Owner's Notes are practical renovation notes from LIMM Works to help homeowners and businesses understand planning, site conditions, scope and coordination before works begin."
             />
             <ButtonLink
               href="/owners-notes"

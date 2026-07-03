@@ -4,6 +4,7 @@ import { JsonLd } from "@/components/json-ld";
 import { MotionSection } from "@/components/motion-section";
 import { PageHero } from "@/components/page-hero";
 import { SectionHeader } from "@/components/section-header";
+import { projectImages } from "@/data/assets";
 import { buildMetadata } from "@/lib/seo";
 import { breadcrumbSchema, webPageSchema } from "@/lib/schema";
 
@@ -40,7 +41,7 @@ export default function AboutPage() {
       <PageHero
         body="LIMM Works Pte Ltd is a Singapore renovation, project planning and renovation works company for homeowners and businesses who value clearer scope and practical coordination."
         eyebrow="About LIMM Works"
-        image="/projects/limm-real/processed/hero-renovation-planning.png"
+        image={projectImages.about}
         imageAlt="Warm renovation planning interior"
         title="Practical planning. Coordinated renovation works."
       />
@@ -50,7 +51,7 @@ export default function AboutPage() {
             className="mx-0"
             eyebrow="Positioning"
             title="Broader than carpentry, more grounded than pure interior styling."
-            body="The LIMM preview is built around renovation planning, site coordination and execution. It supports landed renovation and A&A, condo, HDB, commercial interiors, kitchens, bathrooms and carpentry without making unsafe claims."
+            body="LIMM Works is built around renovation planning, site coordination and execution. It supports landed renovation and A&A, condo, HDB, commercial interiors, kitchens, bathrooms and carpentry without making unsafe claims."
           />
           <div className="grid gap-4 sm:grid-cols-2">
             {values.map((value) => (

@@ -1,7 +1,7 @@
 import { Camera, Mail, MessageCircle } from "lucide-react";
 import Link from "next/link";
 import { serviceNav } from "@/data/services";
-import { getWhatsappHref, siteConfig } from "@/data/site";
+import { getWhatsappHref, getWhatsappLabel, siteConfig } from "@/data/site";
 
 export function SiteFooter() {
   return (
@@ -16,7 +16,7 @@ export function SiteFooter() {
           <div className="mt-5 grid gap-2 text-sm text-white/78">
             <a className="inline-flex items-center gap-2 hover:text-white" href={getWhatsappHref()}>
               <MessageCircle aria-hidden="true" size={17} />
-              {siteConfig.whatsapp.display}
+              WhatsApp: {getWhatsappLabel()}
             </a>
             <a className="inline-flex items-center gap-2 hover:text-white" href={`mailto:${siteConfig.email}`}>
               <Mail aria-hidden="true" size={17} />
@@ -66,7 +66,7 @@ export function SiteFooter() {
         </div>
       </div>
       <div className="border-t border-white/12 px-4 py-4 text-center text-xs text-white/58">
-        Preview website. No live domain or DNS changes are connected.
+        © {new Date().getFullYear()} {siteConfig.name}. All rights reserved.
       </div>
     </footer>
   );

@@ -76,3 +76,7 @@ export function getWhatsappHref(message?: string) {
 
   return `${base}?text=${encodeURIComponent(message)}`;
 }
+
+export function getWhatsappLabel() {
+  return siteConfig.whatsapp.e164 ? siteConfig.whatsapp.display : "to be confirmed";
+}

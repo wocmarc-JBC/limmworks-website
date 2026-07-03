@@ -1,3 +1,5 @@
+import { projectImages } from "@/data/assets";
+
 export type FaqItem = {
   question: string;
   answer: string;
@@ -6,6 +8,14 @@ export type FaqItem = {
 export type AnswerItem = {
   question: string;
   answer: string;
+};
+
+export type ServiceDetailSection = {
+  eyebrow: string;
+  title: string;
+  body: string;
+  points: string[];
+  note?: string;
 };
 
 export type Service = {
@@ -19,6 +29,7 @@ export type Service = {
   image: string;
   imageAlt: string;
   focus: string[];
+  uniqueSection: ServiceDetailSection;
   considerations: string[];
   reviewSteps: string[];
   safeNotice?: string;
@@ -47,8 +58,8 @@ export const services: Service[] = [
       "Practical renovation planning for old landed homes, inter-terrace houses, semi-detached homes and larger family properties where structure, water, roofline and site access matter.",
     metaDescription:
       "LIMM Works plans landed renovation in Singapore with practical scope review for layout, kitchens, bathrooms, facade, drainage, waterproofing and site coordination.",
-    image: "/projects/limm-real/processed/landed-renovation.png",
-    imageAlt: "Landed home renovation preview with refreshed facade and car porch",
+    image: projectImages.landed,
+    imageAlt: "Landed home renovation scene with refreshed facade and car porch",
     focus: [
       "Old landed homes, inter-terrace, semi-detached and landed family houses.",
       "Layout improvement, bathroom and kitchen reconfiguration and better daily flow.",
@@ -56,6 +67,16 @@ export const services: Service[] = [
       "Facade refresh, roofline, drainage and waterproofing awareness.",
       "Practical planning before works start so scope, site access and sequencing are clearer.",
     ],
+    uniqueSection: {
+      eyebrow: "Older landed homes",
+      title: "Layout upgrades need drainage, roofline and water details in view.",
+      body: "For older landed properties, the useful renovation conversation starts before finishes. Existing site falls, roof junctions, wet areas and daily flow should be reviewed together.",
+      points: [
+        "Check visible drainage paths, roofline junctions and waterproofing-sensitive areas early.",
+        "Review layout improvement around family routines, light, ventilation and movement through the home.",
+        "Plan wet kitchen, backyard, car porch and side-yard needs with access and sequencing in mind.",
+      ],
+    },
     considerations: [
       "Existing structure and site condition can affect feasibility and sequencing.",
       "Drainage, waterproofing and roofline details should be reviewed early.",
@@ -104,8 +125,8 @@ export const services: Service[] = [
       "A practical review path for additions and alterations such as small extensions, car porch changes, rear kitchen works, side-yard upgrades and facade changes.",
     metaDescription:
       "LIMM Works supports landed A&A works in Singapore with practical scope review for extensions, car porch, wet kitchen, facade, drainage and approval awareness.",
-    image: "/projects/limm-real/processed/landed-renovation.png",
-    imageAlt: "Landed A&A renovation preview with car porch and facade works",
+    image: projectImages.landedAa,
+    imageAlt: "Landed A&A renovation scene with car porch and facade works",
     focus: [
       "Additions and alterations for landed homes where existing structure and authority requirements matter.",
       "Small extensions, wet kitchen or rear extension planning and side-yard works.",
@@ -113,6 +134,16 @@ export const services: Service[] = [
       "Drainage, waterproofing and roofline awareness before works proceed.",
       "Practical scope review before design, submission or site execution decisions.",
     ],
+    uniqueSection: {
+      eyebrow: "Additions and alterations",
+      title: "Small extensions still need careful review before works move ahead.",
+      body: "A&A planning often touches the existing building in ways that are more involved than a simple interior refresh, especially around car porch, side-yard and rear works.",
+      points: [
+        "Review small extensions, rear kitchen works, side-yard upgrades and car porch changes as connected scopes.",
+        "Surface drainage, waterproofing, roofline and structural considerations before committing to details.",
+        "Allow for professional review or submission where the property and proposed works require it.",
+      ],
+    },
     considerations: [
       "A&A feasibility cannot be confirmed without proper review.",
       "Professional input or submissions may be needed depending on scope.",
@@ -161,8 +192,8 @@ export const services: Service[] = [
       "Condo renovation planning with attention to management rules, working hours, protection, access and coordination across kitchen, bathroom, flooring, electrical and carpentry works.",
     metaDescription:
       "Condo renovation in Singapore by LIMM Works, with practical planning for management rules, lift protection, floor protection, kitchen, bathroom and carpentry works.",
-    image: "/projects/limm-real/processed/condo-hdb-interior.png",
-    imageAlt: "Condo renovation preview with storage and warm modern interior",
+    image: projectImages.condo,
+    imageAlt: "Condo renovation scene with storage and warm modern interior",
     focus: [
       "Management rules, working hours, deposits, insurance and access planning where applicable.",
       "Lift, corridor and floor protection before materials and works move through the site.",
@@ -170,6 +201,16 @@ export const services: Service[] = [
       "Practical interior upgrades for everyday living, storage and maintainability.",
       "Clear scope alignment before fabrication or wet works begin.",
     ],
+    uniqueSection: {
+      eyebrow: "Condo coordination",
+      title: "Management rules and common-area protection shape the programme.",
+      body: "Condo renovation is not just about the unit interior. Lift booking, protection requirements, working hours and paperwork can affect how smoothly site works proceed.",
+      points: [
+        "Review management renovation rules, permitted working hours and submission requirements.",
+        "Plan lift, corridor, floor and common-area protection before deliveries and debris movement.",
+        "Check deposit, insurance and access requirements where the condominium applies them.",
+      ],
+    },
     considerations: [
       "Each condominium may have different renovation rules and submission requirements.",
       "Protection, debris movement and delivery timing should be planned before site works.",
@@ -217,8 +258,8 @@ export const services: Service[] = [
       "Practical HDB renovation support for homeowners planning kitchen, bathroom, carpentry, storage, flooring, painting and general interior upgrades.",
     metaDescription:
       "HDB renovation in Singapore by LIMM Works, covering practical kitchen, bathroom, carpentry, storage, flooring, painting and approval awareness.",
-    image: "/projects/limm-real/processed/condo-hdb-interior.png",
-    imageAlt: "HDB renovation preview with compact storage and neutral finishes",
+    image: projectImages.hdb,
+    imageAlt: "HDB renovation scene with compact storage and neutral finishes",
     focus: [
       "Kitchen, bathroom, carpentry, storage, flooring, painting and practical interior upgrades.",
       "Space planning for storage, circulation and day-to-day household use.",
@@ -226,6 +267,16 @@ export const services: Service[] = [
       "Clear review of hacking, wet works and fixture changes before commitments.",
       "Practical finishing choices that balance budget, durability and maintenance.",
     ],
+    uniqueSection: {
+      eyebrow: "HDB requirements",
+      title: "Permit awareness belongs at the start of the renovation review.",
+      body: "HDB projects can involve straightforward interior upgrades, but hacking, wet works and certain changes still need the correct checks before site commitments are made.",
+      points: [
+        "Review kitchen, bathroom, storage, flooring and painting scopes against applicable HDB rules.",
+        "Flag hacking, wet works and fixture changes for proper permit or approval awareness.",
+        "Coordinate lift, corridor, debris movement and neighbour impact around the planned schedule.",
+      ],
+    },
     considerations: [
       "HDB rules and permit requirements depend on the proposed works.",
       "Hacking and wet area changes should be reviewed carefully before works begin.",
@@ -273,8 +324,8 @@ export const services: Service[] = [
       "Commercial interior renovation support for offices, retail and practical fit-out scopes where access, storage, display, pantry, timing and reinstatement needs may matter.",
     metaDescription:
       "Commercial renovation in Singapore by LIMM Works, supporting office, retail and commercial interior fit-out planning, storage, display and site coordination.",
-    image: "/projects/limm-real/processed/commercial-interior.png",
-    imageAlt: "Commercial renovation preview with practical office and retail interior",
+    image: projectImages.commercial,
+    imageAlt: "Commercial renovation scene with practical office and retail interior",
     focus: [
       "Office, retail and commercial interior planning with practical fit-out support.",
       "Storage, display shelving, pantry, counters, workstations and built-ins.",
@@ -282,6 +333,16 @@ export const services: Service[] = [
       "Timeline planning around business operations, deliveries and handover needs.",
       "Reinstatement or fit-out support where relevant to the tenancy scope.",
     ],
+    uniqueSection: {
+      eyebrow: "Business continuity",
+      title: "Commercial works need access, hours and operations planned together.",
+      body: "Office and retail renovation should account for the way the business functions, including handover dates, deliveries, work windows and any landlord or building requirements.",
+      points: [
+        "Plan access, working hours and noisy works around building rules and business continuity.",
+        "Coordinate storage, display, pantry, counters, office built-ins and back-of-house needs together.",
+        "Review fit-out and reinstatement obligations where they are part of the tenancy scope.",
+      ],
+    },
     considerations: [
       "Commercial buildings and landlords may have different fit-out rules.",
       "Access, delivery timing and noisy works can affect sequencing.",
@@ -329,8 +390,8 @@ export const services: Service[] = [
       "Kitchen renovation planning for storage, workflow, appliances, service access, ventilation, countertops, cabinets and coordination across trades.",
     metaDescription:
       "Kitchen renovation in Singapore by LIMM Works, covering dry and wet kitchen planning, storage, appliances, countertops, ventilation and coordination.",
-    image: "/projects/limm-real/processed/kitchen-bathroom.png",
-    imageAlt: "Kitchen renovation preview with warm cabinetry and countertop planning",
+    image: projectImages.kitchen,
+    imageAlt: "Kitchen renovation scene with warm cabinetry and countertop planning",
     focus: [
       "Dry and wet kitchen planning based on cooking habits and household routines.",
       "Cabinet storage, appliance zones, countertop material and worktop height review.",
@@ -338,6 +399,16 @@ export const services: Service[] = [
       "Electrical, plumbing, carpentry and countertop coordination.",
       "Measurement, fabrication and installation details before cabinets are produced.",
     ],
+    uniqueSection: {
+      eyebrow: "Kitchen workflow",
+      title: "Dry and wet kitchen decisions should follow real cooking habits.",
+      body: "A practical kitchen review links movement, appliance sizes, service points and storage so the finished kitchen works beyond the first impression.",
+      points: [
+        "Map dry and wet kitchen workflow around prep, cooking, cleaning and serving routines.",
+        "Confirm appliance, sink, hob, hood and ventilation requirements before carpentry is fixed.",
+        "Keep storage, countertop planning and service access visible during layout decisions.",
+      ],
+    },
     considerations: [
       "Appliance dimensions should be confirmed before carpentry fabrication.",
       "Wet works, service access and ventilation can affect layout decisions.",
@@ -385,8 +456,8 @@ export const services: Service[] = [
       "Bathroom renovation planning with attention to waterproofing, drainage, ventilation, sanitary fittings, site protection and practical layout decisions.",
     metaDescription:
       "Bathroom renovation in Singapore by LIMM Works, covering waterproofing awareness, drainage, sanitary fittings, ventilation, layout and coordination.",
-    image: "/projects/limm-real/processed/kitchen-bathroom.png",
-    imageAlt: "Bathroom renovation planning preview with tile and sanitary fitting details",
+    image: projectImages.bathroom,
+    imageAlt: "Bathroom renovation planning scene with tile and sanitary fitting details",
     focus: [
       "Waterproofing awareness, drainage review and wet area coordination.",
       "Sanitary fittings, mixers, vanity, storage and ventilation planning.",
@@ -394,6 +465,16 @@ export const services: Service[] = [
       "Site protection, debris movement and sequencing for wet works.",
       "Coordination between tiling, plumbing, electrical and carpentry items.",
     ],
+    uniqueSection: {
+      eyebrow: "Wet area sequencing",
+      title: "Waterproofing, drainage and maintenance access come before finishes.",
+      body: "Bathroom renovation quality depends heavily on what is planned beneath and behind the visible surfaces, especially in wet areas.",
+      points: [
+        "Review waterproofing, drainage falls, ventilation and wet area sequencing before tile choices dominate.",
+        "Coordinate sanitary fittings, mixers, vanity dimensions and maintenance access early.",
+        "Plan plumbing, tiling, electrical and carpentry order so the wet area can be handed over cleanly.",
+      ],
+    },
     considerations: [
       "Waterproofing and drainage details should be reviewed before finishes are selected.",
       "Fitting dimensions, access panels and maintenance access matter.",
@@ -441,8 +522,8 @@ export const services: Service[] = [
       "Carpentry and storage works for kitchen cabinets, wardrobes, TV consoles, shoe cabinets, storage cabinets, commercial cabinets and measured built-ins.",
     metaDescription:
       "Carpentry works in Singapore by LIMM Works, covering kitchen cabinets, wardrobes, TV consoles, shoe cabinets, storage cabinets and commercial built-ins.",
-    image: "/projects/limm-real/processed/carpentry-storage.png",
-    imageAlt: "Carpentry and storage preview with built-in wardrobes and cabinets",
+    image: projectImages.carpentry,
+    imageAlt: "Carpentry and storage scene with built-in wardrobes and cabinets",
     focus: [
       "Kitchen cabinets, wardrobes, TV consoles, shoe cabinets and storage cabinets.",
       "Commercial cabinets, counters, display and practical back-of-house storage.",
@@ -450,6 +531,16 @@ export const services: Service[] = [
       "Hardware, internal compartments, access and daily-use planning.",
       "Installation details and final checks before handover.",
     ],
+    uniqueSection: {
+      eyebrow: "Measured built-ins",
+      title: "Good carpentry starts with usage, dimensions and hardware choices.",
+      body: "Built-ins should be planned around what the owner needs to store, how often items are accessed and what surrounding services or appliances need clearance.",
+      points: [
+        "Confirm measurements, internal layout, hardware and daily usage before fabrication.",
+        "Plan kitchen cabinets, wardrobes, TV consoles, shoe cabinets and storage cabinets around actual contents.",
+        "Coordinate switches, sockets, access panels, appliances and wall conditions before drawings are signed off.",
+      ],
+    },
     considerations: [
       "Final measurements should be taken after relevant site works are ready.",
       "Appliances, switches, sockets and access panels should be coordinated early.",

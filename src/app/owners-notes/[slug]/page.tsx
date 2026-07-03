@@ -54,7 +54,7 @@ export default async function OwnerNotePage({ params }: Props) {
       <article className="px-4 py-16 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-3xl">
           <p className="text-sm font-semibold text-[var(--limm-clay)]">
-            {note.category} / Preview draft
+            {note.category} / Owner&apos;s Notes
           </p>
           <h1 className="mt-4 text-balance text-4xl font-semibold leading-tight text-[var(--limm-ink)] md:text-5xl">
             {note.title}
@@ -66,8 +66,9 @@ export default async function OwnerNotePage({ params }: Props) {
             Updated {note.date} / {note.readingTime}
           </p>
           <div className="mt-8 rounded-lg border border-[var(--limm-line)] bg-[var(--limm-paper)] p-5 text-sm leading-6 text-[var(--limm-muted)]">
-            Preview Owner&apos;s Notes content. This article is editable starter copy
-            and is not claimed as migrated from the current Wix website.
+            These notes are general renovation planning guidance. Actual scope
+            depends on property type, site condition, management rules and
+            required checks.
           </div>
           <div className="mt-10 grid gap-10">
             {note.sections.map((section) => (

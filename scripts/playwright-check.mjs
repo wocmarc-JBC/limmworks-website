@@ -28,13 +28,24 @@ const viewports = [
   { name: "mobile", width: 390, height: 900 },
 ];
 
-const screenshotDir = path.resolve("qa", "screenshots");
+const screenshotDir = path.resolve(
+  process.env.SCREENSHOT_DIR || path.join("qa", "screenshots"),
+);
 await fs.mkdir(screenshotDir, { recursive: true });
 
 const browser = await chromium.launch();
 const failures = [];
 const summaries = [];
 const forbiddenBrandPattern = new RegExp(`\\b${["J", "B", "C"].join("")}\\b`, "i");
+const forbiddenPublicPatterns = [
+  { label: "public bracket placeholder", pattern: /\[INSERT/i },
+  { label: "public preview wording", pattern: /\bpreview\b/i },
+  { label: "public draft wording", pattern: /\bdrafts?\b/i },
+  { label: "public Marcus wording", pattern: /\bMarch?us\b/i },
+  { label: "public Wix wording", pattern: /\bWix\b/i },
+  { label: "public placeholder wording", pattern: /\bplaceholder\b/i },
+  { label: "public domain/DNS warning", pattern: /No live domain|DNS changes/i },
+];
 
 function recordFailure(message) {
   failures.push(message);
@@ -114,14 +125,43 @@ async function checkRoute(route, viewport) {
       };
     });
 
+    const fixedWhatsapp = Array.from(document.querySelectorAll("a"))
+      .filter((link) => (link.textContent || "").includes("WhatsApp LIMM Works"))
+      .map((link) => {
+        let node = link;
+
+        while (node && node !== document.body) {
+          const style = window.getComputedStyle(node);
+
+          if (style.position === "fixed") {
+            const rect = node.getBoundingClientRect();
+
+            return {
+              top: Math.round(rect.top),
+              bottom: Math.round(rect.bottom),
+              height: Math.round(rect.height),
+              width: Math.round(rect.width),
+            };
+          }
+
+          node = node.parentElement;
+        }
+
+        return null;
+      })
+      .filter(Boolean);
+
     return {
       textLength: (document.body.textContent || "").trim().length,
       scrollWidth: document.documentElement.scrollWidth,
       innerWidth: window.innerWidth,
+      bodyPaddingBottom: Number.parseFloat(window.getComputedStyle(document.body).paddingBottom),
       images,
       schemaScripts,
       sections,
       html: document.documentElement.innerHTML,
+      bodyText: document.body.innerText || "",
+      fixedWhatsapp,
     };
   });
 
@@ -163,6 +203,26 @@ async function checkRoute(route, viewport) {
 
   if (forbiddenBrandPattern.test(checks.html)) {
     recordFailure(`${viewport.name} ${route}: accidental forbidden brand reference found`);
+  }
+
+  for (const { label, pattern } of forbiddenPublicPatterns) {
+    if (pattern.test(checks.bodyText)) {
+      recordFailure(`${viewport.name} ${route}: ${label} found`);
+    }
+  }
+
+  if (viewport.name === "mobile") {
+    const mobileWhatsapp = checks.fixedWhatsapp.find(
+      (item) => item.width > checks.innerWidth * 0.8 && item.bottom >= 850,
+    );
+
+    if (!mobileWhatsapp) {
+      recordFailure(`${viewport.name} ${route}: mobile WhatsApp sticky bar missing`);
+    } else if (checks.bodyPaddingBottom < mobileWhatsapp.height + 12) {
+      recordFailure(
+        `${viewport.name} ${route}: mobile WhatsApp spacing too small (${checks.bodyPaddingBottom}px)`,
+      );
+    }
   }
 
   if (checks.schemaScripts.length === 0) {
@@ -216,7 +276,7 @@ async function checkStaticFiles() {
 async function checkContactForm() {
   const page = await browser.newPage({ viewport: { width: 1440, height: 1100 } });
   await page.goto(`${baseURL}/contact`, { waitUntil: "networkidle" });
-  await page.locator('form#project-review [name="name"]').fill("Marcus Preview");
+  await page.locator('form#project-review [name="name"]').fill("LIMM Reviewer");
   await page.locator('form#project-review [name="contactNumber"]').fill("+65 9123 4567");
   await page.locator('form#project-review [name="propertyType"]').selectOption({ label: "Landed" });
   await page
@@ -233,7 +293,7 @@ async function checkContactForm() {
   await page.locator('form#project-review button[type="submit"]').click();
   const generated = await page.getByLabel("Generated Enquiry Text").inputValue();
 
-  for (const expected of ["Marcus Preview", "Bukit Timah", "$200K-$400K", "floor plan"]) {
+  for (const expected of ["LIMM Reviewer", "Bukit Timah", "$200K-$400K", "floor plan"]) {
     if (!generated.includes(expected)) {
       recordFailure(`/contact form: generated text missing ${expected}`);
     }
@@ -246,6 +306,47 @@ async function checkContactForm() {
   await page.close();
 }
 
+async function checkMobileMenu() {
+  const page = await browser.newPage({ viewport: { width: 390, height: 900 } });
+  const consoleErrors = [];
+
+  page.on("console", (message) => {
+    if (message.type() === "error") {
+      consoleErrors.push(message.text());
+    }
+  });
+  page.on("pageerror", (error) => {
+    consoleErrors.push(error.message);
+  });
+
+  await page.goto(`${baseURL}/`, { waitUntil: "networkidle" });
+  await page.getByLabel("Open menu").click();
+  await page.getByRole("link", { name: "Home", exact: true }).waitFor({ state: "visible" });
+  await page.locator("header").locator("p", { hasText: /^Services$/ }).first().waitFor({
+    state: "visible",
+  });
+  await page
+    .locator("header")
+    .getByRole("link", { name: "Landed Renovation", exact: true })
+    .waitFor({ state: "visible" });
+  await page
+    .locator("header")
+    .getByRole("link", { name: "WhatsApp LIMM Works", exact: true })
+    .waitFor({
+      state: "visible",
+    });
+  await page.screenshot({
+    path: path.join(screenshotDir, "mobile-menu-open.png"),
+    fullPage: true,
+  });
+
+  if (consoleErrors.length > 0) {
+    recordFailure(`/ mobile menu: console errors ${consoleErrors.join(" | ")}`);
+  }
+
+  await page.close();
+}
+
 for (const viewport of viewports) {
   for (const route of routes) {
     await checkRoute(route, viewport);
@@ -254,6 +355,7 @@ for (const viewport of viewports) {
 
 await checkStaticFiles();
 await checkContactForm();
+await checkMobileMenu();
 await browser.close();
 
 const result = {

@@ -22,10 +22,10 @@ export function PageHero({
 }) {
   return (
     <section className="relative isolate overflow-hidden bg-[var(--limm-ink)] text-white">
-      <div className="absolute inset-0 -z-10">
+      <div className="pointer-events-none absolute inset-0 -z-10">
         <Image
           alt={imageAlt}
-          className="object-cover"
+          className="pointer-events-none object-cover"
           fill
           priority
           sizes="100vw"

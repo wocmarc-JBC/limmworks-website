@@ -4,7 +4,8 @@ import { ContactForm } from "@/components/contact-form";
 import { JsonLd } from "@/components/json-ld";
 import { PageHero } from "@/components/page-hero";
 import { SectionHeader } from "@/components/section-header";
-import { getWhatsappHref, siteConfig } from "@/data/site";
+import { projectImages } from "@/data/assets";
+import { getWhatsappHref, getWhatsappLabel, siteConfig } from "@/data/site";
 import { buildMetadata } from "@/lib/seo";
 import { breadcrumbSchema, webPageSchema } from "@/lib/schema";
 
@@ -36,7 +37,7 @@ export default function ContactPage() {
         ctaHref="#project-review"
         ctaLabel="Start Project Review"
         eyebrow="Contact"
-        image="/projects/limm-real/processed/site-progress.png"
+        image={projectImages.contact}
         imageAlt="Renovation site progress with protection and planning"
         title="Start Project Review"
       />
@@ -55,7 +56,7 @@ export default function ContactPage() {
                 href={getWhatsappHref()}
               >
                 <MessageCircle aria-hidden="true" size={18} />
-                WhatsApp: {siteConfig.whatsapp.display}
+                WhatsApp: {getWhatsappLabel()}
               </a>
               <a
                 className="inline-flex items-center gap-2 rounded-lg border border-[var(--limm-line)] bg-[var(--limm-paper)] p-4 hover:border-[var(--limm-brass)]"

@@ -28,12 +28,14 @@ npm run build
 - Do not change DNS.
 - Do not replace the current Wix website.
 - Deploy to a Vercel preview URL first.
+- Visible site footer must not show preview/domain warnings; keep those notes in internal docs.
 
 ## Content Notes
 
 - WhatsApp number is a placeholder until confirmed.
-- Owner's Notes content is preview draft copy and not migrated from Wix.
+- Owner's Notes are practical renovation notes from LIMM Works to help homeowners and businesses understand planning, site conditions, scope and coordination before works begin.
 - Images are generated placeholders until approved LIMM project photos are supplied.
+- Official brand assets can be dropped into `public/brand/` as `limm-logo-light.png`, `limm-logo-dark.png`, `limm-icon.png` and `favicon.ico` or `favicon.png`.
 
 See:
 

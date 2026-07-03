@@ -1,3 +1,5 @@
+import { projectImages } from "@/data/assets";
+
 export type GalleryCategory = {
   title: string;
   slug: string;
@@ -13,8 +15,8 @@ export const galleryCategories: GalleryCategory[] = [
     slug: "landed-renovation",
     description:
       "Facade, car porch, kitchen, bathroom, drainage and layout-focused landed renovation references.",
-    image: "/projects/limm-real/processed/landed-renovation.png",
-    imageAlt: "Preview image for landed renovation works",
+    image: projectImages.landed,
+    imageAlt: "Landed renovation work with facade and car porch planning",
     tags: ["Landed", "Facade", "A&A awareness"],
   },
   {
@@ -22,8 +24,8 @@ export const galleryCategories: GalleryCategory[] = [
     slug: "condo-hdb-interior",
     description:
       "Compact, practical interior upgrades with storage, finishes and management-aware planning.",
-    image: "/projects/limm-real/processed/condo-hdb-interior.png",
-    imageAlt: "Preview image for condo and HDB interior renovation",
+    image: projectImages.condo,
+    imageAlt: "Condo and HDB interior renovation with practical storage",
     tags: ["Condo", "HDB", "Storage"],
   },
   {
@@ -31,8 +33,8 @@ export const galleryCategories: GalleryCategory[] = [
     slug: "kitchen-bathroom",
     description:
       "Wet and dry kitchen planning, bathroom wet area coordination and practical fixture details.",
-    image: "/projects/limm-real/processed/kitchen-bathroom.png",
-    imageAlt: "Preview image for kitchen and bathroom renovation works",
+    image: projectImages.kitchen,
+    imageAlt: "Kitchen and bathroom renovation details with wet area planning",
     tags: ["Kitchen", "Bathroom", "Wet works"],
   },
   {
@@ -40,8 +42,8 @@ export const galleryCategories: GalleryCategory[] = [
     slug: "carpentry-storage",
     description:
       "Built-ins, wardrobes, kitchen cabinets, consoles, shoe cabinets and commercial storage.",
-    image: "/projects/limm-real/processed/carpentry-storage.png",
-    imageAlt: "Preview image for carpentry and storage works",
+    image: projectImages.carpentry,
+    imageAlt: "Carpentry and storage works with built-in cabinets",
     tags: ["Carpentry", "Built-ins", "Storage"],
   },
   {
@@ -49,8 +51,8 @@ export const galleryCategories: GalleryCategory[] = [
     slug: "commercial-interior",
     description:
       "Office, retail and commercial fit-out scopes with display, storage, pantry and access planning.",
-    image: "/projects/limm-real/processed/commercial-interior.png",
-    imageAlt: "Preview image for commercial interior renovation",
+    image: projectImages.commercial,
+    imageAlt: "Commercial interior renovation with office and retail fit-out planning",
     tags: ["Office", "Retail", "Fit-out"],
   },
   {
@@ -58,8 +60,8 @@ export const galleryCategories: GalleryCategory[] = [
     slug: "site-progress",
     description:
       "Protection, sequencing and coordination details that make renovation work more controlled.",
-    image: "/projects/limm-real/processed/site-progress.png",
-    imageAlt: "Preview image for renovation site progress and protection",
+    image: projectImages.contact,
+    imageAlt: "Renovation site progress with protection and coordination",
     tags: ["Progress", "Protection", "Coordination"],
   },
 ];

@@ -4,6 +4,7 @@ import { JsonLd } from "@/components/json-ld";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { StickyWhatsapp } from "@/components/sticky-whatsapp";
+import { projectImages } from "@/data/assets";
 import { siteConfig, getSiteUrl } from "@/data/site";
 import { baseGraphSchema } from "@/lib/schema";
 import "./globals.css";
@@ -41,7 +42,7 @@ export const metadata: Metadata = {
     description: siteConfig.description,
     images: [
       {
-        url: "/projects/limm-real/processed/hero-renovation-planning.png",
+        url: projectImages.homeHero,
         width: 1600,
         height: 900,
         alt: "Warm renovation planning interior for LIMM Works",
@@ -52,7 +53,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: `${siteConfig.name} | ${siteConfig.tagline}`,
     description: siteConfig.description,
-    images: ["/projects/limm-real/processed/hero-renovation-planning.png"],
+    images: [projectImages.homeHero],
   },
 };
 
@@ -66,7 +67,7 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full`}
     >
-      <body className="flex min-h-full flex-col antialiased">
+      <body className="flex min-h-full flex-col pb-24 antialiased md:pb-0">
         <JsonLd data={baseGraphSchema()} />
         <SiteHeader />
         <main className="flex-1">{children}</main>

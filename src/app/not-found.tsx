@@ -9,7 +9,7 @@ export default function NotFound() {
           Page not found
         </h1>
         <p className="mt-4 text-base leading-7 text-[var(--limm-muted)]">
-          The page may have moved, or the preview route has not been added yet.
+          The page may have moved, or the route has not been added yet.
         </p>
         <Link
           className="mt-6 inline-flex min-h-11 items-center justify-center rounded-md bg-[var(--limm-ink)] px-4 py-2.5 text-sm font-semibold text-white"

@@ -178,8 +178,8 @@ export function ContactForm() {
         </label>
       </div>
       <div className="mt-5 rounded-lg border border-[var(--limm-line)] bg-white p-4 text-sm leading-6 text-[var(--limm-muted)]">
-        File upload is not enabled in this preview. Attach floor plans and site
-        photos separately in WhatsApp or email after generating the enquiry text.
+        File upload is not enabled here. Attach floor plans and site photos
+        separately in WhatsApp or email after generating the enquiry text.
       </div>
       <div className="mt-5 flex flex-col gap-3 sm:flex-row">
         <button
@@ -215,8 +215,8 @@ export function ContactForm() {
       </label>
       {!siteConfig.whatsapp.e164 ? (
         <p className="mt-3 text-xs leading-5 text-[var(--limm-muted)]">
-          WhatsApp number pending: {siteConfig.whatsapp.display}. The enquiry
-          text is ready to copy while the number is being confirmed.
+          WhatsApp: to be confirmed. The enquiry text is ready to copy while
+          the number is being confirmed.
         </p>
       ) : null}
     </form>

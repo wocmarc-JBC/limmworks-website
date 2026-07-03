@@ -57,6 +57,36 @@ export function ServicePage({ service }: { service: Service }) {
           </div>
         </div>
       </MotionSection>
+      <MotionSection className="bg-[var(--limm-cream)] px-4 py-16 sm:px-6 lg:px-8">
+        <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.85fr_1.15fr]">
+          <SectionHeader
+            className="mx-0"
+            eyebrow={service.uniqueSection.eyebrow}
+            title={service.uniqueSection.title}
+            body={service.uniqueSection.body}
+          />
+          <div className="grid gap-4">
+            {service.uniqueSection.points.map((point) => (
+              <div
+                className="rounded-lg border border-[var(--limm-line)] bg-[var(--limm-paper)] p-5"
+                key={point}
+              >
+                <CheckCircle2
+                  aria-hidden="true"
+                  className="mb-3 text-[var(--limm-olive)]"
+                  size={20}
+                />
+                <p className="text-sm leading-6 text-[var(--limm-ink)]">{point}</p>
+              </div>
+            ))}
+            {service.uniqueSection.note ? (
+              <p className="rounded-lg border border-[var(--limm-line)] bg-white p-5 text-sm leading-6 text-[var(--limm-muted)]">
+                {service.uniqueSection.note}
+              </p>
+            ) : null}
+          </div>
+        </div>
+      </MotionSection>
       <MotionSection className="bg-[var(--limm-paper)] px-4 py-16 sm:px-6 lg:px-8">
         <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-2">
           <div>
