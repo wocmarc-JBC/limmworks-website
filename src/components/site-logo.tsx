@@ -1,16 +1,36 @@
+import { existsSync } from "node:fs";
+import { join } from "node:path";
 import Image from "next/image";
 import Link from "next/link";
 import { brandAssets } from "@/data/assets";
 
+function getExistingBrandAsset(src: string) {
+  const publicPath = join(process.cwd(), "public", src.replace(/^\//, ""));
+
+  return existsSync(publicPath) ? src : null;
+}
+
 export function SiteLogo() {
+  const officialLogo = getExistingBrandAsset(brandAssets.logoDark);
+  const officialIcon = getExistingBrandAsset(brandAssets.icon);
+
   return (
     <Link className="flex min-w-0 items-center gap-3" href="/">
-      {brandAssets.useOfficialLogo ? (
+      {officialLogo ? (
+        <Image
+          alt="LIMM Works"
+          className="h-10 w-auto shrink-0 object-contain"
+          height={40}
+          priority
+          src={officialLogo}
+          width={180}
+        />
+      ) : officialIcon ? (
         <Image
           alt="LIMM Works"
           className="h-10 w-10 shrink-0 rounded-md object-contain"
           height={40}
-          src={brandAssets.icon}
+          src={officialIcon ?? brandAssets.icon}
           width={40}
         />
       ) : (

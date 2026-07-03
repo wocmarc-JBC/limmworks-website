@@ -10,9 +10,9 @@ import { buildMetadata } from "@/lib/seo";
 import { breadcrumbSchema, webPageSchema } from "@/lib/schema";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Gallery",
+  title: "Project Gallery",
   description:
-    "Gallery categories for LIMM Works renovation projects, including landed, condo, HDB, kitchen, bathroom, carpentry, commercial and site progress.",
+    "Selected renovation, site progress and interior works references from LIMM Works.",
   path: "/gallery",
   image: projectImages.galleryOverview,
 });
@@ -22,8 +22,8 @@ export default function GalleryPage() {
     <>
       <JsonLd
         data={webPageSchema(
-          "Gallery",
-          "LIMM Works renovation gallery categories.",
+          "Project Gallery",
+          "Selected renovation, site progress and interior works references from LIMM Works.",
           "/gallery",
         )}
       />
@@ -34,18 +34,18 @@ export default function GalleryPage() {
         ])}
       />
       <PageHero
-        body="Project categories are prepared for approved LIMM photos, with current visuals organized by renovation type for easy review."
-        eyebrow="Gallery"
+        body="Selected renovation, site progress and interior works references."
+        eyebrow="Project Gallery"
         image={projectImages.galleryOverview}
-        imageAlt="LIMM Works renovation gallery"
-        title="Project gallery"
+        imageAlt="LIMM Works project gallery"
+        title="Project Gallery"
       />
       <MotionSection className="px-4 py-16 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-7xl">
           <SectionHeader
             eyebrow="Project categories"
-            title="Six categories for LIMM project proof."
-            body="Use the same category structure when LIMM project photos are ready: landed, condo/HDB, kitchen/bathroom, carpentry/storage, commercial and site progress."
+            title="Renovation references across practical project types."
+            body="Browse landed, condo/HDB, kitchen/bathroom, carpentry/storage, commercial and site progress references in one place."
           />
           <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
             {galleryCategories.map((item) => (

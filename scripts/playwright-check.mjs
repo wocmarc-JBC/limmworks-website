@@ -44,6 +44,10 @@ const forbiddenPublicPatterns = [
   { label: "public Marcus wording", pattern: /\bMarch?us\b/i },
   { label: "public Wix wording", pattern: /\bWix\b/i },
   { label: "public placeholder wording", pattern: /\bplaceholder\b/i },
+  { label: "public internal wording", pattern: /\binternal\b/i },
+  { label: "public unsafe-claims wording", pattern: /unsafe claims/i },
+  { label: "public generated-visuals wording", pattern: /generated visuals/i },
+  { label: "public approved-photos setup wording", pattern: /prepared for approved photos/i },
   { label: "public domain/DNS warning", pattern: /No live domain|DNS changes/i },
 ];
 
@@ -126,7 +130,7 @@ async function checkRoute(route, viewport) {
     });
 
     const fixedWhatsapp = Array.from(document.querySelectorAll("a"))
-      .filter((link) => (link.textContent || "").includes("WhatsApp LIMM Works"))
+      .filter((link) => (link.textContent || "").includes("WhatsApp"))
       .map((link) => {
         let node = link;
 

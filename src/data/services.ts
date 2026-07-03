@@ -528,7 +528,7 @@ export const services: Service[] = [
       "Kitchen cabinets, wardrobes, TV consoles, shoe cabinets and storage cabinets.",
       "Commercial cabinets, counters, display and practical back-of-house storage.",
       "Measurement, layout confirmation, material selection and fabrication coordination.",
-      "Hardware, internal compartments, access and daily-use planning.",
+      "Hardware, cabinet compartments, access and daily-use planning.",
       "Installation details and final checks before handover.",
     ],
     uniqueSection: {
@@ -536,7 +536,7 @@ export const services: Service[] = [
       title: "Good carpentry starts with usage, dimensions and hardware choices.",
       body: "Built-ins should be planned around what the owner needs to store, how often items are accessed and what surrounding services or appliances need clearance.",
       points: [
-        "Confirm measurements, internal layout, hardware and daily usage before fabrication.",
+        "Confirm measurements, inside layout, hardware and daily usage before fabrication.",
         "Plan kitchen cabinets, wardrobes, TV consoles, shoe cabinets and storage cabinets around actual contents.",
         "Coordinate switches, sockets, access panels, appliances and wall conditions before drawings are signed off.",
       ],
@@ -544,7 +544,7 @@ export const services: Service[] = [
     considerations: [
       "Final measurements should be taken after relevant site works are ready.",
       "Appliances, switches, sockets and access panels should be coordinated early.",
-      "Internal storage planning matters as much as exterior cabinet finish.",
+      "Storage planning inside the cabinets matters as much as the exterior finish.",
       "Fabrication should proceed only after drawings and key details are confirmed.",
     ],
     reviewSteps: planningSteps,
@@ -562,7 +562,7 @@ export const services: Service[] = [
       {
         question: "What should be confirmed before fabrication?",
         answer:
-          "Confirm dimensions, materials, hardware, internal layout, appliance clearances, sockets, access panels and finish details.",
+          "Confirm dimensions, materials, hardware, inside layout, appliance clearances, sockets, access panels and finish details.",
       },
     ],
     answers: [

@@ -124,7 +124,7 @@ export const ownerNotes: OwnerNote[] = [
       {
         heading: "Balance finish and durability",
         body: [
-          "Countertops, laminates, hardware and internal cabinet systems should be chosen with cleaning, heat, moisture and daily use in mind.",
+          "Countertops, laminates, hardware and cabinet organization systems should be chosen with cleaning, heat, moisture and daily use in mind.",
         ],
       },
     ],
@@ -162,7 +162,7 @@ export const ownerNotes: OwnerNote[] = [
     slug: "carpentry-storage-before-fabrication",
     title: "Carpentry and Storage Planning: What to Confirm Before Fabrication",
     description:
-      "What to settle before carpentry fabrication, including measurements, internal storage, hardware, sockets and access panels.",
+      "What to settle before carpentry fabrication, including measurements, inside storage, hardware, sockets and access panels.",
     date: "2026-07-02",
     readingTime: "4 min read",
     category: "Carpentry",
@@ -176,7 +176,7 @@ export const ownerNotes: OwnerNote[] = [
       {
         heading: "Plan inside the cabinets",
         body: [
-          "Internal compartments, drawer heights, wardrobe hanging space, shoe storage, appliance clearances and access panels should be planned before exterior finishes are finalised.",
+          "Cabinet compartments, drawer heights, wardrobe hanging space, shoe storage, appliance clearances and access panels should be planned before exterior finishes are finalised.",
         ],
       },
       {

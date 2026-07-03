@@ -8,7 +8,7 @@ export const siteConfig = {
   email: "limmworks@gmail.com",
   instagram: "https://www.instagram.com/limmworks/",
   whatsapp: {
-    display: "[INSERT LIMM WHATSAPP NUMBER]",
+    display: "to be confirmed",
     e164: "",
     fallbackPath: "/contact#project-review",
   },

@@ -3,6 +3,7 @@ export const brandAssets = {
   logoLight: "/brand/limm-logo-light.png",
   logoDark: "/brand/limm-logo-dark.png",
   icon: "/brand/limm-icon.png",
+  favicon: "/brand/favicon.png",
 } as const;
 
 export const projectImages = {

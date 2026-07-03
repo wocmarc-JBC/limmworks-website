@@ -270,9 +270,9 @@ export default function Home() {
           <div className="flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
             <SectionHeader
               className="mx-0"
-              eyebrow="Project gallery"
-              title="Visual categories ready for real LIMM project photos."
-              body="Project image categories are organized so approved LIMM photos can replace the current image set cleanly later."
+              eyebrow="Project Gallery"
+              title="Selected renovation, site progress and interior works references."
+              body="Browse landed, condo/HDB, kitchen/bathroom, carpentry/storage, commercial and site progress references in one place."
             />
             <ButtonLink
               href="/gallery"

@@ -15,14 +15,14 @@ export function StickyWhatsapp() {
           WhatsApp LIMM Works
         </ButtonLink>
       </div>
-      <div className="fixed inset-x-0 bottom-0 z-40 border-t border-[var(--limm-line)] bg-[rgba(248,242,232,0.96)] px-4 py-3 shadow-[0_-8px_24px_rgba(17,24,39,0.12)] backdrop-blur md:hidden">
+      <div className="fixed inset-x-0 bottom-0 z-40 border-t border-[var(--limm-line)] bg-[rgba(248,242,232,0.96)] px-3 py-2 shadow-[0_-6px_18px_rgba(17,24,39,0.1)] backdrop-blur md:hidden">
         <ButtonLink
-          className="w-full shadow-lg"
+          className="min-h-10 w-full px-3 py-2 text-sm shadow-sm"
           href={getWhatsappHref()}
           icon={<MessageCircle aria-hidden="true" size={18} />}
           variant="dark"
         >
-          WhatsApp LIMM Works
+          WhatsApp
         </ButtonLink>
       </div>
     </>

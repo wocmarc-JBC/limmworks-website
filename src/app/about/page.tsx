@@ -51,7 +51,7 @@ export default function AboutPage() {
             className="mx-0"
             eyebrow="Positioning"
             title="Broader than carpentry, more grounded than pure interior styling."
-            body="LIMM Works is built around renovation planning, site coordination and execution. It supports landed renovation and A&A, condo, HDB, commercial interiors, kitchens, bathrooms and carpentry without making unsafe claims."
+            body="LIMM Works is built around renovation planning, site coordination and execution. It supports landed renovation and A&A, condo, HDB, commercial interiors, kitchens, bathrooms and carpentry with practical review before works proceed."
           />
           <div className="grid gap-4 sm:grid-cols-2">
             {values.map((value) => (

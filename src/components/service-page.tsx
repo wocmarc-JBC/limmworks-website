@@ -14,6 +14,9 @@ import {
 } from "@/lib/schema";
 
 export function ServicePage({ service }: { service: Service }) {
+  const quickAnswerAudience =
+    service.slug === "commercial-renovation" ? "businesses" : "homeowners";
+
   return (
     <>
       <JsonLd data={webPageSchema(service.title, service.metaDescription, service.path)} />
@@ -140,7 +143,7 @@ export function ServicePage({ service }: { service: Service }) {
         <div className="mx-auto max-w-7xl">
           <SectionHeader
             eyebrow="Quick answers"
-            title={`${service.title} questions homeowners often ask`}
+            title={`${service.title} questions ${quickAnswerAudience} often ask`}
             body="Concise answers for search, AI results and early project planning."
           />
           <div className="mt-10 grid gap-4 md:grid-cols-2">
