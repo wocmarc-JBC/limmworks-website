@@ -36,20 +36,31 @@ Logo and favicon paths are centralized in `src/data/assets.ts`.
 - `public/projects/limm-real/processed/`
   - Store web-ready images used by `next/image`.
   - Category folders mirror the `raw/` folders.
-  - Current filenames:
-    - `hero-renovation-planning.png`
-    - `landed-renovation.png`
-    - `condo-hdb-interior.png`
-    - `kitchen-bathroom.png`
-    - `carpentry-storage.png`
-    - `commercial-interior.png`
+  - Current selected filenames:
+    - `landed/landed-dining-kitchen.jpg`
+    - `landed/landed-open-plan-living.jpg`
+    - `landed/landed-glass-entry.jpg`
+    - `landed/landed-living-room-context.jpg`
+    - `condo-hdb/condo-tv-feature-wall.jpg`
+    - `condo-hdb/hdb-kitchen-green-cabinets.jpg`
+    - `condo-hdb/condo-bathroom-vanity.jpg`
+    - `kitchen-bathroom/kitchen-light-wood-cabinets.jpg`
+    - `kitchen-bathroom/kitchen-dark-island.jpg`
+    - `kitchen-bathroom/bathroom-vanity-wide.jpg`
+    - `kitchen-bathroom/bathroom-wet-area-window.jpg`
+    - `carpentry-storage/carpentry-kitchen-island.jpg`
+    - `carpentry-storage/carpentry-wardrobe-run.jpg`
+    - `carpentry-storage/carpentry-room-storage.jpg`
+    - `commercial/commercial-dining-fitout.jpg`
+    - `commercial/commercial-counter-seating.jpg`
+    - `commercial/commercial-dining-detail.jpg`
     - `site-progress.png`
 
 ## Replacement Steps
 
 1. Add real source photos into `public/projects/limm-real/raw/`.
 2. Export processed images as `.jpg`, `.png` or `.webp` into the matching `public/projects/limm-real/processed/` category folder.
-3. Reuse the current filenames when possible so page code does not need to change.
+3. Keep processed files in the category folder that matches the source category.
 4. If filenames change, update:
    - `src/data/assets.ts`
    - `src/data/gallery.ts` for gallery alt text
@@ -73,5 +84,6 @@ Image paths are centralized in `src/data/assets.ts`.
 
 ## Current Asset Status
 
-- Brand files are not yet supplied, so the site uses the `LW` fallback mark.
-- Project visuals are temporary review assets. Replace them with approved LIMM project photos before launch.
+- Official brand files are present in `public/brand/`.
+- v0.5 uses selected processed project photos for the homepage, service pages and gallery category cards where suitable.
+- The site-progress category still needs real LIMM site-progress photos. Until those are supplied, the existing site-progress visual remains in place.

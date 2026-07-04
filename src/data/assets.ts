@@ -29,17 +29,17 @@ export const projectPhotoFolders = {
 } as const;
 
 const projectImageSlots = {
-  homeHero: "hero-renovation-planning.png",
-  landed: "landed-renovation.png",
-  landedAa: "landed-renovation.png",
-  condo: "condo-hdb-interior.png",
-  hdb: "condo-hdb-interior.png",
-  commercial: "commercial-interior.png",
-  kitchen: "kitchen-bathroom.png",
-  bathroom: "kitchen-bathroom.png",
-  carpentry: "carpentry-storage.png",
-  galleryOverview: "landed-renovation.png",
-  about: "hero-renovation-planning.png",
+  homeHero: "landed/landed-dining-kitchen.jpg",
+  landed: "landed/landed-open-plan-living.jpg",
+  landedAa: "landed/landed-glass-entry.jpg",
+  condo: "condo-hdb/condo-tv-feature-wall.jpg",
+  hdb: "condo-hdb/hdb-kitchen-green-cabinets.jpg",
+  commercial: "commercial/commercial-dining-fitout.jpg",
+  kitchen: "kitchen-bathroom/kitchen-light-wood-cabinets.jpg",
+  bathroom: "kitchen-bathroom/bathroom-vanity-wide.jpg",
+  carpentry: "carpentry-storage/carpentry-wardrobe-run.jpg",
+  galleryOverview: "landed/landed-dining-kitchen.jpg",
+  about: "landed/landed-open-plan-living.jpg",
   contact: "site-progress.png",
 } as const;
 

@@ -11,55 +11,55 @@ export type GalleryCategory = {
 
 export const galleryCategories: GalleryCategory[] = [
   {
-    title: "Landed Renovation",
-    slug: "landed-renovation",
+    title: "Landed / A&A",
+    slug: "landed-aa",
     description:
-      "Facade, car porch, kitchen, bathroom, drainage and layout-focused landed renovation references.",
+      "Landed home interior, entry and layout references for renovation and A&A planning discussions.",
     image: projectImages.landed,
-    imageAlt: "Landed renovation work with facade and car porch planning",
-    tags: ["Landed", "Facade", "A&A awareness"],
+    imageAlt: "Completed landed home interior with open living and kitchen planning",
+    tags: ["Landed", "A&A", "Layout"],
   },
   {
-    title: "Condo / HDB Interior",
-    slug: "condo-hdb-interior",
+    title: "Condo / HDB",
+    slug: "condo-hdb",
     description:
-      "Compact, practical interior upgrades with storage, finishes and management-aware planning.",
+      "Condo and HDB interior references for compact storage, finishes and practical daily use.",
     image: projectImages.condo,
-    imageAlt: "Condo and HDB interior renovation with practical storage",
-    tags: ["Condo", "HDB", "Storage"],
+    imageAlt: "Condo interior TV feature wall and living area finish",
+    tags: ["Condo", "HDB", "Interior"],
   },
   {
-    title: "Kitchen & Bathroom",
+    title: "Kitchen / Bathroom",
     slug: "kitchen-bathroom",
     description:
-      "Wet and dry kitchen planning, bathroom wet area coordination and practical fixture details.",
+      "Kitchen cabinet, countertop and bathroom wet-area references for practical renovation planning.",
     image: projectImages.kitchen,
-    imageAlt: "Kitchen and bathroom renovation details with wet area planning",
+    imageAlt: "Kitchen renovation with light wood cabinets and island counter",
     tags: ["Kitchen", "Bathroom", "Wet works"],
   },
   {
-    title: "Carpentry & Storage",
+    title: "Carpentry / Storage",
     slug: "carpentry-storage",
     description:
-      "Built-ins, wardrobes, kitchen cabinets, consoles, shoe cabinets and commercial storage.",
+      "Wardrobe, cabinet and built-in storage references for measured carpentry discussions.",
     image: projectImages.carpentry,
-    imageAlt: "Carpentry and storage works with built-in cabinets",
+    imageAlt: "Carpentry and storage work with built-in wardrobe run",
     tags: ["Carpentry", "Built-ins", "Storage"],
   },
   {
-    title: "Commercial Interior",
-    slug: "commercial-interior",
+    title: "Commercial",
+    slug: "commercial",
     description:
-      "Office, retail and commercial fit-out scopes with display, storage, pantry and access planning.",
+      "Commercial interior references for dining, retail and business fit-out coordination.",
     image: projectImages.commercial,
-    imageAlt: "Commercial interior renovation with office and retail fit-out planning",
-    tags: ["Office", "Retail", "Fit-out"],
+    imageAlt: "Commercial dining fit-out with tables, counters and ceiling services",
+    tags: ["Commercial", "Fit-out", "Coordination"],
   },
   {
     title: "Site Progress",
     slug: "site-progress",
     description:
-      "Protection, sequencing and coordination details that make renovation work more controlled.",
+      "Protection, sequencing and coordination references for renovation work in progress.",
     image: projectImages.contact,
     imageAlt: "Renovation site progress with protection and coordination",
     tags: ["Progress", "Protection", "Coordination"],

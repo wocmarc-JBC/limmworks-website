@@ -59,7 +59,7 @@ export const services: Service[] = [
     metaDescription:
       "LIMM Works plans landed renovation in Singapore with practical scope review for layout, kitchens, bathrooms, facade, drainage, waterproofing and site coordination.",
     image: projectImages.landed,
-    imageAlt: "Landed home renovation scene with refreshed facade and car porch",
+    imageAlt: "Completed landed home interior with open living and kitchen planning",
     focus: [
       "Old landed homes, inter-terrace, semi-detached and landed family houses.",
       "Layout improvement, bathroom and kitchen reconfiguration and better daily flow.",
@@ -126,7 +126,7 @@ export const services: Service[] = [
     metaDescription:
       "LIMM Works supports landed A&A works in Singapore with practical scope review for extensions, car porch, wet kitchen, facade, drainage and approval awareness.",
     image: projectImages.landedAa,
-    imageAlt: "Landed A&A renovation scene with car porch and facade works",
+    imageAlt: "Landed home glass door and entry area works",
     focus: [
       "Additions and alterations for landed homes where existing structure and authority requirements matter.",
       "Small extensions, wet kitchen or rear extension planning and side-yard works.",
@@ -193,7 +193,7 @@ export const services: Service[] = [
     metaDescription:
       "Condo renovation in Singapore by LIMM Works, with practical planning for management rules, lift protection, floor protection, kitchen, bathroom and carpentry works.",
     image: projectImages.condo,
-    imageAlt: "Condo renovation scene with storage and warm modern interior",
+    imageAlt: "Condo interior TV feature wall and living area finish",
     focus: [
       "Management rules, working hours, deposits, insurance and access planning where applicable.",
       "Lift, corridor and floor protection before materials and works move through the site.",
@@ -259,7 +259,7 @@ export const services: Service[] = [
     metaDescription:
       "HDB renovation in Singapore by LIMM Works, covering practical kitchen, bathroom, carpentry, storage, flooring, painting and approval awareness.",
     image: projectImages.hdb,
-    imageAlt: "HDB renovation scene with compact storage and neutral finishes",
+    imageAlt: "HDB kitchen cabinetry with compact storage planning",
     focus: [
       "Kitchen, bathroom, carpentry, storage, flooring, painting and practical interior upgrades.",
       "Space planning for storage, circulation and day-to-day household use.",
@@ -325,7 +325,7 @@ export const services: Service[] = [
     metaDescription:
       "Commercial renovation in Singapore by LIMM Works, supporting office, retail and commercial interior fit-out planning, storage, display and site coordination.",
     image: projectImages.commercial,
-    imageAlt: "Commercial renovation scene with practical office and retail interior",
+    imageAlt: "Commercial dining fit-out with tables, counters and ceiling services",
     focus: [
       "Office, retail and commercial interior planning with practical fit-out support.",
       "Storage, display shelving, pantry, counters, workstations and built-ins.",
@@ -391,7 +391,7 @@ export const services: Service[] = [
     metaDescription:
       "Kitchen renovation in Singapore by LIMM Works, covering dry and wet kitchen planning, storage, appliances, countertops, ventilation and coordination.",
     image: projectImages.kitchen,
-    imageAlt: "Kitchen renovation scene with warm cabinetry and countertop planning",
+    imageAlt: "Kitchen renovation with light wood cabinets and island counter",
     focus: [
       "Dry and wet kitchen planning based on cooking habits and household routines.",
       "Cabinet storage, appliance zones, countertop material and worktop height review.",
@@ -457,7 +457,7 @@ export const services: Service[] = [
     metaDescription:
       "Bathroom renovation in Singapore by LIMM Works, covering waterproofing awareness, drainage, sanitary fittings, ventilation, layout and coordination.",
     image: projectImages.bathroom,
-    imageAlt: "Bathroom renovation planning scene with tile and sanitary fitting details",
+    imageAlt: "Bathroom vanity, shower screen and sanitary fitting details",
     focus: [
       "Waterproofing awareness, drainage review and wet area coordination.",
       "Sanitary fittings, mixers, vanity, storage and ventilation planning.",
@@ -523,7 +523,7 @@ export const services: Service[] = [
     metaDescription:
       "Carpentry works in Singapore by LIMM Works, covering kitchen cabinets, wardrobes, TV consoles, shoe cabinets, storage cabinets and commercial built-ins.",
     image: projectImages.carpentry,
-    imageAlt: "Carpentry and storage scene with built-in wardrobes and cabinets",
+    imageAlt: "Carpentry and storage work with built-in wardrobe run",
     focus: [
       "Kitchen cabinets, wardrobes, TV consoles, shoe cabinets and storage cabinets.",
       "Commercial cabinets, counters, display and practical back-of-house storage.",
