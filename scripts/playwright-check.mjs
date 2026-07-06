@@ -246,6 +246,9 @@ async function checkRoute(route, viewport) {
     recordFailure(`${viewport.name} ${route}: console errors ${consoleErrors.join(" | ")}`);
   }
 
+  await page.evaluate(() => window.scrollTo(0, 0));
+  await page.waitForFunction(() => window.scrollY === 0, { timeout: 5000 }).catch(() => {});
+  await page.waitForTimeout(250);
   const screenshotPath = path.join(screenshotDir, screenshotName(route, viewport.name));
   await page.screenshot({ path: screenshotPath, fullPage: true });
   await page.close();
@@ -304,9 +307,47 @@ async function checkContactForm() {
     }
   }
 
+  await page.evaluate(() => window.scrollTo(0, 0));
+  await page.waitForTimeout(250);
   await page.screenshot({
     path: path.join(screenshotDir, "desktop-contact-form-filled.png"),
     fullPage: true,
+  });
+  await page.close();
+}
+
+async function checkContactAnchorScroll() {
+  const page = await browser.newPage({ viewport: { width: 1440, height: 1100 } });
+  await page.goto(`${baseURL}/contact`, { waitUntil: "networkidle" });
+  await page
+    .locator("section")
+    .first()
+    .getByRole("link", { name: "Start Project Review", exact: true })
+    .click();
+  await page.waitForTimeout(700);
+
+  const anchorCheck = await page.evaluate(() => {
+    const header = document.querySelector("header");
+    const form = document.querySelector("form#project-review");
+    const headerBottom = header?.getBoundingClientRect().bottom ?? 0;
+    const formTop = form?.getBoundingClientRect().top ?? 0;
+
+    return {
+      headerBottom: Math.round(headerBottom),
+      formTop: Math.round(formTop),
+      clear: formTop >= headerBottom + 12,
+    };
+  });
+
+  if (!anchorCheck.clear) {
+    recordFailure(
+      `/contact anchor: form starts under sticky header (${anchorCheck.formTop}px vs ${anchorCheck.headerBottom}px)`,
+    );
+  }
+
+  await page.screenshot({
+    path: path.join(screenshotDir, "desktop-contact-anchor.png"),
+    fullPage: false,
   });
   await page.close();
 }
@@ -360,6 +401,7 @@ for (const viewport of viewports) {
 
 await checkStaticFiles();
 await checkContactForm();
+await checkContactAnchorScroll();
 await checkMobileMenu();
 await browser.close();
 

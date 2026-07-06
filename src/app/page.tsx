@@ -100,6 +100,13 @@ const sendChecklist = [
   "Any approvals, drawings or management notes already available",
 ];
 
+const heroTrustMarkers = [
+  "Landed & A&A scope review",
+  "Condo and HDB rule awareness",
+  "Kitchen, bathroom and carpentry coordination",
+  "Commercial fit-out support",
+];
+
 export default function Home() {
   const landedServices = services.filter((service) =>
     ["landed-renovation", "landed-aa-works"].includes(service.slug),
@@ -125,21 +132,22 @@ export default function Home() {
         <div className="pointer-events-none absolute inset-0 -z-10">
           <Image
             alt="Warm renovation planning interior for LIMM Works"
-            className="pointer-events-none object-cover object-[center_56%]"
+            className="pointer-events-none object-cover object-[center_52%]"
             fill
             priority
             sizes="100vw"
             src={projectImages.homeHero}
           />
-          <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(31,38,31,0.96),rgba(31,38,31,0.74),rgba(31,38,31,0.24))]" />
-          <div className="absolute inset-x-0 bottom-0 h-36 bg-gradient-to-t from-[var(--limm-ink)] to-transparent" />
+          <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(31,38,31,0.88),rgba(31,38,31,0.60),rgba(31,38,31,0.18),rgba(31,38,31,0.04))]" />
+          <div className="absolute inset-y-0 left-0 w-[68%] bg-[radial-gradient(circle_at_20%_48%,rgba(31,38,31,0.78),rgba(31,38,31,0.30)_54%,transparent_80%)]" />
+          <div className="absolute inset-x-0 bottom-0 h-36 bg-gradient-to-t from-[rgba(31,38,31,0.92)] to-transparent" />
         </div>
-        <div className="mx-auto flex min-h-[78svh] w-full max-w-7xl items-center px-4 py-14 sm:px-6 md:min-h-[84svh] lg:px-8">
-          <div className="max-w-3xl">
-            <p className="inline-flex rounded-full border border-white/18 bg-white/10 px-3 py-1 text-sm font-semibold text-[var(--limm-sage)] backdrop-blur">
+        <div className="mx-auto flex min-h-[76svh] w-full max-w-7xl items-center px-4 py-14 sm:px-6 md:min-h-[84svh] lg:px-8">
+          <div className="max-w-4xl [text-shadow:0_2px_28px_rgba(0,0,0,0.28)]">
+            <p className="inline-flex rounded-full border border-white/22 bg-white/12 px-3 py-1 text-sm font-semibold text-[var(--limm-sage)] backdrop-blur">
               LIMM Works Pte Ltd
             </p>
-            <h1 className="mt-5 text-balance text-4xl font-semibold leading-tight md:text-[4.65rem]">
+            <h1 className="mt-5 max-w-4xl text-balance text-4xl font-semibold leading-tight md:text-[4.75rem]">
               Renovation planning for homes, landed properties and commercial spaces.
             </h1>
             <p className="mt-5 text-2xl font-semibold text-white md:text-3xl">
@@ -147,7 +155,8 @@ export default function Home() {
             </p>
             <p className="mt-5 max-w-2xl text-pretty text-base leading-7 text-white/82 md:text-lg">
               Share your floor plan, site photos and rough scope. LIMM Works
-              reviews the practical renovation path before works move too far.
+              reviews the site context, coordination needs and practical
+              renovation path before works move too far.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
               <ButtonLink
@@ -171,15 +180,10 @@ export default function Home() {
                 View Our Works
               </ButtonLink>
             </div>
-            <div className="mt-8 grid max-w-2xl gap-2 text-sm text-white/78 sm:grid-cols-2">
-              {[
-                "Landed renovation and A&A scope review",
-                "Condo, HDB and commercial interiors",
-                "Kitchen, bathroom and carpentry coordination",
-                "WhatsApp-first initial project review",
-              ].map((item) => (
+            <div className="mt-8 grid max-w-4xl gap-2.5 text-sm text-white/84 sm:grid-cols-2 lg:grid-cols-4">
+              {heroTrustMarkers.map((item) => (
                 <div
-                  className="flex items-center gap-2 rounded-md border border-white/14 bg-white/8 px-3 py-2 backdrop-blur"
+                  className="flex min-h-14 items-center gap-2 rounded-md border border-white/16 bg-white/10 px-3 py-2 backdrop-blur"
                   key={item}
                 >
                   <CheckCircle2

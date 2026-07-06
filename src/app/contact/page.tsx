@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Camera, CheckCircle2, Mail, MessageCircle } from "lucide-react";
+import { Camera, Mail, MessageCircle } from "lucide-react";
 import { ContactForm } from "@/components/contact-form";
 import { JsonLd } from "@/components/json-ld";
 import { PageHero } from "@/components/page-hero";
@@ -38,7 +38,8 @@ export default function ContactPage() {
         ctaLabel="Start Project Review"
         eyebrow="Contact"
         image={projectImages.contact}
-        imageAlt="Renovation site progress with protection and planning"
+        imageAlt="Renovation planning materials and site review references"
+        imagePosition="center 46%"
         title="Start Project Review"
       />
       <section className="px-4 py-16 sm:px-6 lg:px-8">
@@ -52,11 +53,20 @@ export default function ContactPage() {
             />
             <div className="mt-8 grid gap-3 text-sm leading-6 text-[var(--limm-muted)]">
               <a
-                className="inline-flex items-center gap-2 rounded-lg border border-[var(--limm-brass)] bg-[var(--limm-paper)] p-4 font-semibold text-[var(--limm-ink)] shadow-sm hover:border-[var(--limm-brass-dark)]"
+                className="group rounded-lg border border-[var(--limm-ink)] bg-[var(--limm-ink)] p-5 font-semibold text-white shadow-[var(--limm-shadow-soft)] transition hover:bg-[var(--limm-olive)]"
                 href={getWhatsappHref()}
               >
-                <MessageCircle aria-hidden="true" size={18} />
-                WhatsApp: {getWhatsappLabel()}
+                <span className="flex items-center gap-2">
+                  <MessageCircle aria-hidden="true" size={19} />
+                  WhatsApp LIMM Works
+                </span>
+                <span className="mt-2 block text-xl text-[var(--limm-gold-soft)]">
+                  {getWhatsappLabel()}
+                </span>
+                <span className="mt-2 block text-sm font-normal leading-6 text-white/72">
+                  Send plans, site photos, rough scope and preferred timing for
+                  an initial project review.
+                </span>
               </a>
               <a
                 className="inline-flex items-center gap-2 rounded-lg border border-[var(--limm-line)] bg-[var(--limm-paper)] p-4 hover:border-[var(--limm-brass)]"
@@ -79,18 +89,19 @@ export default function ContactPage() {
               <p className="text-sm font-semibold text-[var(--limm-clay)]">
                 What happens next
               </p>
-              <div className="mt-4 grid gap-4">
+              <div className="mt-4 grid gap-3">
                 {[
                   "LIMM reviews the property type, photos and rough scope.",
                   "Missing details are clarified before deeper costing or scheduling.",
                   "Next steps are discussed around site condition, rules and timing.",
-                ].map((item) => (
-                  <div className="flex gap-3" key={item}>
-                    <CheckCircle2
-                      aria-hidden="true"
-                      className="mt-0.5 shrink-0 text-[var(--limm-olive)]"
-                      size={18}
-                    />
+                ].map((item, index) => (
+                  <div
+                    className="flex gap-3 rounded-md border border-[var(--limm-line)] bg-white p-3"
+                    key={item}
+                  >
+                    <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-[var(--limm-sage)] text-xs font-semibold text-[var(--limm-ink)]">
+                      {index + 1}
+                    </span>
                     <p className="text-sm leading-6 text-[var(--limm-muted)]">
                       {item}
                     </p>

@@ -15,7 +15,7 @@ import { breadcrumbSchema, webPageSchema } from "@/lib/schema";
 export const metadata: Metadata = buildMetadata({
   title: "Project Gallery",
   description:
-    "Selected renovation, site progress and interior works references from LIMM Works.",
+    "Selected renovation, site context and interior works references from LIMM Works.",
   path: "/gallery",
   image: projectImages.galleryOverview,
 });
@@ -26,7 +26,7 @@ export default function GalleryPage() {
       <JsonLd
         data={webPageSchema(
           "Project Gallery",
-          "Selected renovation, site progress and interior works references from LIMM Works.",
+          "Selected renovation, site context and interior works references from LIMM Works.",
           "/gallery",
         )}
       />
@@ -48,7 +48,7 @@ export default function GalleryPage() {
           <SectionHeader
             eyebrow="Project categories"
             title="Use these references to explain what matters in your own space."
-            body="The gallery is grouped by practical renovation conversations: property type, detail-heavy areas, storage, commercial fit-out and site progress. Send the relevant references with your own floor plan and site photos."
+            body="The gallery is grouped by practical renovation conversations: property type, detail-heavy areas, storage, commercial fit-out and site context. Send the relevant references with your own floor plan and site photos."
           />
           <div className="mt-8 grid gap-4 rounded-lg border border-[var(--limm-line)] bg-[var(--limm-paper)] p-5 shadow-sm md:grid-cols-3">
             {[

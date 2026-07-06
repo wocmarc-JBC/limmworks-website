@@ -13,13 +13,13 @@ export function SiteFooter() {
   const footerIcon = getExistingPublicAsset(brandAssets.icon);
 
   return (
-    <footer className="border-t border-[var(--limm-line)] bg-[var(--limm-ink)] text-white">
-      <div className="mx-auto grid w-full max-w-7xl gap-10 px-4 py-12 sm:px-6 lg:grid-cols-[1.1fr_1.4fr_0.9fr] lg:px-8">
-        <div>
+    <footer className="border-t border-white/10 bg-[var(--limm-ink)] text-white">
+      <div className="mx-auto grid w-full max-w-7xl gap-10 px-4 py-12 sm:px-6 lg:grid-cols-[1.1fr_1.35fr_0.9fr] lg:px-8 lg:py-14">
+        <div className="lg:pr-6">
           {footerLogo ? (
             <Image
               alt={siteConfig.name}
-              className="h-32 w-auto object-contain"
+              className="h-24 w-auto object-contain sm:h-28"
               height={128}
               src={footerLogo}
               width={100}
@@ -38,11 +38,11 @@ export function SiteFooter() {
               <p className="text-xl font-semibold">{siteConfig.name}</p>
             </div>
           )}
-          <p className="mt-3 max-w-sm text-sm leading-6 text-white/72">
+          <p className="mt-4 max-w-sm text-sm leading-6 text-white/74">
             {siteConfig.tagline}. Practical planning, coordination and site
             execution for homes and businesses in Singapore.
           </p>
-          <div className="mt-5 grid gap-2 text-sm text-white/78">
+          <div className="mt-6 grid gap-2.5 text-sm text-white/78">
             <a className="inline-flex items-center gap-2 hover:text-white" href={getWhatsappHref()}>
               <MessageCircle aria-hidden="true" size={17} />
               WhatsApp: {getWhatsappLabel()}
@@ -64,7 +64,7 @@ export function SiteFooter() {
         </div>
         <div>
           <p className="text-sm font-semibold text-white">Services</p>
-          <div className="mt-4 grid gap-2 sm:grid-cols-2">
+          <div className="mt-4 grid gap-x-8 gap-y-2.5 sm:grid-cols-2">
             {serviceNav.map((item) => (
               <Link
                 className="text-sm text-white/72 hover:text-white"
@@ -78,7 +78,7 @@ export function SiteFooter() {
         </div>
         <div>
           <p className="text-sm font-semibold text-white">Explore</p>
-          <div className="mt-4 grid gap-2">
+          <div className="mt-4 grid gap-2.5">
             <Link className="text-sm text-white/72 hover:text-white" href="/gallery">
               Gallery
             </Link>
@@ -94,7 +94,7 @@ export function SiteFooter() {
           </div>
         </div>
       </div>
-      <div className="border-t border-white/12 px-4 py-4 text-center text-xs text-white/58">
+      <div className="border-t border-white/12 px-4 py-4 text-center text-xs text-white/60">
         Copyright {new Date().getFullYear()} {siteConfig.name}. All rights reserved.
       </div>
     </footer>

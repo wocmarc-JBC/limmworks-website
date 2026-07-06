@@ -56,12 +56,12 @@ export const galleryCategories: GalleryCategory[] = [
     tags: ["Commercial", "Fit-out", "Coordination"],
   },
   {
-    title: "Site Progress",
-    slug: "site-progress",
+    title: "Planning & Site Context",
+    slug: "planning-site-context",
     description:
-      "Protection, sequencing and coordination references for renovation work in progress and site movement.",
+      "Site condition, protection and planning references for discussing access, sequencing and renovation constraints.",
     image: projectImages.contact,
-    imageAlt: "Renovation site progress with protection and coordination",
-    tags: ["Progress", "Protection", "Coordination"],
+    imageAlt: "Renovation site context with protection materials and planning references",
+    tags: ["Site context", "Protection", "Planning"],
   },
 ];

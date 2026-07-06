@@ -9,6 +9,7 @@ export function PageHero({
   body,
   image,
   imageAlt,
+  imagePosition = "center 54%",
   ctaHref,
   ctaLabel = "Start Project Review",
 }: {
@@ -17,6 +18,7 @@ export function PageHero({
   body: string;
   image: string;
   imageAlt: string;
+  imagePosition?: string;
   ctaHref?: string;
   ctaLabel?: string;
 }) {
@@ -25,17 +27,19 @@ export function PageHero({
       <div className="pointer-events-none absolute inset-0 -z-10">
         <Image
           alt={imageAlt}
-          className="pointer-events-none object-cover object-[center_54%]"
+          className="pointer-events-none object-cover"
           fill
           priority
           sizes="100vw"
           src={image}
+          style={{ objectPosition: imagePosition }}
         />
-        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(31,38,31,0.94),rgba(31,38,31,0.70),rgba(31,38,31,0.28))]" />
-        <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[var(--limm-ink)] to-transparent" />
+        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(31,38,31,0.88),rgba(31,38,31,0.58),rgba(31,38,31,0.18),rgba(31,38,31,0.04))]" />
+        <div className="absolute inset-y-0 left-0 w-[64%] bg-[radial-gradient(circle_at_18%_52%,rgba(31,38,31,0.74),rgba(31,38,31,0.30)_52%,transparent_78%)]" />
+        <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[rgba(31,38,31,0.90)] to-transparent" />
       </div>
-      <div className="mx-auto grid min-h-[62svh] w-full max-w-7xl items-end gap-8 px-4 py-14 sm:px-6 md:py-[4.5rem] lg:grid-cols-[1fr_360px] lg:px-8">
-        <div className="max-w-3xl">
+      <div className="mx-auto grid min-h-[60svh] w-full max-w-7xl items-end gap-8 px-4 py-14 sm:px-6 md:min-h-[66svh] md:py-[4.5rem] lg:grid-cols-[1fr_360px] lg:px-8">
+        <div className="max-w-3xl [text-shadow:0_2px_24px_rgba(0,0,0,0.26)]">
           <p className="text-sm font-semibold text-[var(--limm-sage)]">{eyebrow}</p>
           <h1 className="mt-4 text-balance text-4xl font-semibold leading-tight md:text-[4rem]">
             {title}
@@ -59,7 +63,7 @@ export function PageHero({
             </ButtonLink>
           </div>
         </div>
-        <div className="hidden rounded-lg border border-white/18 bg-white/10 p-5 shadow-[0_24px_70px_rgba(0,0,0,0.22)] backdrop-blur md:block">
+        <div className="hidden rounded-lg border border-white/22 bg-white/12 p-5 shadow-[0_24px_70px_rgba(0,0,0,0.22)] backdrop-blur md:block">
           <div className="flex items-center gap-3">
             <span className="flex h-10 w-10 items-center justify-center rounded-md bg-white/12 text-[var(--limm-gold-soft)]">
               <ClipboardCheck aria-hidden="true" size={20} />

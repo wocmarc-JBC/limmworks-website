@@ -10,19 +10,19 @@ export function SiteHeader() {
   const topLevel = primaryNav.filter((item) => item.label !== "Home");
 
   return (
-    <header className="sticky top-0 z-50 border-b border-[rgba(222,210,191,0.82)] bg-[rgba(248,242,232,0.94)] shadow-[0_10px_30px_rgba(31,38,31,0.06)] backdrop-blur">
-      <div className="mx-auto flex h-[72px] w-full max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+    <header className="sticky top-0 z-50 border-b border-[rgba(222,210,191,0.84)] bg-[rgba(248,242,232,0.96)] shadow-[0_10px_30px_rgba(31,38,31,0.07)] backdrop-blur">
+      <div className="mx-auto flex h-[76px] w-full max-w-7xl items-center justify-between px-4 sm:px-6 lg:h-[78px] lg:px-8">
         <SiteLogo />
-        <nav className="hidden items-center gap-1 lg:flex" aria-label="Primary">
+        <nav className="hidden items-center gap-1.5 lg:flex" aria-label="Primary">
           <Link
-            className="rounded-md px-3 py-2 text-sm font-medium text-[var(--limm-ink)] transition hover:bg-white"
+            className="rounded-md px-3.5 py-2 text-sm font-medium text-[var(--limm-ink)] transition hover:bg-white"
             href="/"
           >
             Home
           </Link>
           <div className="group relative">
             <button
-              className="inline-flex items-center gap-1 rounded-md px-3 py-2 text-sm font-medium text-[var(--limm-ink)] transition hover:bg-white"
+              className="inline-flex items-center gap-1 rounded-md px-3.5 py-2 text-sm font-medium text-[var(--limm-ink)] transition hover:bg-white"
               type="button"
             >
               Services
@@ -42,7 +42,7 @@ export function SiteHeader() {
           </div>
           {topLevel.map((item) => (
             <Link
-              className="rounded-md px-3 py-2 text-sm font-medium text-[var(--limm-ink)] transition hover:bg-white"
+              className="rounded-md px-3.5 py-2 text-sm font-medium text-[var(--limm-ink)] transition hover:bg-white"
               href={item.href}
               key={item.href}
             >
@@ -52,6 +52,7 @@ export function SiteHeader() {
         </nav>
         <div className="hidden items-center gap-3 lg:flex">
           <ButtonLink
+            className="px-4"
             href={getWhatsappHref()}
             icon={<MessageCircle aria-hidden="true" size={18} />}
             variant="dark"

@@ -13,22 +13,22 @@ export function SiteLogo() {
         <Image
           alt=""
           aria-hidden="true"
-          className="h-11 w-10 shrink-0 object-contain sm:h-12 sm:w-11"
-          height={52}
+          className="h-12 w-11 shrink-0 object-contain sm:h-14 sm:w-12"
+          height={56}
           priority
           src={officialIcon}
-          width={47}
+          width={52}
         />
       ) : (
-        <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md bg-[var(--limm-ink)] text-sm font-semibold text-white">
+        <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-md bg-[var(--limm-ink)] text-sm font-semibold text-white">
           LW
         </span>
       )}
       <span className="min-w-0">
-        <span className="block truncate text-base font-semibold text-[var(--limm-ink)]">
+        <span className="block truncate text-[1.05rem] font-semibold leading-tight text-[var(--limm-ink)] sm:text-lg">
           {siteConfig.shortName}
         </span>
-        <span className="hidden text-xs text-[var(--limm-muted)] sm:block">
+        <span className="hidden text-xs font-medium text-[var(--limm-muted)] sm:block">
           Pte Ltd
         </span>
       </span>

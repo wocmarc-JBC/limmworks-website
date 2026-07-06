@@ -77,11 +77,11 @@ export function ContactForm() {
 
   return (
     <form
-      className="rounded-lg border border-[var(--limm-line)] bg-[var(--limm-paper)] p-5 shadow-[var(--limm-shadow-soft)] md:p-7"
+      className="scroll-mt-28 rounded-lg border border-[var(--limm-line)] bg-[var(--limm-paper)] p-5 shadow-[var(--limm-shadow-soft)] md:scroll-mt-32 md:p-8"
       id="project-review"
       onSubmit={onSubmit}
     >
-      <div className="mb-5 border-b border-[var(--limm-line)] pb-5">
+      <div className="mb-6 border-b border-[var(--limm-line)] pb-6">
         <p className="text-sm font-semibold text-[var(--limm-clay)]">
           Initial project review form
         </p>
@@ -93,7 +93,7 @@ export function ContactForm() {
           LIMM Works through WhatsApp.
         </p>
       </div>
-      <div className="grid gap-4 md:grid-cols-2">
+      <div className="grid gap-4 md:grid-cols-2 md:gap-5">
         <label className="grid gap-2 text-sm font-medium text-[var(--limm-ink)]">
           Name
           <input
@@ -189,12 +189,12 @@ export function ContactForm() {
           />
         </label>
       </div>
-      <div className="mt-5 rounded-lg border border-[var(--limm-gold-soft)] bg-white p-4 text-sm leading-6 text-[var(--limm-muted)]">
+      <div className="mt-6 rounded-lg border border-[var(--limm-gold-soft)] bg-white p-4 text-sm leading-6 text-[var(--limm-muted)]">
         Attach floor plans and site photos in WhatsApp after generating the
         enquiry text. Clear photos of existing conditions are useful for the
         first review.
       </div>
-      <div className="mt-5 flex flex-col gap-3 sm:flex-row">
+      <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
         <button
           className="inline-flex min-h-11 items-center justify-center gap-2 rounded-md bg-[var(--limm-brass)] px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-[var(--limm-clay)]"
           type="submit"
@@ -211,17 +211,17 @@ export function ContactForm() {
           {copied ? "Copied" : "Copy Enquiry Text"}
         </button>
         <a
-          className="inline-flex min-h-11 items-center justify-center gap-2 rounded-md bg-[var(--limm-ink)] px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-[var(--limm-olive)]"
+          className="inline-flex min-h-11 items-center justify-center gap-2 rounded-md bg-[var(--limm-ink)] px-4 py-2.5 text-sm font-semibold text-white shadow-[0_14px_30px_rgba(31,38,31,0.18)] transition hover:bg-[var(--limm-olive)]"
           href={whatsappHref}
         >
           <MessageCircle aria-hidden="true" size={18} />
           WhatsApp LIMM Works
         </a>
       </div>
-      <label className="mt-5 grid gap-2 text-sm font-medium text-[var(--limm-ink)]">
+      <label className="mt-6 grid gap-2 text-sm font-medium text-[var(--limm-ink)]">
         Generated Enquiry Text
         <textarea
-          className={`${fieldClass} min-h-52 font-mono text-xs leading-5`}
+          className={`${fieldClass} min-h-52 bg-white font-mono text-xs leading-5`}
           onChange={(event) => setMessage(event.target.value)}
           value={message}
         />

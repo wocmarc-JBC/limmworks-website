@@ -14,9 +14,77 @@ import {
   webPageSchema,
 } from "@/lib/schema";
 
+const serviceProfiles: Record<
+  string,
+  {
+    heroPosition: string;
+    scopeEyebrow: string;
+    scopeTitle: string;
+    scopeBody: string;
+  }
+> = {
+  "landed-renovation": {
+    heroPosition: "center 56%",
+    scopeEyebrow: "Landed scope profile",
+    scopeTitle: "Older landed homes need a fuller site read before scope is fixed.",
+    scopeBody:
+      "Layout, drainage, roofline, waterproofing, access and family routines should be reviewed together so the renovation plan starts from the real property condition.",
+  },
+  "landed-aa-works": {
+    heroPosition: "center 48%",
+    scopeEyebrow: "A&A scope profile",
+    scopeTitle: "Extensions and alterations need careful review before works move ahead.",
+    scopeBody:
+      "Car porch, side-yard, rear kitchen, facade and roofline ideas should be checked against site condition and relevant professional or approval requirements where applicable.",
+  },
+  "condo-renovation": {
+    heroPosition: "center 50%",
+    scopeEyebrow: "Condo scope profile",
+    scopeTitle: "Condo works are shaped by management rules as much as interior choices.",
+    scopeBody:
+      "Lift booking, common-area protection, working hours, access and paperwork can affect sequencing before kitchen, bathroom, flooring or carpentry works begin.",
+  },
+  "hdb-renovation": {
+    heroPosition: "center 50%",
+    scopeEyebrow: "HDB scope profile",
+    scopeTitle: "HDB upgrades work best when permit awareness starts early.",
+    scopeBody:
+      "Kitchen, bathroom, storage and general interior works should be reviewed with HDB requirements, neighbour impact, access and practical household use in view.",
+  },
+  "commercial-renovation": {
+    heroPosition: "center 58%",
+    scopeEyebrow: "Commercial scope profile",
+    scopeTitle: "Commercial interiors need fit-out planning around business operations.",
+    scopeBody:
+      "Access, handover timing, storage, display, landlord requirements and working windows should be aligned so site works support the business rather than disrupt it unnecessarily.",
+  },
+  "kitchen-renovation": {
+    heroPosition: "center 58%",
+    scopeEyebrow: "Kitchen scope profile",
+    scopeTitle: "Kitchen planning should follow real cooking habits and service needs.",
+    scopeBody:
+      "Dry and wet kitchen decisions work better when appliance dimensions, sink and hob positions, ventilation, storage and service access are reviewed together.",
+  },
+  "bathroom-renovation": {
+    heroPosition: "center 54%",
+    scopeEyebrow: "Bathroom scope profile",
+    scopeTitle: "Wet-area quality depends on details planned before finishes.",
+    scopeBody:
+      "Waterproofing awareness, drainage falls, sanitary fittings, ventilation, access panels and sequencing should be reviewed before tile and fixture choices dominate the scope.",
+  },
+  "carpentry-storage": {
+    heroPosition: "center 48%",
+    scopeEyebrow: "Carpentry scope profile",
+    scopeTitle: "Measured built-ins need usage, dimensions and hardware clarity.",
+    scopeBody:
+      "Cabinets, wardrobes, TV consoles and storage work best when actual contents, appliance clearances, sockets, hardware and inside layout are confirmed before fabrication.",
+  },
+};
+
 export function ServicePage({ service }: { service: Service }) {
   const quickAnswerAudience =
     service.slug === "commercial-renovation" ? "businesses" : "homeowners";
+  const profile = serviceProfiles[service.slug];
 
   return (
     <>
@@ -34,15 +102,22 @@ export function ServicePage({ service }: { service: Service }) {
         eyebrow={service.eyebrow}
         image={service.image}
         imageAlt={service.imageAlt}
+        imagePosition={profile?.heroPosition}
         title={service.title}
       />
       <MotionSection className="px-4 py-16 sm:px-6 lg:px-8">
         <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.9fr_1.1fr]">
           <SectionHeader
             className="mx-0"
-            eyebrow="Scope review"
-            title="Planned around site condition, property rules and practical use."
-            body="A renovation scope becomes clearer when the property type, site condition, access, approval needs and daily-use requirements are reviewed together."
+            eyebrow={profile?.scopeEyebrow ?? "Scope review"}
+            title={
+              profile?.scopeTitle ??
+              "Planned around site condition, property rules and practical use."
+            }
+            body={
+              profile?.scopeBody ??
+              "A renovation scope becomes clearer when the property type, site condition, access, approval needs and daily-use requirements are reviewed together."
+            }
           />
           <div className="grid gap-3 sm:grid-cols-2">
             {service.focus.map((item) => (
