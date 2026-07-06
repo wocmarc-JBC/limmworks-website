@@ -1,4 +1,5 @@
-import { CheckCircle2 } from "lucide-react";
+import { BookOpen, CheckCircle2, Images, Send } from "lucide-react";
+import { ButtonLink } from "@/components/button-link";
 import { JsonLd } from "@/components/json-ld";
 import { CtaBand } from "@/components/cta-band";
 import { FaqList } from "@/components/faq-list";
@@ -46,7 +47,7 @@ export function ServicePage({ service }: { service: Service }) {
           <div className="grid gap-3 sm:grid-cols-2">
             {service.focus.map((item) => (
               <div
-                className="rounded-lg border border-[var(--limm-line)] bg-[var(--limm-paper)] p-5"
+                className="rounded-lg border border-[var(--limm-line)] bg-[var(--limm-paper)] p-5 shadow-sm"
                 key={item}
               >
                 <CheckCircle2
@@ -71,7 +72,7 @@ export function ServicePage({ service }: { service: Service }) {
           <div className="grid gap-4">
             {service.uniqueSection.points.map((point) => (
               <div
-                className="rounded-lg border border-[var(--limm-line)] bg-[var(--limm-paper)] p-5"
+                className="rounded-lg border border-[var(--limm-line)] bg-[var(--limm-paper)] p-5 shadow-sm"
                 key={point}
               >
                 <CheckCircle2
@@ -127,7 +128,7 @@ export function ServicePage({ service }: { service: Service }) {
           <div className="grid gap-4">
             {service.reviewSteps.map((step, index) => (
               <div
-                className="rounded-lg border border-[var(--limm-line)] bg-[var(--limm-paper)] p-5"
+                className="rounded-lg border border-[var(--limm-line)] bg-[var(--limm-paper)] p-5 shadow-sm"
                 key={step}
               >
                 <p className="text-sm font-semibold text-[var(--limm-clay)]">
@@ -136,6 +137,46 @@ export function ServicePage({ service }: { service: Service }) {
                 <p className="mt-2 text-sm leading-6 text-[var(--limm-ink)]">{step}</p>
               </div>
             ))}
+          </div>
+        </div>
+      </MotionSection>
+      <MotionSection className="bg-[var(--limm-ink)] px-4 py-14 text-white sm:px-6 lg:px-8">
+        <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+          <div>
+            <p className="text-sm font-semibold text-[var(--limm-sage)]">
+              Related planning paths
+            </p>
+            <h2 className="mt-3 text-balance text-3xl font-semibold leading-tight md:text-4xl">
+              Review {service.title} with the right project context.
+            </h2>
+            <p className="mt-4 text-sm leading-6 text-white/74 md:text-base">
+              Use gallery references and Owner&apos;s Notes to prepare a clearer
+              first message, then send LIMM your floor plan, site photos and
+              rough scope through WhatsApp.
+            </p>
+          </div>
+          <div className="grid gap-3 sm:grid-cols-3">
+            <ButtonLink
+              href="/gallery"
+              icon={<Images aria-hidden="true" size={18} />}
+              variant="ghost"
+            >
+              Project Gallery
+            </ButtonLink>
+            <ButtonLink
+              href="/owners-notes"
+              icon={<BookOpen aria-hidden="true" size={18} />}
+              variant="ghost"
+            >
+              Owner&apos;s Notes
+            </ButtonLink>
+            <ButtonLink
+              href="/contact"
+              icon={<Send aria-hidden="true" size={18} />}
+              variant="primary"
+            >
+              Send Details
+            </ButtonLink>
           </div>
         </div>
       </MotionSection>

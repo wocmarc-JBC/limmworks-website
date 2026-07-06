@@ -4,7 +4,7 @@ import type { OwnerNote } from "@/data/owners-notes";
 
 export function OwnerNoteCard({ note }: { note: OwnerNote }) {
   return (
-    <article className="flex h-full flex-col rounded-lg border border-[var(--limm-line)] bg-[var(--limm-paper)] p-5">
+    <article className="flex h-full flex-col rounded-lg border border-[var(--limm-line)] bg-[var(--limm-paper)] p-5 shadow-sm transition duration-300 hover:-translate-y-1 hover:border-[var(--limm-brass)] hover:shadow-[var(--limm-shadow-soft)]">
       <div className="flex items-center justify-between gap-3 text-xs font-medium text-[var(--limm-clay)]">
         <span>{note.category}</span>
         <span>{note.readingTime}</span>

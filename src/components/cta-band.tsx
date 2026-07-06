@@ -10,7 +10,7 @@ export function CtaBand({
   body?: string;
 }) {
   return (
-    <section className="bg-[var(--limm-olive)] px-4 py-14 text-white sm:px-6 lg:px-8">
+    <section className="border-y border-white/10 bg-[var(--limm-olive)] px-4 py-16 text-white sm:px-6 lg:px-8">
       <div className="mx-auto flex max-w-7xl flex-col gap-6 md:flex-row md:items-center md:justify-between">
         <div className="max-w-2xl">
           <h2 className="text-3xl font-semibold leading-tight">{title}</h2>

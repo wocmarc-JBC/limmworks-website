@@ -27,7 +27,7 @@ const initialState: FormState = {
 };
 
 const fieldClass =
-  "min-h-11 w-full rounded-md border border-[var(--limm-line)] bg-white px-3 py-2 text-sm text-[var(--limm-ink)] outline-none transition focus:border-[var(--limm-brass)]";
+  "min-h-12 w-full rounded-md border border-[var(--limm-line)] bg-white px-3.5 py-2.5 text-sm text-[var(--limm-ink)] outline-none transition focus:border-[var(--limm-brass)]";
 
 const budgetOptions = [
   "Below $50K",
@@ -77,10 +77,22 @@ export function ContactForm() {
 
   return (
     <form
-      className="rounded-lg border border-[var(--limm-line)] bg-[var(--limm-paper)] p-5 shadow-sm md:p-6"
+      className="rounded-lg border border-[var(--limm-line)] bg-[var(--limm-paper)] p-5 shadow-[var(--limm-shadow-soft)] md:p-7"
       id="project-review"
       onSubmit={onSubmit}
     >
+      <div className="mb-5 border-b border-[var(--limm-line)] pb-5">
+        <p className="text-sm font-semibold text-[var(--limm-clay)]">
+          Initial project review form
+        </p>
+        <h2 className="mt-2 text-2xl font-semibold leading-tight text-[var(--limm-ink)]">
+          Prepare a WhatsApp enquiry with the key project details.
+        </h2>
+        <p className="mt-3 text-sm leading-6 text-[var(--limm-muted)]">
+          Fill what you know now. The generated message can be sent directly to
+          LIMM Works through WhatsApp.
+        </p>
+      </div>
       <div className="grid gap-4 md:grid-cols-2">
         <label className="grid gap-2 text-sm font-medium text-[var(--limm-ink)]">
           Name
@@ -177,9 +189,10 @@ export function ContactForm() {
           />
         </label>
       </div>
-      <div className="mt-5 rounded-lg border border-[var(--limm-line)] bg-white p-4 text-sm leading-6 text-[var(--limm-muted)]">
-        File upload is not enabled here. Attach floor plans and site photos
-        separately in WhatsApp or email after generating the enquiry text.
+      <div className="mt-5 rounded-lg border border-[var(--limm-gold-soft)] bg-white p-4 text-sm leading-6 text-[var(--limm-muted)]">
+        Attach floor plans and site photos in WhatsApp after generating the
+        enquiry text. Clear photos of existing conditions are useful for the
+        first review.
       </div>
       <div className="mt-5 flex flex-col gap-3 sm:flex-row">
         <button

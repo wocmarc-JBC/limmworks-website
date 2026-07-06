@@ -14,7 +14,7 @@ export const galleryCategories: GalleryCategory[] = [
     title: "Landed / A&A",
     slug: "landed-aa",
     description:
-      "Landed home interior, entry and layout references for renovation and A&A planning discussions.",
+      "Landed interior, entry and layout references for discussing renovation flow, extensions and A&A scope review.",
     image: projectImages.landed,
     imageAlt: "Completed landed home interior with open living and kitchen planning",
     tags: ["Landed", "A&A", "Layout"],
@@ -23,7 +23,7 @@ export const galleryCategories: GalleryCategory[] = [
     title: "Condo / HDB",
     slug: "condo-hdb",
     description:
-      "Condo and HDB interior references for compact storage, finishes and practical daily use.",
+      "Condo and HDB references for compact storage, practical finishes, built-ins and daily-use planning.",
     image: projectImages.condo,
     imageAlt: "Condo interior TV feature wall and living area finish",
     tags: ["Condo", "HDB", "Interior"],
@@ -32,7 +32,7 @@ export const galleryCategories: GalleryCategory[] = [
     title: "Kitchen / Bathroom",
     slug: "kitchen-bathroom",
     description:
-      "Kitchen cabinet, countertop and bathroom wet-area references for practical renovation planning.",
+      "Kitchen cabinet, countertop and bathroom wet-area references for storage, workflow and maintenance discussion.",
     image: projectImages.kitchen,
     imageAlt: "Kitchen renovation with light wood cabinets and island counter",
     tags: ["Kitchen", "Bathroom", "Wet works"],
@@ -41,7 +41,7 @@ export const galleryCategories: GalleryCategory[] = [
     title: "Carpentry / Storage",
     slug: "carpentry-storage",
     description:
-      "Wardrobe, cabinet and built-in storage references for measured carpentry discussions.",
+      "Wardrobe, cabinet and built-in storage references for measured carpentry, hardware and inside-layout planning.",
     image: projectImages.carpentry,
     imageAlt: "Carpentry and storage work with built-in wardrobe run",
     tags: ["Carpentry", "Built-ins", "Storage"],
@@ -50,7 +50,7 @@ export const galleryCategories: GalleryCategory[] = [
     title: "Commercial",
     slug: "commercial",
     description:
-      "Commercial interior references for dining, retail and business fit-out coordination.",
+      "Commercial interior references for dining, retail, storage, counters and business fit-out coordination.",
     image: projectImages.commercial,
     imageAlt: "Commercial dining fit-out with tables, counters and ceiling services",
     tags: ["Commercial", "Fit-out", "Coordination"],
@@ -59,7 +59,7 @@ export const galleryCategories: GalleryCategory[] = [
     title: "Site Progress",
     slug: "site-progress",
     description:
-      "Protection, sequencing and coordination references for renovation work in progress.",
+      "Protection, sequencing and coordination references for renovation work in progress and site movement.",
     image: projectImages.contact,
     imageAlt: "Renovation site progress with protection and coordination",
     tags: ["Progress", "Protection", "Coordination"],

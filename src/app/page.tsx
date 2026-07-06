@@ -1,5 +1,12 @@
 import type { Metadata } from "next";
-import { ArrowRight, BookOpen, Images, MessageCircle, Send } from "lucide-react";
+import {
+  ArrowRight,
+  CheckCircle2,
+  ClipboardCheck,
+  Images,
+  MessageCircle,
+  Send,
+} from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { ButtonLink } from "@/components/button-link";
@@ -69,6 +76,21 @@ const whyWorkWithLimm = [
   "Warm, professional communication around site condition and requirements.",
 ];
 
+const reviewPillars = [
+  {
+    title: "Project review first",
+    body: "Floor plans, site photos and rough scope help shape a more useful discussion before details are fixed.",
+  },
+  {
+    title: "Property-specific planning",
+    body: "Condo rules, HDB requirements, landed site condition and commercial access are reviewed as part of the scope.",
+  },
+  {
+    title: "Coordinated site execution",
+    body: "Wet works, carpentry, finishes, protection and sequencing are considered together instead of as separate fragments.",
+  },
+];
+
 const sendChecklist = [
   "Floor plan or existing layout",
   "Current site photos and known issues",
@@ -103,35 +125,43 @@ export default function Home() {
         <div className="pointer-events-none absolute inset-0 -z-10">
           <Image
             alt="Warm renovation planning interior for LIMM Works"
-            className="pointer-events-none object-cover"
+            className="pointer-events-none object-cover object-[center_56%]"
             fill
             priority
             sizes="100vw"
             src={projectImages.homeHero}
           />
-          <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(31,38,31,0.94),rgba(31,38,31,0.67),rgba(31,38,31,0.16))]" />
+          <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(31,38,31,0.96),rgba(31,38,31,0.74),rgba(31,38,31,0.24))]" />
+          <div className="absolute inset-x-0 bottom-0 h-36 bg-gradient-to-t from-[var(--limm-ink)] to-transparent" />
         </div>
-        <div className="mx-auto flex min-h-[82svh] w-full max-w-7xl items-center px-4 py-16 sm:px-6 lg:px-8">
+        <div className="mx-auto flex min-h-[78svh] w-full max-w-7xl items-center px-4 py-14 sm:px-6 md:min-h-[84svh] lg:px-8">
           <div className="max-w-3xl">
-            <p className="text-sm font-semibold text-[var(--limm-sage)]">
+            <p className="inline-flex rounded-full border border-white/18 bg-white/10 px-3 py-1 text-sm font-semibold text-[var(--limm-sage)] backdrop-blur">
               LIMM Works Pte Ltd
             </p>
-            <h1 className="mt-5 text-balance text-4xl font-semibold leading-tight md:text-6xl">
-              Residential, Landed & Commercial Renovation
+            <h1 className="mt-5 text-balance text-4xl font-semibold leading-tight md:text-[4.65rem]">
+              Renovation planning for homes, landed properties and commercial spaces.
             </h1>
-            <p className="mt-4 text-2xl font-semibold text-white md:text-3xl">
-              Planned Properly. Built with Care.
+            <p className="mt-5 text-2xl font-semibold text-white md:text-3xl">
+              Planned properly. Built with care.
             </p>
             <p className="mt-5 max-w-2xl text-pretty text-base leading-7 text-white/82 md:text-lg">
-              LIMM Works helps homeowners and businesses plan practical renovation
-              works with clearer scope, coordination and site execution.
+              Share your floor plan, site photos and rough scope. LIMM Works
+              reviews the practical renovation path before works move too far.
             </p>
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
               <ButtonLink
                 href={getWhatsappHref()}
                 icon={<MessageCircle aria-hidden="true" size={18} />}
               >
                 WhatsApp LIMM Works
+              </ButtonLink>
+              <ButtonLink
+                href="/contact"
+                icon={<ClipboardCheck aria-hidden="true" size={18} />}
+                variant="ghost"
+              >
+                Start Project Review
               </ButtonLink>
               <ButtonLink
                 href="/gallery"
@@ -140,50 +170,66 @@ export default function Home() {
               >
                 View Our Works
               </ButtonLink>
-              <ButtonLink
-                href="/owners-notes"
-                icon={<BookOpen aria-hidden="true" size={18} />}
-                variant="ghost"
-              >
-                Read Owner&apos;s Notes
-              </ButtonLink>
+            </div>
+            <div className="mt-8 grid max-w-2xl gap-2 text-sm text-white/78 sm:grid-cols-2">
+              {[
+                "Landed renovation and A&A scope review",
+                "Condo, HDB and commercial interiors",
+                "Kitchen, bathroom and carpentry coordination",
+                "WhatsApp-first initial project review",
+              ].map((item) => (
+                <div
+                  className="flex items-center gap-2 rounded-md border border-white/14 bg-white/8 px-3 py-2 backdrop-blur"
+                  key={item}
+                >
+                  <CheckCircle2
+                    aria-hidden="true"
+                    className="shrink-0 text-[var(--limm-gold-soft)]"
+                    size={16}
+                  />
+                  <span>{item}</span>
+                </div>
+              ))}
             </div>
           </div>
         </div>
       </section>
 
-      <MotionSection className="px-4 py-16 sm:px-6 lg:px-8">
+      <MotionSection className="px-4 py-16 sm:px-6 md:py-20 lg:px-8">
         <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
           <SectionHeader
             className="mx-0"
             eyebrow="About LIMM Works"
-            title="Premium enough to be considered, practical enough to be useful."
-            body="LIMM Works is positioned for homeowners and businesses who want a more considered renovation process: clearer planning, better coordination and grounded advice before site works move too far."
+            title="A more considered renovation process, grounded in site reality."
+            body="LIMM Works is for homeowners and businesses who want clearer planning, better coordination and responsible advice before site works move too far."
           />
-          <div className="grid gap-4 sm:grid-cols-2">
-            {[
-              "Residential and commercial renovation",
-              "Condo, HDB and landed interior works",
-              "Landed renovation and A&A scope review",
-              "Kitchen, bathroom, carpentry and storage coordination",
-            ].map((item) => (
+          <div className="grid gap-4 md:grid-cols-3 lg:grid-cols-3">
+            {reviewPillars.map((item, index) => (
               <div
-                className="rounded-lg border border-[var(--limm-line)] bg-[var(--limm-paper)] p-5"
-                key={item}
+                className="rounded-lg border border-[var(--limm-line)] bg-[var(--limm-paper)] p-5 shadow-sm"
+                key={item.title}
               >
-                <p className="text-base font-semibold text-[var(--limm-ink)]">{item}</p>
+                <p className="text-sm font-semibold text-[var(--limm-clay)]">
+                  0{index + 1}
+                </p>
+                <h3 className="mt-3 text-lg font-semibold text-[var(--limm-ink)]">
+                  {item.title}
+                </h3>
+                <p className="mt-3 text-sm leading-6 text-[var(--limm-muted)]">
+                  {item.body}
+                </p>
               </div>
             ))}
           </div>
         </div>
       </MotionSection>
 
-      <MotionSection className="bg-[var(--limm-paper)] px-4 py-16 sm:px-6 lg:px-8">
+      <MotionSection className="bg-[var(--limm-paper)] px-4 py-16 sm:px-6 md:py-20 lg:px-8">
         <div className="mx-auto max-w-7xl">
           <SectionHeader
             eyebrow="Core services"
-            title="Renovation services built around planning, coordination and execution."
-            body="LIMM Works organizes renovation services around clear planning, coordinated site work and practical follow-through across the full project scope."
+            title="Service pages shaped around the way renovation decisions are made."
+            body="Each service area keeps the discussion practical: property type, site condition, daily use, approvals or management rules, and the next useful information to send."
           />
           <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
             {services.map((service) => (
@@ -265,14 +311,14 @@ export default function Home() {
         </div>
       </MotionSection>
 
-      <MotionSection className="bg-[var(--limm-paper)] px-4 py-16 sm:px-6 lg:px-8">
+      <MotionSection className="bg-[var(--limm-paper)] px-4 py-16 sm:px-6 md:py-20 lg:px-8">
         <div className="mx-auto max-w-7xl">
           <div className="flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
             <SectionHeader
               className="mx-0"
               eyebrow="Project Gallery"
-              title="Selected renovation, site progress and interior works references."
-              body="Browse landed, condo/HDB, kitchen/bathroom, carpentry/storage, commercial and site progress references in one place."
+              title="Real project visuals, grouped by the way owners review scope."
+              body="Browse selected landed, condo/HDB, kitchen/bathroom, carpentry/storage and commercial references. The gallery is a visual starting point for the project review, not a package catalogue."
             />
             <ButtonLink
               href="/gallery"
@@ -282,22 +328,46 @@ export default function Home() {
               Open Gallery
             </ButtonLink>
           </div>
-          <div className="mt-10 grid gap-5 md:grid-cols-3">
-            {galleryCategories.slice(0, 3).map((item) => (
-              <GalleryCard item={item} key={item.slug} />
-            ))}
+          <div className="mt-10 grid gap-5 lg:grid-cols-[1.18fr_0.82fr]">
+            <div className="relative min-h-[360px] overflow-hidden rounded-lg border border-[var(--limm-line)] bg-[var(--limm-ink)] shadow-[var(--limm-shadow)]">
+              <Image
+                alt="LIMM Works landed home renovation interior reference"
+                className="object-cover object-[center_58%]"
+                fill
+                sizes="(min-width: 1024px) 58vw, 100vw"
+                src={projectImages.landed}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[rgba(31,38,31,0.76)] via-[rgba(31,38,31,0.18)] to-transparent" />
+              <div className="absolute inset-x-0 bottom-0 p-6 text-white md:p-8">
+                <p className="text-sm font-semibold text-[var(--limm-gold-soft)]">
+                  Featured visual reference
+                </p>
+                <h3 className="mt-3 max-w-xl text-2xl font-semibold leading-tight md:text-3xl">
+                  Use project photos to discuss scope, sequencing and finish direction.
+                </h3>
+                <p className="mt-3 max-w-xl text-sm leading-6 text-white/78">
+                  Send your own site photos with the references that feel relevant.
+                  LIMM can then review the practical renovation context.
+                </p>
+              </div>
+            </div>
+            <div className="grid gap-5">
+              {galleryCategories.slice(0, 3).map((item) => (
+                <GalleryCard item={item} key={item.slug} />
+              ))}
+            </div>
           </div>
         </div>
       </MotionSection>
 
-      <MotionSection className="px-4 py-16 sm:px-6 lg:px-8">
+      <MotionSection className="px-4 py-16 sm:px-6 md:py-20 lg:px-8">
         <div className="mx-auto max-w-7xl">
           <div className="flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
             <SectionHeader
               className="mx-0"
               eyebrow="Owner's Notes"
               title="Practical renovation notes for homeowners and businesses."
-              body="Owner's Notes are practical renovation notes from LIMM Works to help homeowners and businesses understand planning, site conditions, scope and coordination before works begin."
+              body="Owner's Notes help owners ask better questions around management rules, landed A&A, waterproofing, storage and project preparation."
             />
             <ButtonLink
               href="/owners-notes"

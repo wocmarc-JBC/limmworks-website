@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Camera, Mail, MessageCircle } from "lucide-react";
+import { Camera, CheckCircle2, Mail, MessageCircle } from "lucide-react";
 import { ContactForm } from "@/components/contact-form";
 import { JsonLd } from "@/components/json-ld";
 import { PageHero } from "@/components/page-hero";
@@ -33,7 +33,7 @@ export default function ContactPage() {
         ])}
       />
       <PageHero
-        body="Share the property type, rough scope, floor plan and site photos so LIMM can begin with practical renovation context."
+        body="Send your floor plan, site photos, property type and rough scope. LIMM will review the practical context before advising the next step."
         ctaHref="#project-review"
         ctaLabel="Start Project Review"
         eyebrow="Contact"
@@ -48,11 +48,11 @@ export default function ContactPage() {
               className="mx-0"
               eyebrow="What to send"
               title="Send floor plan and site photos with the first enquiry."
-              body="Scope and timing may vary depending on property, site condition, management rules and approval needs."
+              body="Scope and timing may vary depending on property, site condition, management rules and approval needs. A clearer first message helps the review stay practical."
             />
             <div className="mt-8 grid gap-3 text-sm leading-6 text-[var(--limm-muted)]">
               <a
-                className="inline-flex items-center gap-2 rounded-lg border border-[var(--limm-line)] bg-[var(--limm-paper)] p-4 hover:border-[var(--limm-brass)]"
+                className="inline-flex items-center gap-2 rounded-lg border border-[var(--limm-brass)] bg-[var(--limm-paper)] p-4 font-semibold text-[var(--limm-ink)] shadow-sm hover:border-[var(--limm-brass-dark)]"
                 href={getWhatsappHref()}
               >
                 <MessageCircle aria-hidden="true" size={18} />
@@ -74,6 +74,29 @@ export default function ContactPage() {
                 <Camera aria-hidden="true" size={18} />
                 Instagram portfolio
               </a>
+            </div>
+            <div className="mt-8 rounded-lg border border-[var(--limm-line)] bg-[var(--limm-paper)] p-5 shadow-sm">
+              <p className="text-sm font-semibold text-[var(--limm-clay)]">
+                What happens next
+              </p>
+              <div className="mt-4 grid gap-4">
+                {[
+                  "LIMM reviews the property type, photos and rough scope.",
+                  "Missing details are clarified before deeper costing or scheduling.",
+                  "Next steps are discussed around site condition, rules and timing.",
+                ].map((item) => (
+                  <div className="flex gap-3" key={item}>
+                    <CheckCircle2
+                      aria-hidden="true"
+                      className="mt-0.5 shrink-0 text-[var(--limm-olive)]"
+                      size={18}
+                    />
+                    <p className="text-sm leading-6 text-[var(--limm-muted)]">
+                      {item}
+                    </p>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
           <ContactForm />

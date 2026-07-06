@@ -21,7 +21,7 @@ export function MobileMenu() {
         {open ? <X aria-hidden="true" size={20} /> : <Menu aria-hidden="true" size={20} />}
       </button>
       {open ? (
-        <div className="fixed inset-x-0 top-[68px] z-50 max-h-[calc(100svh-68px)] overflow-y-auto border-b border-[var(--limm-line)] bg-[var(--limm-paper)] px-4 py-5 shadow-xl">
+        <div className="fixed inset-x-0 top-[72px] z-50 max-h-[calc(100svh-72px)] overflow-y-auto border-b border-[var(--limm-line)] bg-[var(--limm-paper)] px-4 py-5 shadow-xl">
           <div className="grid gap-2">
             {primaryNav.map((item) => (
               <Link

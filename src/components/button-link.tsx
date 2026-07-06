@@ -13,12 +13,12 @@ type ButtonLinkProps = {
 
 const variants = {
   primary:
-    "border border-[var(--limm-brass)] bg-[var(--limm-brass)] text-white hover:bg-[var(--limm-clay)] hover:border-[var(--limm-clay)]",
+    "border border-[var(--limm-brass)] bg-[var(--limm-brass)] text-white shadow-[0_14px_30px_rgba(173,128,68,0.24)] hover:bg-[var(--limm-brass-dark)] hover:border-[var(--limm-brass-dark)]",
   secondary:
-    "border border-[var(--limm-line)] bg-[var(--limm-paper)] text-[var(--limm-ink)] hover:border-[var(--limm-brass)] hover:bg-white",
-  dark: "border border-[var(--limm-ink)] bg-[var(--limm-ink)] text-white hover:bg-[var(--limm-olive)] hover:border-[var(--limm-olive)]",
+    "border border-[var(--limm-line)] bg-[var(--limm-paper)] text-[var(--limm-ink)] shadow-sm hover:border-[var(--limm-brass)] hover:bg-white",
+  dark: "border border-[var(--limm-ink)] bg-[var(--limm-ink)] text-white shadow-[0_14px_30px_rgba(31,38,31,0.18)] hover:bg-[var(--limm-olive)] hover:border-[var(--limm-olive)]",
   ghost:
-    "border border-white/45 bg-white/10 text-white hover:bg-white hover:text-[var(--limm-ink)]",
+    "border border-white/42 bg-white/10 text-white shadow-sm hover:bg-white hover:text-[var(--limm-ink)]",
 };
 
 export function ButtonLink({
@@ -30,7 +30,7 @@ export function ButtonLink({
   external,
 }: ButtonLinkProps) {
   const classes = cn(
-    "inline-flex min-h-11 items-center justify-center gap-2 rounded-md px-4 py-2.5 text-sm font-semibold transition-colors",
+    "inline-flex min-h-11 items-center justify-center gap-2 rounded-md px-5 py-2.5 text-sm font-semibold transition",
     variants[variant],
     className,
   );
