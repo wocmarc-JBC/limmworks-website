@@ -159,7 +159,7 @@ export const services: Service[] = [
           "LIMM Works can help review and coordinate practical landed A&A scopes, while required professional checks or submissions should be completed where applicable.",
       },
       {
-        question: "Is approval guaranteed for A&A works?",
+        question: "Can A&A approval be assumed before review?",
         answer:
           "No. Approval depends on property details, proposed works and relevant requirements. Any needed review or submission should happen before works proceed.",
       },

@@ -34,7 +34,7 @@ npm run build
 
 - WhatsApp number is confirmed as `+65 8989 8278`; WhatsApp links use `https://wa.me/6589898278?text=...`.
 - Owner's Notes are practical renovation notes from LIMM Works to help homeowners and businesses understand planning, site conditions, scope and coordination before works begin.
-- Project visuals are temporary preview visuals until approved LIMM project photos are supplied.
+- Selected real project photos are integrated for preview review; final public launch still requires owner approval.
 - Official brand assets are stored in `public/brand/` as `limm-logo-light.png`, `limm-logo-dark.png`, `limm-icon.png` and `favicon.png`.
 
 See:
