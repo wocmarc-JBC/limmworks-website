@@ -7,6 +7,15 @@ const baseURL = (process.argv[2] || process.env.BASE_URL || "http://127.0.0.1:30
   "",
 );
 
+const ownerNoteRoutes = [
+  "/owners-notes/prepare-before-starting-renovation",
+  "/owners-notes/condo-renovation-management-rules-planning",
+  "/owners-notes/landed-renovation-vs-aa-works-difference",
+  "/owners-notes/kitchen-renovation-storage-workflow-details",
+  "/owners-notes/bathroom-renovation-waterproofing-layout-coordination",
+  "/owners-notes/carpentry-storage-before-fabrication",
+];
+
 const routes = [
   "/",
   "/landed-renovation",
@@ -19,6 +28,7 @@ const routes = [
   "/carpentry-storage",
   "/gallery",
   "/owners-notes",
+  ...ownerNoteRoutes,
   "/about",
   "/contact",
 ];
