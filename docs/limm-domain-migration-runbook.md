@@ -1,17 +1,21 @@
 # LIMM Works Domain Migration Runbook
 
-This runbook prepares the later switch from the current Wix live site to the custom LIMM Works Vercel site. It is a rehearsal document only. Do not connect `limmworks.com`, change DNS, alter Wix, add Vercel domain aliases, or switch any production domain without explicit Marcus approval.
+This runbook prepares the later switch from the current Wix live site to the custom LIMM Works Vercel site. Vercel-side domain setup has been prepared for the LIMM Works project, but DNS must not be changed until Marcus explicitly approves the live switch.
 
 ## Current State
 
 - Wix remains the public live site for the LIMM Works domain.
 - The approved Vercel production candidate is live at `https://limmworks-website.vercel.app`.
-- The exact Vercel deployment URL is `https://limmworks-website-dv9wg2p87-limmworks.vercel.app`.
+- The current Vercel production deployment URL after the domain-env redeploy is `https://limmworks-website-7fpkuq5qr-limmworks.vercel.app`.
 - Production candidate commit: `dd5dc219243a5f718c6c90e2d122abbcfdf801c3`.
 - Production candidate tag: `v1.2-limm-production-candidate`.
-- `limmworks.com` and `www.limmworks.com` are not connected to the Vercel project.
-- No DNS changes have been made as part of this rehearsal.
-- Current Vercel production aliases are Vercel-generated aliases only:
+- `NEXT_PUBLIC_SITE_URL=https://www.limmworks.com` is set for the Vercel Production environment only.
+- `limmworks.com` and `www.limmworks.com` have been added to the Vercel project `limmworks-website`.
+- The custom domains are not DNS-verified yet because the live DNS still points at Wix.
+- No Namecheap, Wix or DNS provider records have been changed.
+- Current Vercel production aliases:
+  - `https://limmworks.com`
+  - `https://www.limmworks.com`
   - `https://limmworks-website.vercel.app`
   - `https://limmworks-website-limmworks.vercel.app`
   - `https://limmworks-website-wocmarc-3761-limmworks.vercel.app`
@@ -22,21 +26,21 @@ The site URL handling is already centralized through `src/data/site.ts`.
 
 | Purpose | File | Current handling | Current deployed result | Recommended launch value |
 | --- | --- | --- | --- | --- |
-| Base site URL | `src/data/site.ts` | `getSiteUrl()` checks `NEXT_PUBLIC_SITE_URL`, then `VERCEL_URL`, then `siteConfig.eventualProductionUrl` | Vercel injects `VERCEL_URL`, so metadata resolves to `https://limmworks-website-dv9wg2p87-limmworks.vercel.app` | Set `NEXT_PUBLIC_SITE_URL=https://www.limmworks.com` for production launch |
+| Base site URL | `src/data/site.ts` | `getSiteUrl()` checks `NEXT_PUBLIC_SITE_URL`, then `VERCEL_URL`, then `siteConfig.eventualProductionUrl` | Production now uses `NEXT_PUBLIC_SITE_URL=https://www.limmworks.com` | Keep `NEXT_PUBLIC_SITE_URL=https://www.limmworks.com` for launch |
 | Future production default | `src/data/site.ts` | `siteConfig.eventualProductionUrl: "https://www.limmworks.com"` | Used only when neither `NEXT_PUBLIC_SITE_URL` nor `VERCEL_URL` exists | Keep as `https://www.limmworks.com` |
-| Canonical URLs | `src/lib/seo.ts`, `src/app/layout.tsx` | Page metadata uses `absoluteUrl(path)` or Next metadata relative to `metadataBase` | Deployment URL | `https://www.limmworks.com/...` |
-| Sitemap URLs | `src/app/sitemap.ts` | Each route uses `absoluteUrl(path)` | Deployment URL | `https://www.limmworks.com/...` |
-| Robots sitemap reference | `src/app/robots.ts` | `sitemap: absoluteUrl("/sitemap.xml")` and `host: getSiteUrl()` | Deployment URL | `https://www.limmworks.com/sitemap.xml` |
-| Open Graph URLs | `src/lib/seo.ts`, `src/app/layout.tsx` | OG page URL and OG images use `absoluteUrl(...)` or `metadataBase` | Deployment URL | `https://www.limmworks.com/...` |
-| Twitter card images | `src/lib/seo.ts`, `src/app/layout.tsx` | Images use `absoluteUrl(image)` or `metadataBase` | Deployment URL | `https://www.limmworks.com/...` |
-| JSON-LD schema URLs | `src/lib/schema.ts` | Organization, LocalBusiness, WebSite, WebPage, Service, BreadcrumbList and Article schema use `absoluteUrl(...)` | Deployment URL | `https://www.limmworks.com/...` |
-| Hreflang / language alternates | `src/lib/seo.ts`, `src/app/layout.tsx` | English only: `en-SG` | Deployment URL | `https://www.limmworks.com/...` |
+| Canonical URLs | `src/lib/seo.ts`, `src/app/layout.tsx` | Page metadata uses `absoluteUrl(path)` or Next metadata relative to `metadataBase` | `https://www.limmworks.com/...` on `https://limmworks-website.vercel.app` | Keep `https://www.limmworks.com/...` |
+| Sitemap URLs | `src/app/sitemap.ts` | Each route uses `absoluteUrl(path)` | `https://www.limmworks.com/...` | Keep `https://www.limmworks.com/...` |
+| Robots sitemap reference | `src/app/robots.ts` | `sitemap: absoluteUrl("/sitemap.xml")` and `host: getSiteUrl()` | `https://www.limmworks.com/sitemap.xml` | Keep `https://www.limmworks.com/sitemap.xml` |
+| Open Graph URLs | `src/lib/seo.ts`, `src/app/layout.tsx` | OG page URL and OG images use `absoluteUrl(...)` or `metadataBase` | `https://www.limmworks.com/...` | Keep `https://www.limmworks.com/...` |
+| Twitter card images | `src/lib/seo.ts`, `src/app/layout.tsx` | Images use `absoluteUrl(image)` or `metadataBase` | `https://www.limmworks.com/...` | Keep `https://www.limmworks.com/...` |
+| JSON-LD schema URLs | `src/lib/schema.ts` | Organization, LocalBusiness, WebSite, WebPage, Service, BreadcrumbList and Article schema use `absoluteUrl(...)` | `https://www.limmworks.com/...` | Keep `https://www.limmworks.com/...` |
+| Hreflang / language alternates | `src/lib/seo.ts`, `src/app/layout.tsx` | English only: `en-SG` | `https://www.limmworks.com/...` | Keep `https://www.limmworks.com/...` |
 
 ## Domain-Ready Site URL Strategy
 
 Use `NEXT_PUBLIC_SITE_URL` as the approved launch switch.
 
-Recommended production launch setting:
+Production setting:
 
 ```text
 NEXT_PUBLIC_SITE_URL=https://www.limmworks.com
@@ -51,8 +55,8 @@ Why this works:
 
 Launch caution:
 
-- Set or confirm `NEXT_PUBLIC_SITE_URL=https://www.limmworks.com` in the Vercel project production environment before the final domain-live rebuild or promotion.
-- After the setting is active, verify `sitemap.xml`, `robots.txt`, page source, OG tags and JSON-LD on `https://www.limmworks.com`.
+- Keep `NEXT_PUBLIC_SITE_URL=https://www.limmworks.com` in the Vercel project Production environment.
+- After DNS is active, verify `sitemap.xml`, `robots.txt`, page source, OG tags and JSON-LD on `https://www.limmworks.com`.
 - Do not rely on `VERCEL_URL` for the final live domain because it resolves to the immutable deployment host.
 
 ## Pre-Switch Checklist
@@ -68,21 +72,50 @@ Do not begin the live switch until all items are ready.
 - Confirm access to Google Search Console.
 - Confirm who can approve rollback and who can execute rollback.
 - Confirm final canonical domain choice: `https://www.limmworks.com`.
-- Confirm `NEXT_PUBLIC_SITE_URL=https://www.limmworks.com` is ready to set for the Vercel production environment at launch.
+- Confirm `NEXT_PUBLIC_SITE_URL=https://www.limmworks.com` remains set for the Vercel Production environment.
 - Run final QA against `https://limmworks-website.vercel.app`.
 
 ## Vercel Domain Setup Rehearsal
 
-These steps are for later execution only.
+The domains have been added to Vercel, but DNS has not been changed.
 
 1. Open Vercel project `limmworks-website`.
-2. Add `limmworks.com` to the project domains only after Marcus approves.
-3. Add `www.limmworks.com` to the project domains only after Marcus approves.
-4. Set `https://www.limmworks.com` as the preferred canonical host.
-5. Ensure the apex domain `https://limmworks.com` redirects to `https://www.limmworks.com` if supported by the final Vercel/domain setup.
-6. Use only the exact DNS records shown by Vercel at domain setup time.
-7. Do not guess A, CNAME, TXT, ALIAS or verification records.
-8. Do not delete Wix DNS records until the existing records have been captured and the switch is approved.
+2. Confirm `limmworks.com` and `www.limmworks.com` are present under project domains.
+3. Keep `https://www.limmworks.com` as the preferred canonical host for SEO metadata.
+4. Ensure the apex domain `https://limmworks.com` redirects to `https://www.limmworks.com` if supported by the final Vercel/domain setup.
+5. Use only the exact DNS records shown by Vercel at the time of DNS switch.
+6. Do not guess A, CNAME, TXT, ALIAS or verification records.
+7. Do not delete Wix DNS records until the existing records have been captured and the switch is approved.
+
+## Vercel DNS Records Requested
+
+Captured on 2026-07-09 from `vercel domains verify --format json`.
+
+Recommended records:
+
+| Domain | Type | Name | Value |
+| --- | --- | --- | --- |
+| `www.limmworks.com` | `CNAME` | `www` | `536aa3d89bb83cb1.vercel-dns-017.com.` |
+| `limmworks.com` | `A` | `@` | `216.198.79.1` |
+| `limmworks.com` | `A` | `@` | `64.29.17.1` |
+
+Alternative Vercel nameserver option shown by verification:
+
+| Nameserver |
+| --- |
+| `ns1.vercel-dns.com` |
+| `ns2.vercel-dns.com` |
+
+Current DNS observed by Vercel still points to Wix:
+
+| Domain | Current nameservers / records |
+| --- | --- |
+| `www.limmworks.com` | nameservers `ns2.wixdns.net`, `ns3.wixdns.net`; CNAME `cdn1.wixdns.net.`; A `34.149.87.45` |
+| `limmworks.com` | nameservers `ns2.wixdns.net`, `ns3.wixdns.net`; A `185.230.63.171`, `185.230.63.107`, `185.230.63.186` |
+
+The Vercel CLI `domains inspect` warning also showed an A-record fallback of `76.76.21.21` for the apex and `www` host. Before changing DNS, Marcus should use the live Vercel domain panel or the verify command again and follow the current recommended records shown at that time.
+
+No DNS records were applied during this setup.
 
 ## DNS Switch Rehearsal
 
@@ -247,4 +280,3 @@ Marcus must approve:
 - DNS changes in Namecheap/Wix/DNS manager
 - rollback decision maker and contact path
 - Google Search Console submission after domain verification
-
