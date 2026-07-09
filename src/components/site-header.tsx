@@ -55,6 +55,9 @@ export function SiteHeader() {
             className="px-4"
             href={getWhatsappHref()}
             icon={<MessageCircle aria-hidden="true" size={18} />}
+            trackingEvent="whatsapp_click"
+            trackingLabel="WhatsApp"
+            trackingLocation="header"
             variant="dark"
           >
             WhatsApp

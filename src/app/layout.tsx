@@ -4,6 +4,8 @@ import { JsonLd } from "@/components/json-ld";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { StickyWhatsapp } from "@/components/sticky-whatsapp";
+import { AnalyticsClickListener } from "@/components/analytics-click-listener";
+import { TrackingScripts } from "@/components/tracking-scripts";
 import { brandAssets } from "@/data/assets";
 import { siteConfig, getSiteUrl } from "@/data/site";
 import { getExistingPublicAsset } from "@/lib/public-assets";
@@ -79,6 +81,8 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full`}
     >
       <body className="flex min-h-full flex-col pb-24 antialiased md:pb-0">
+        <TrackingScripts />
+        <AnalyticsClickListener />
         <JsonLd data={baseGraphSchema()} />
         <SiteHeader />
         <main className="flex-1">{children}</main>

@@ -197,6 +197,9 @@ export function ContactForm() {
       <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
         <button
           className="inline-flex min-h-11 items-center justify-center gap-2 rounded-md bg-[var(--limm-brass)] px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-[var(--limm-clay)]"
+          data-analytics-event="start_project_review_click"
+          data-analytics-label="Start Project Review"
+          data-analytics-location="contact_form"
           type="submit"
         >
           <Send aria-hidden="true" size={18} />
@@ -212,6 +215,9 @@ export function ContactForm() {
         </button>
         <a
           className="inline-flex min-h-11 items-center justify-center gap-2 rounded-md bg-[var(--limm-ink)] px-4 py-2.5 text-sm font-semibold text-white shadow-[0_14px_30px_rgba(31,38,31,0.18)] transition hover:bg-[var(--limm-olive)]"
+          data-analytics-event="contact_form_whatsapp_click"
+          data-analytics-label="WhatsApp LIMM Works"
+          data-analytics-location="contact_form"
           href={whatsappHref}
         >
           <MessageCircle aria-hidden="true" size={18} />

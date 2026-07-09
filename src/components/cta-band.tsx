@@ -5,9 +5,11 @@ import { getWhatsappHref } from "@/data/site";
 export function CtaBand({
   title = "Start with an initial project review.",
   body = "Send the floor plan, site photos, property type, rough scope, budget range and preferred timeline so the review can start with practical context.",
+  serviceSlug,
 }: {
   title?: string;
   body?: string;
+  serviceSlug?: string;
 }) {
   return (
     <section className="border-y border-white/10 bg-[var(--limm-olive)] px-4 py-16 text-white sm:px-6 lg:px-8">
@@ -20,6 +22,10 @@ export function CtaBand({
           <ButtonLink
             href={getWhatsappHref()}
             icon={<MessageCircle aria-hidden="true" size={18} />}
+            trackingEvent="whatsapp_click"
+            trackingLabel="WhatsApp LIMM Works"
+            trackingLocation="cta_band"
+            trackingServiceSlug={serviceSlug}
             variant="primary"
           >
             WhatsApp LIMM Works
@@ -27,6 +33,10 @@ export function CtaBand({
           <ButtonLink
             href="/contact"
             icon={<Send aria-hidden="true" size={18} />}
+            trackingEvent="send_floor_plan_cta_click"
+            trackingLabel="Send Floor Plan and Site Photos"
+            trackingLocation="cta_band"
+            trackingServiceSlug={serviceSlug}
             variant="ghost"
           >
             Send Floor Plan and Site Photos

@@ -12,6 +12,7 @@ export function PageHero({
   imagePosition = "center 54%",
   ctaHref,
   ctaLabel = "Start Project Review",
+  serviceSlug,
 }: {
   eyebrow: string;
   title: string;
@@ -21,7 +22,10 @@ export function PageHero({
   imagePosition?: string;
   ctaHref?: string;
   ctaLabel?: string;
+  serviceSlug?: string;
 }) {
+  const primaryCtaEvent = ctaHref ? "start_project_review_click" : "whatsapp_click";
+
   return (
     <section className="relative isolate overflow-hidden bg-[var(--limm-ink)] text-white">
       <div className="pointer-events-none absolute inset-0 -z-10">
@@ -51,6 +55,10 @@ export function PageHero({
             <ButtonLink
               href={ctaHref ?? getWhatsappHref()}
               icon={<MessageCircle aria-hidden="true" size={18} />}
+              trackingEvent={primaryCtaEvent}
+              trackingLabel={ctaLabel}
+              trackingLocation="page_hero"
+              trackingServiceSlug={serviceSlug}
             >
               {ctaLabel}
             </ButtonLink>

@@ -54,6 +54,9 @@ export default function ContactPage() {
             <div className="mt-8 grid gap-3 text-sm leading-6 text-[var(--limm-muted)]">
               <a
                 className="group rounded-lg border border-[var(--limm-ink)] bg-[var(--limm-ink)] p-5 font-semibold text-white shadow-[var(--limm-shadow-soft)] transition hover:bg-[var(--limm-olive)]"
+                data-analytics-event="whatsapp_click"
+                data-analytics-label="WhatsApp LIMM Works"
+                data-analytics-location="contact_details"
                 href={getWhatsappHref()}
               >
                 <span className="flex items-center gap-2">
@@ -70,6 +73,9 @@ export default function ContactPage() {
               </a>
               <a
                 className="inline-flex items-center gap-2 rounded-lg border border-[var(--limm-line)] bg-[var(--limm-paper)] p-4 hover:border-[var(--limm-brass)]"
+                data-analytics-event="email_click"
+                data-analytics-label="Email"
+                data-analytics-location="contact_details"
                 href={`mailto:${siteConfig.email}`}
               >
                 <Mail aria-hidden="true" size={18} />

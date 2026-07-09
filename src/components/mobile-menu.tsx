@@ -55,6 +55,9 @@ export function MobileMenu() {
           </div>
           <a
             className="mt-5 inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-md bg-[var(--limm-ink)] px-4 py-2.5 text-sm font-semibold text-white"
+            data-analytics-event="whatsapp_click"
+            data-analytics-label="WhatsApp LIMM Works"
+            data-analytics-location="mobile_menu"
             href={getWhatsappHref()}
             onClick={() => setOpen(false)}
           >

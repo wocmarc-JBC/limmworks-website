@@ -103,6 +103,7 @@ export function ServicePage({ service }: { service: Service }) {
         image={service.image}
         imageAlt={service.imageAlt}
         imagePosition={profile?.heroPosition}
+        serviceSlug={service.slug}
         title={service.title}
       />
       <MotionSection className="px-4 py-16 sm:px-6 lg:px-8">
@@ -248,6 +249,10 @@ export function ServicePage({ service }: { service: Service }) {
             <ButtonLink
               href="/contact"
               icon={<Send aria-hidden="true" size={18} />}
+              trackingEvent="start_project_review_click"
+              trackingLabel="Send Details"
+              trackingLocation="service_related_paths"
+              trackingServiceSlug={service.slug}
               variant="primary"
             >
               Send Details
@@ -289,7 +294,7 @@ export function ServicePage({ service }: { service: Service }) {
           <FaqList faqs={service.faqs} />
         </div>
       </MotionSection>
-      <CtaBand />
+      <CtaBand serviceSlug={service.slug} />
     </>
   );
 }

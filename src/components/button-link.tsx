@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
+import type { AnalyticsEventName } from "@/lib/analytics";
 import { cn } from "@/lib/utils";
 
 type ButtonLinkProps = {
@@ -9,6 +10,11 @@ type ButtonLinkProps = {
   variant?: "primary" | "secondary" | "dark" | "ghost";
   className?: string;
   external?: boolean;
+  trackingEvent?: AnalyticsEventName;
+  trackingLocation?: string;
+  trackingLabel?: string;
+  trackingServiceSlug?: string;
+  trackingSource?: string;
 };
 
 const variants = {
@@ -28,6 +34,11 @@ export function ButtonLink({
   variant = "primary",
   className,
   external,
+  trackingEvent,
+  trackingLocation,
+  trackingLabel,
+  trackingServiceSlug,
+  trackingSource,
 }: ButtonLinkProps) {
   const classes = cn(
     "inline-flex min-h-11 items-center justify-center gap-2 rounded-md px-5 py-2.5 text-sm font-semibold transition",
@@ -42,13 +53,29 @@ export function ButtonLink({
     </>
   );
 
-  if (external || href.startsWith("http") || href.startsWith("mailto:")) {
+  const trackingProps = trackingEvent
+    ? {
+        "data-analytics-event": trackingEvent,
+        "data-analytics-location": trackingLocation,
+        "data-analytics-label": trackingLabel,
+        "data-analytics-service-slug": trackingServiceSlug,
+        "data-analytics-source": trackingSource,
+      }
+    : {};
+
+  if (
+    external ||
+    href.startsWith("http") ||
+    href.startsWith("mailto:") ||
+    href.startsWith("tel:")
+  ) {
     return (
       <a
         className={classes}
         href={href}
         target={href.startsWith("http") ? "_blank" : undefined}
         rel={href.startsWith("http") ? "noreferrer" : undefined}
+        {...trackingProps}
       >
         {content}
       </a>
@@ -56,7 +83,7 @@ export function ButtonLink({
   }
 
   return (
-    <Link className={classes} href={href}>
+    <Link className={classes} href={href} {...trackingProps}>
       {content}
     </Link>
   );

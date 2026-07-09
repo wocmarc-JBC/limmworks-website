@@ -43,11 +43,23 @@ export function SiteFooter() {
             execution for homes and businesses in Singapore.
           </p>
           <div className="mt-6 grid gap-2.5 text-sm text-white/78">
-            <a className="inline-flex items-center gap-2 hover:text-white" href={getWhatsappHref()}>
+            <a
+              className="inline-flex items-center gap-2 hover:text-white"
+              data-analytics-event="whatsapp_click"
+              data-analytics-label="WhatsApp"
+              data-analytics-location="footer"
+              href={getWhatsappHref()}
+            >
               <MessageCircle aria-hidden="true" size={17} />
               WhatsApp: {getWhatsappLabel()}
             </a>
-            <a className="inline-flex items-center gap-2 hover:text-white" href={`mailto:${siteConfig.email}`}>
+            <a
+              className="inline-flex items-center gap-2 hover:text-white"
+              data-analytics-event="email_click"
+              data-analytics-label="Email"
+              data-analytics-location="footer"
+              href={`mailto:${siteConfig.email}`}
+            >
               <Mail aria-hidden="true" size={17} />
               {siteConfig.email}
             </a>

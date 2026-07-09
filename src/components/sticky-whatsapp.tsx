@@ -10,6 +10,9 @@ export function StickyWhatsapp() {
           className="shadow-xl"
           href={getWhatsappHref()}
           icon={<MessageCircle aria-hidden="true" size={18} />}
+          trackingEvent="whatsapp_click"
+          trackingLabel="WhatsApp LIMM Works"
+          trackingLocation="sticky_desktop"
           variant="dark"
         >
           WhatsApp LIMM Works
@@ -20,6 +23,9 @@ export function StickyWhatsapp() {
           className="min-h-10 w-full px-3 py-2 text-sm shadow-sm"
           href={getWhatsappHref()}
           icon={<MessageCircle aria-hidden="true" size={18} />}
+          trackingEvent="whatsapp_click"
+          trackingLabel="WhatsApp"
+          trackingLocation="sticky_mobile"
           variant="dark"
         >
           WhatsApp

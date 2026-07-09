@@ -80,12 +80,18 @@ export default function GalleryPage() {
               <ButtonLink
                 href={getWhatsappHref()}
                 icon={<MessageCircle aria-hidden="true" size={18} />}
+                trackingEvent="whatsapp_click"
+                trackingLabel="WhatsApp LIMM Works"
+                trackingLocation="gallery_cta"
               >
                 WhatsApp LIMM Works
               </ButtonLink>
               <ButtonLink
                 href="/contact"
                 icon={<Send aria-hidden="true" size={18} />}
+                trackingEvent="start_project_review_click"
+                trackingLabel="Start Project Review"
+                trackingLocation="gallery_cta"
                 variant="ghost"
               >
                 Start Project Review
