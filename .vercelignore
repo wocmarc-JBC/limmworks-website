@@ -1,3 +1,0 @@
-# Keep local review artifacts and raw photo intake out of preview deployments.
-qa/
-public/projects/limm-real/raw/**

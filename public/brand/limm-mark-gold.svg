@@ -1,0 +1,15 @@
+<svg width="466" height="512" viewBox="0 0 466 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <title>LIMM Works twin-roof mark</title>
+  <defs>
+    <linearGradient id="left" x1="45" y1="40" x2="265" y2="485" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#765844"/>
+      <stop offset="1" stop-color="#C58D3B"/>
+    </linearGradient>
+    <linearGradient id="right" x1="205" y1="45" x2="430" y2="485" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#B47A2D"/>
+      <stop offset="1" stop-color="#D6A93B"/>
+    </linearGradient>
+  </defs>
+  <path d="M151 10L278 330H211V490H80V330H23L151 10Z" fill="url(#left)"/>
+  <path d="M317 10L443 330H376V490H245V330H189L317 10Z" fill="url(#right)"/>
+</svg>

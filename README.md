@@ -1,43 +1,19 @@
-# limmworks-website
+# LIMM Works Website
 
-Production-quality preview website for LIMM Works Pte Ltd.
+Production source for [limmworks.com](https://www.limmworks.com), built with Next.js and deployed on Vercel.
 
-## Stack
-
-- Next.js App Router
-- TypeScript
-- Tailwind CSS
-- Motion
-- next/image
-- Static data files for services, gallery, FAQs and Owner's Notes
-- SEO metadata, sitemap, robots and JSON-LD schema
-
-## Local Commands
+## Local verification
 
 ```bash
-npm run dev
-npm run lint
-npm run typecheck
-npm run build
+npm ci
+npm test
 ```
 
-## Preview Rules
+`npm test` runs ESLint and a full production build.
 
-- This is a preview build only.
-- Do not connect `limmworks.com`.
-- Do not change DNS.
-- Do not replace the current Wix website.
-- Deploy to a Vercel preview URL first.
-- Visible site footer must not show preview/domain warnings; keep those notes in internal docs.
+## Deployment safety
 
-## Content Notes
+- Production domains are managed by the existing Vercel project `limmworks-website`.
+- Project photos are referenced from `https://limmworks-growth.woc-marc.chatgpt.site/projects/`.
+- Do not replace the photo origin or production aliases without first verifying all project and Owner's Notes routes.
 
-- WhatsApp number is confirmed as `+65 8989 8278`; WhatsApp links use `https://wa.me/6589898278?text=...`.
-- Owner's Notes are practical renovation notes from LIMM Works to help homeowners and businesses understand planning, site conditions, scope and coordination before works begin.
-- Selected real project photos are integrated for preview review; final public launch still requires owner approval.
-- Official brand assets are stored in `public/brand/` as `limm-logo-light.png`, `limm-logo-dark.png`, `limm-icon.png` and `favicon.png`.
-
-See:
-
-- `docs/limm-image-replacement-guide.md`
-- `docs/limm-seo-geo-roadmap.md`
