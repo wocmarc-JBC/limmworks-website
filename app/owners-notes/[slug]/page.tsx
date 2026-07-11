@@ -1,5 +1,5 @@
-/* eslint-disable @next/next/no-img-element */
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { JsonLd } from "../../components/site-chrome";
@@ -11,7 +11,13 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const note = notesBySlug[slug];
   if (!note) return {};
-  return { title: note.title, description: note.excerpt, alternates: { canonical: `/owners-notes/${slug}` }, openGraph: { title: note.title, description: note.excerpt, images: [{ url: note.image }] } };
+  return {
+    title: note.title,
+    description: note.excerpt,
+    alternates: { canonical: `/owners-notes/${slug}` },
+    openGraph: { type: "article", title: note.title, description: note.excerpt, url: `/owners-notes/${slug}`, images: [{ url: note.image }] },
+    twitter: { card: "summary_large_image", title: note.title, description: note.excerpt, images: [note.image] },
+  };
 }
 
 export default async function NotePage({ params }: { params: Promise<{ slug: string }> }) {
@@ -23,11 +29,11 @@ export default async function NotePage({ params }: { params: Promise<{ slug: str
 
   return (
     <>
-      <JsonLd data={{ "@context": "https://schema.org", "@graph": [{ "@type": "Article", headline: note.title, description: note.excerpt, image: `${site.domain}${note.image}`, author: { "@type": "Organization", name: site.name }, publisher: { "@type": "Organization", name: site.name }, mainEntityOfPage: `${site.domain}/owners-notes/${note.slug}` }, { "@type": "BreadcrumbList", itemListElement: [{ "@type": "ListItem", position: 1, name: "Home", item: site.domain }, { "@type": "ListItem", position: 2, name: "Owner's Notes", item: `${site.domain}/owners-notes` }, { "@type": "ListItem", position: 3, name: note.title, item: `${site.domain}/owners-notes/${note.slug}` }] }] }} />
+      <JsonLd data={{ "@context": "https://schema.org", "@graph": [{ "@type": "Article", headline: note.title, description: note.excerpt, image: `${site.domain}${note.image}`, author: { "@id": `${site.domain}/#organization` }, publisher: { "@id": `${site.domain}/#organization` }, mainEntityOfPage: `${site.domain}/owners-notes/${note.slug}`, isPartOf: { "@id": `${site.domain}/owners-notes#collection` }, inLanguage: "en-SG" }, { "@type": "BreadcrumbList", itemListElement: [{ "@type": "ListItem", position: 1, name: "Home", item: site.domain }, { "@type": "ListItem", position: 2, name: "Owner's Notes", item: `${site.domain}/owners-notes` }, { "@type": "ListItem", position: 3, name: note.title, item: `${site.domain}/owners-notes/${note.slug}` }] }] }} />
       <article>
         <header className="article-hero">
           <div className="shell article-hero-inner"><span className="eyebrow eyebrow-light">{note.category} · {note.readTime}</span><h1>{note.title}</h1><p>{note.excerpt}</p></div>
-          <img src={note.image} alt="" width="1920" height="1200" />
+          <Image src={note.image} alt="" width={1920} height={1200} sizes="100vw" preload />
           <div className="article-hero-overlay" />
         </header>
         <div className="shell article-layout">

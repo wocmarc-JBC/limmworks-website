@@ -1,4 +1,4 @@
-/* eslint-disable @next/next/no-img-element */
+import Image from "next/image";
 import Link from "next/link";
 import { JsonLd, SectionHeading } from "./components/site-chrome";
 import { assetUrl, notes, projects, site, whatsappHref } from "./lib/site";
@@ -25,7 +25,7 @@ export default function Home() {
       <JsonLd data={{ "@context": "https://schema.org", "@type": "WebPage", name: "Landed, Residential & Commercial Renovation", url: site.domain }} />
 
       <section className="home-hero">
-        <img className="home-hero-image" src={assetUrl("/projects/landed-open-plan-living.jpg")} alt="Completed landed home with connected living and kitchen planning" width="1920" height="1200" fetchPriority="high" />
+        <Image className="home-hero-image" src={assetUrl("/projects/landed-open-plan-living.jpg")} alt="Completed landed home with connected living and kitchen planning" width={1920} height={1200} sizes="100vw" preload />
         <div className="home-hero-overlay" />
         <div className="shell hero-content">
           <span className="eyebrow eyebrow-light">LIMM Works Pte Ltd · Singapore</span>
@@ -57,7 +57,7 @@ export default function Home() {
           <div className="service-grid">
             {mainServices.map((service) => (
               <Link href={service.href} className="service-card" key={service.href}>
-                <div className="service-card-image"><img src={service.image} alt="" width="1920" height="1200" /></div>
+                <div className="service-card-image"><Image src={service.image} alt="" width={1920} height={1200} sizes="(max-width: 820px) 100vw, 50vw" /></div>
                 <div className="service-card-body"><span>{service.number}</span><h3>{service.title}</h3><p>{service.text}</p><strong>Review service ↗</strong></div>
               </Link>
             ))}
@@ -76,7 +76,7 @@ export default function Home() {
             <p>Layout, drainage, roofline, waterproofing, access and family routines should be reviewed together before the scope is treated as fixed.</p>
             <div className="hero-actions"><Link className="button button-gold" href="/landed-renovation">Explore landed renovation</Link><Link className="button button-ghost-light" href="/landed-aa-works">Review A&A works</Link></div>
           </div>
-          <div className="landed-focus-image"><img src={assetUrl("/projects/landed-open-plan-living.jpg")} alt="Bright landed home open-plan living and kitchen" width="1920" height="1200" /></div>
+          <div className="landed-focus-image"><Image src={assetUrl("/projects/landed-open-plan-living.jpg")} alt="Bright landed home open-plan living and kitchen" width={1920} height={1200} sizes="(max-width: 820px) 100vw, 45vw" /></div>
         </div>
       </section>
 
@@ -86,7 +86,7 @@ export default function Home() {
           <div className="project-grid">
             {projects.slice(0, 3).map((project) => (
               <Link className="project-card" href={`/projects/${project.slug}`} key={project.title}>
-                <div className="project-card-image"><img src={project.image} alt={project.alt} width="1920" height="1200" /></div>
+                <div className="project-card-image"><Image src={project.image} alt={project.alt} width={1920} height={1200} sizes="(max-width: 820px) 100vw, 33vw" /></div>
                 <span>{project.category}</span><h3>{project.title}</h3><p>{project.description}</p><div className="tag-row">{project.tags.map((tag) => <span key={tag}>{tag}</span>)}</div><strong className="project-card-link">View planning details ↗</strong>
               </Link>
             ))}

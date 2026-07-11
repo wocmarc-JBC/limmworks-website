@@ -1,5 +1,5 @@
-/* eslint-disable @next/next/no-img-element */
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { JsonLd, SectionHeading } from "../components/site-chrome";
 import { assetUrl, site, whatsappHref } from "../lib/site";
@@ -15,7 +15,7 @@ export default function AboutPage() {
     <>
       <JsonLd data={{ "@context": "https://schema.org", "@type": "AboutPage", name: "About LIMM Works", url: `${site.domain}/about`, about: { "@type": "Organization", name: site.name } }} />
       <section className="about-hero">
-        <img src={assetUrl("/projects/landed-dining-kitchen.jpg")} alt="Warm completed home interior by LIMM Works" width="1920" height="1200" />
+        <Image src={assetUrl("/projects/landed-dining-kitchen.jpg")} alt="Warm completed home interior by LIMM Works" width={1920} height={1200} sizes="100vw" preload />
         <div className="about-hero-overlay" />
         <div className="shell about-hero-content"><span className="eyebrow eyebrow-light">About LIMM Works</span><h1>Practical planning. Coordinated renovation works.</h1><p>For homeowners and businesses who value clearer scope, responsible advice and site realities kept visible before works move too far.</p><div className="hero-actions"><a className="button button-gold" href={whatsappHref("About page")}>Start project review</a><Link className="button button-ghost-light" href="/projects">View completed work</Link></div></div>
       </section>

@@ -1,4 +1,4 @@
-/* eslint-disable @next/next/no-img-element */
+import Image from "next/image";
 import Link from "next/link";
 import { notesBySlug, projects, ServicePageData, site, whatsappHref } from "../lib/site";
 import { JsonLd, SectionHeading } from "./site-chrome";
@@ -16,7 +16,7 @@ export function ServicePage({ data }: { data: ServicePageData }) {
           {
             "@type": "Service",
             name: data.metaTitle.replace(" | LIMM Works", ""),
-            provider: { "@type": "LocalBusiness", name: site.name, telephone: `+${site.phone}` },
+            provider: { "@id": `${site.domain}/#organization` },
             areaServed: { "@type": "Country", name: "Singapore" },
             url: `${site.domain}/${data.slug}`,
             description: data.metaDescription,
@@ -36,7 +36,7 @@ export function ServicePage({ data }: { data: ServicePageData }) {
       }} />
 
       <section className="service-hero">
-        <img className="service-hero-image" src={data.image} alt={data.imageAlt} width="1920" height="1200" />
+        <Image className="service-hero-image" src={data.image} alt={data.imageAlt} width={1920} height={1200} sizes="100vw" preload />
         <div className="service-hero-overlay" />
         <div className="shell service-hero-content">
           <span className="eyebrow eyebrow-light">{data.eyebrow}</span>
@@ -90,7 +90,7 @@ export function ServicePage({ data }: { data: ServicePageData }) {
 
       <section className="section">
         <div className="shell project-feature">
-          <div className="project-feature-image"><img src={project.image} alt={project.alt} width="1920" height="1200" /></div>
+          <div className="project-feature-image"><Image src={project.image} alt={project.alt} width={1920} height={1200} sizes="(max-width: 820px) 100vw, 55vw" /></div>
           <div className="project-feature-copy">
             <span className="eyebrow">Completed LIMM Works project · {project.category}</span>
             <h2>{project.title}</h2>

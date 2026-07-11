@@ -1,5 +1,5 @@
-/* eslint-disable @next/next/no-img-element */
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { JsonLd } from "../../components/site-chrome";
@@ -24,7 +24,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     title: `${project.title} | Completed Renovation Project`,
     description: project.description,
     alternates: { canonical: `/projects/${slug}` },
-    openGraph: { title: project.title, description: project.description, images: [{ url: project.image }] },
+    openGraph: { type: "website", title: project.title, description: project.description, url: `/projects/${slug}`, images: [{ url: project.image, alt: project.alt }] },
+    twitter: { card: "summary_large_image", title: project.title, description: project.description, images: [project.image] },
   };
 }
 
@@ -37,19 +38,28 @@ export default async function ProjectReferencePage({ params }: { params: Promise
 
   return (
     <>
-      <JsonLd data={{
-        "@context": "https://schema.org",
-        "@type": "WebPage",
-        name: project.title,
-        description: project.description,
-        url: `${site.domain}/projects/${project.slug}`,
-        primaryImageOfPage: { "@type": "ImageObject", contentUrl: `${site.domain}${project.image}`, caption: project.alt },
-        isPartOf: { "@type": "CollectionPage", name: "LIMM Works renovation projects", url: `${site.domain}/projects` },
-      }} />
+      <JsonLd data={{ "@context": "https://schema.org", "@graph": [
+        {
+          "@type": "WebPage",
+          "@id": `${site.domain}/projects/${project.slug}#webpage`,
+          name: project.title,
+          description: project.description,
+          url: `${site.domain}/projects/${project.slug}`,
+          primaryImageOfPage: { "@type": "ImageObject", contentUrl: `${site.domain}${project.image}`, caption: project.alt },
+          isPartOf: { "@id": `${site.domain}/projects#collection` },
+          about: { "@id": `${site.domain}/#organization` },
+          inLanguage: "en-SG",
+        },
+        { "@type": "BreadcrumbList", itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: site.domain },
+          { "@type": "ListItem", position: 2, name: "Projects", item: `${site.domain}/projects` },
+          { "@type": "ListItem", position: 3, name: project.title, item: `${site.domain}/projects/${project.slug}` },
+        ] },
+      ] }} />
 
       <article>
         <header className="project-detail-hero">
-          <img src={project.image} alt={project.alt} width="1920" height="1200" />
+          <Image src={project.image} alt={project.alt} width={1920} height={1200} sizes="100vw" preload />
           <div className="project-detail-overlay" />
           <div className="shell project-detail-hero-inner">
             <Link className="back-link" href="/projects">← All completed projects</Link>
@@ -92,7 +102,7 @@ export default async function ProjectReferencePage({ params }: { params: Promise
           <div className="shell">
             <div className="section-heading"><div><span className="eyebrow">More completed work</span><h2>Continue through the LIMM Works projects.</h2></div><Link className="text-link" href={relatedService}>Review related service ↗</Link></div>
             <div className="project-grid">
-              {related.map((item) => <Link className="project-card" href={`/projects/${item.slug}`} key={item.slug}><div className="project-card-image"><img src={item.image} alt={item.alt} width="1920" height="1200" /></div><span>{item.category}</span><h3>{item.title}</h3><p>{item.description}</p><strong className="project-card-link">View completed project ↗</strong></Link>)}
+              {related.map((item) => <Link className="project-card" href={`/projects/${item.slug}`} key={item.slug}><div className="project-card-image"><Image src={item.image} alt={item.alt} width={1920} height={1200} sizes="(max-width: 820px) 100vw, 33vw" /></div><span>{item.category}</span><h3>{item.title}</h3><p>{item.description}</p><strong className="project-card-link">View completed project ↗</strong></Link>)}
             </div>
           </div>
         </section>
