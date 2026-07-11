@@ -155,6 +155,7 @@ export type ServicePageData = {
   title: string;
   metaTitle: string;
   metaDescription: string;
+  serviceTypes?: string[];
   image: string;
   imageAlt: string;
   intro: string;
@@ -166,6 +167,25 @@ export type ServicePageData = {
   checks: string[];
   process: { step: string; title: string; text: string }[];
   faq: { question: string; answer: string }[];
+  decisionGuide?: {
+    eyebrow: string;
+    title: string;
+    intro: string;
+    items: { title: string; text: string }[];
+    ctaTitle: string;
+    ctaText: string;
+  };
+  planningFactors?: {
+    eyebrow: string;
+    title: string;
+    intro: string;
+    items: { title: string; text: string }[];
+  };
+  officialGuidance?: {
+    title: string;
+    intro: string;
+    resources: { title: string; text: string; href: string }[];
+  };
   projectIndex: number;
   relatedNotes: string[];
 };
@@ -174,10 +194,11 @@ export const services: Record<string, ServicePageData> = {
   "landed-renovation": {
     slug: "landed-renovation",
     eyebrow: "Older landed homes · Inter-terrace · Semi-detached",
-    title: "Landed renovation, planned around the real condition of the house.",
-    metaTitle: "Landed Renovation Singapore | LIMM Works",
+    title: "Landed house renovation, planned around the real condition of the property.",
+    metaTitle: "Landed House Renovation Singapore | LIMM Works",
     metaDescription:
-      "Practical landed renovation in Singapore for older terrace and semi-detached homes, with layout, roofline, drainage, waterproofing and site coordination in view.",
+      "Practical landed house renovation in Singapore for older terrace and semi-detached homes, with layout, roofline, drainage, waterproofing and site coordination in view.",
+    serviceTypes: ["Landed house renovation", "Terrace house renovation", "Semi-detached house renovation"],
     image: assetUrl("/projects/landed-open-plan-living.jpg"),
     imageAlt: "Completed landed home with open living and kitchen planning",
     intro:
@@ -223,7 +244,42 @@ export const services: Record<string, ServicePageData> = {
       { question: "Can LIMM review an older landed house?", answer: "Yes. The first review can consider the age, layout, visible site condition, intended works and likely coordination or professional checks before a clearer scope is prepared." },
       { question: "Can we renovate without rebuilding the entire house?", answer: "Often, yes, but the sensible path depends on the existing structure, defects, intended changes and budget. A site review is needed before assuming renovation is the right route." },
       { question: "Can kitchen, bathroom and external works be planned together?", answer: "Yes. For landed homes this is usually preferable because drainage, services, access and sequencing can affect several areas at the same time." },
+      { question: "How much does a landed house renovation cost in Singapore?", answer: "There is no responsible standard figure without a defined scope and a read of the existing house. Cost is shaped by condition, floor area, retained work, structural or external changes, roof and drainage needs, services, finishes, access and the approval route. LIMM starts with plans, photos and priorities before detailed costing." },
+      { question: "How long does a landed renovation take?", answer: "The programme depends on the extent of work, investigations, design decisions, professional input, approvals where required, material lead times and site access. An interior-focused renovation and an A&A project should not be assigned the same generic timeline." },
+      { question: "Can the family stay in the house during renovation?", answer: "That depends on the work. Limited, isolated works may sometimes be planned around occupancy, but extensive hacking, rewiring, plumbing, wet works or external construction can make continued occupation impractical or unsafe. This should be decided from the actual sequence and protection plan." },
     ],
+    decisionGuide: {
+      eyebrow: "Property type",
+      title: "Terrace and semi-detached homes need different planning emphasis.",
+      intro: "The same renovation brief can behave differently once the house form, exposed boundaries, access and previous alterations are understood.",
+      items: [
+        { title: "Inter-terrace houses", text: "Daylight, ventilation, shared party walls, narrow access and the sequence of ground-floor kitchen or bathroom changes deserve early attention." },
+        { title: "Corner terrace houses", text: "The exposed side, openings, side-yard use, weather protection and surface drainage can add a second set of external conditions to resolve." },
+        { title: "Semi-detached houses", text: "Side access, indoor-outdoor flow, roof edges, facade work and the relationship to the adjoining house shape both design and construction planning." },
+        { title: "Older or previously altered homes", text: "Approved plans, visible cracks or leaks, concealed services and earlier extensions help show what can be retained and what needs deeper review." },
+      ],
+      ctaTitle: "Not sure whether the brief is renovation or A&A?",
+      ctaText: "Send the existing plan, current photos and intended changes. The first review can separate interior renovation from work that may need a different professional or approval route.",
+    },
+    planningFactors: {
+      eyebrow: "Cost and programme",
+      title: "What actually moves the landed renovation budget and timeline.",
+      intro: "Online averages combine very different houses and scopes. These are the practical drivers that should be established before a number or completion date is treated as reliable.",
+      items: [
+        { title: "Existing condition", text: "Age, previous alterations, leaks, roof condition, wiring, plumbing and concealed defects can change how much preparation or replacement is sensible." },
+        { title: "Extent of change", text: "Retaining a workable layout is different from relocating wet areas, opening walls, changing the roofline or adding external work." },
+        { title: "Approvals and professional input", text: "Structural, planning or technical questions may require drawings, investigations, a Qualified Person or authority review before construction sequencing is fixed." },
+        { title: "Access and long-lead decisions", text: "Neighbour-sensitive work, protection, debris movement, appliances, fittings, glazing and carpentry release dates all affect the working programme." },
+      ],
+    },
+    officialGuidance: {
+      title: "Check the current rules against the actual proposal.",
+      intro: "URA distinguishes between landed works that may not require planning permission and proposals that do. These official resources are useful starting points, but they do not replace project-specific advice from the relevant professional.",
+      resources: [
+        { title: "URA: Land-titled residential", text: "Examples of common internal and external works and whether planning permission may be required.", href: "https://www.ura.gov.sg/guidelines/property-and-business-owners/property/renovating-private-residential-property/land-titled-residential/" },
+        { title: "URA: Landed Housing e-Advisor", text: "A quick visual check for selected alterations to bungalow, semi-detached and terrace houses.", href: "https://www.ura.gov.sg/guidelines/property-and-business-owners/property/renovating-private-residential-property/landed-housing-e-advisor/" },
+      ],
+    },
     projectIndex: 0,
     relatedNotes: ["landed-renovation-vs-aa-works-difference", "hidden-renovation-materials-singapore"],
   },
@@ -234,10 +290,11 @@ export const services: Record<string, ServicePageData> = {
     metaTitle: "Landed A&A Works Singapore | LIMM Works",
     metaDescription:
       "Practical landed A&A scope review in Singapore for extensions, rear kitchens, car porches, side yards, facade, roofline, drainage and related works.",
+    serviceTypes: ["Landed additions and alterations", "Landed A&A works", "Terrace house additions and alterations"],
     image: assetUrl("/projects/landed-glass-entry.jpg"),
     imageAlt: "Landed home entry and glazing works",
     intro:
-      "A&A ideas can look simple on a floor plan while touching structure, drainage, waterproofing, facade or authority requirements in practice. LIMM starts with the existing property and the intended change before promising a construction path.",
+      "Additions and alterations (A&A) can look simple on a floor plan while touching structure, drainage, waterproofing, facade or authority requirements in practice. LIMM starts with the existing property and the intended change before promising a construction path.",
     positioning:
       "The focus is practical improvement for existing landed homes: additional usable space, better daily flow and more resolved external areas, with proper professional review where the scope requires it.",
     scopeTitle: "Common A&A conversations we can review",
@@ -267,7 +324,43 @@ export const services: Record<string, ServicePageData> = {
       { question: "What is the difference between renovation and A&A?", answer: "Renovation may improve the existing house without deeply changing the building, while A&A can add or alter areas in ways that affect structure, external form or authority requirements." },
       { question: "Can approval be confirmed from photos?", answer: "No. Photos and plans support an initial discussion, but approval and feasibility depend on the property, proposed work and required professional or authority checks." },
       { question: "Does every small extension need the same submission?", answer: "No. Requirements vary with the scope and property. The correct route should be established from the actual proposal rather than assumed from size alone." },
+      { question: "What should I prepare for an initial A&A review?", answer: "Share the existing and approved plans if available, current site photos, the intended addition or alteration, known leaks or drainage issues, household priorities, budget range and preferred timing. Previous approval records are especially useful for an older or already-altered house." },
+      { question: "Can LIMM quote A&A works from a floor plan alone?", answer: "A plan can support an initial discussion, but a reliable construction scope normally needs the existing condition, structural and approval questions, specifications, access and key details to be understood. Missing assumptions should be identified before detailed costing." },
+      { question: "How long do landed A&A works take?", answer: "There is no single responsible duration for all A&A projects. The programme depends on design development, investigations, professional appointments, submissions and approvals where required, structural and drainage scope, procurement, site access and construction sequencing." },
     ],
+    decisionGuide: {
+      eyebrow: "Choose the right route",
+      title: "Interior renovation, A&A and reconstruction are not interchangeable.",
+      intro: "The label affects the checks, professional team and programme. It should follow the actual proposal—not be chosen because one route sounds faster or cheaper.",
+      items: [
+        { title: "Interior-focused renovation", text: "Work largely within the approved house can still involve serious coordination, but may not alter the building form, add gross floor area or trigger the same planning route as an extension." },
+        { title: "Additions & Alterations", text: "A&A may include additions or changes to the existing landed house, provided the proposal remains within URA's prevailing A&A criteria and other applicable requirements." },
+        { title: "Reconstruction", text: "A proposal that falls outside URA's A&A criteria, adds a storey or changes the landed housing form is treated differently and requires the corresponding professional and approval route." },
+        { title: "Project-specific assessment", text: "Approved GFA, external walls, structural changes, roof works, the existing envelope and previous approvals all matter; the visible size of an extension alone is not enough." },
+      ],
+      ctaTitle: "Start with feasibility, not a construction promise.",
+      ctaText: "Send the approved or existing plan, site photos and the alteration you want. LIMM can identify the questions that need to be resolved before the working scope is fixed.",
+    },
+    planningFactors: {
+      eyebrow: "Cost and programme",
+      title: "The main drivers behind an A&A budget and timeline.",
+      intro: "A rear kitchen, car-porch change and additional storey are fundamentally different projects. These factors explain why a generic online rate or duration is rarely decision-ready.",
+      items: [
+        { title: "Approved versus existing condition", text: "Available plans, previous additions and non-conforming or undocumented work can affect the information and professional review needed first." },
+        { title: "Structure and ground conditions", text: "Openings, columns, beams, slabs, foundations and the way new work meets the existing house can change both design and construction scope." },
+        { title: "Roof, drainage and weathering", text: "Extensions create junctions. Roof falls, waterproofing, stormwater paths, platform levels and exposed boundaries need coordinated details." },
+        { title: "Submission and construction sequence", text: "Professional appointments, authority review, neighbour-sensitive work, temporary protection, procurement and site access shape the realistic programme." },
+      ],
+    },
+    officialGuidance: {
+      title: "Use the prevailing URA criteria—not a simplified 50% slogan.",
+      intro: "URA's current A&A criteria consider additional GFA, external-wall replacement, structural changes, roof works and attic additions. Proposals outside those criteria, an added storey or a change in landed housing form are treated as reconstruction.",
+      resources: [
+        { title: "URA: A&A criteria for terrace houses", text: "Current additions-and-alterations criteria and treatment of proposals that become reconstruction.", href: "https://www.ura.gov.sg/guidelines/development-control/development-control-handbooks/residential/terrace/additions-alterations/" },
+        { title: "URA: A&A criteria for semi-detached houses", text: "The corresponding prevailing criteria for semi-detached landed housing.", href: "https://www.ura.gov.sg/guidelines/development-control/development-control-handbooks/residential/semi-detached-houses/additions-alterations/" },
+        { title: "URA: Land-titled residential", text: "A homeowner-oriented overview of common landed alterations and planning-permission examples.", href: "https://www.ura.gov.sg/guidelines/property-and-business-owners/property/renovating-private-residential-property/land-titled-residential/" },
+      ],
+    },
     projectIndex: 1,
     relatedNotes: ["landed-renovation-vs-aa-works-difference", "prepare-before-starting-renovation"],
   },
