@@ -1,7 +1,12 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { JsonLd, SectionHeading } from "./components/site-chrome";
 import { assetUrl, notes, projects, site, whatsappHref } from "./lib/site";
+
+export const metadata: Metadata = {
+  alternates: { canonical: "/" },
+};
 
 const mainServices = [
   { number: "01", title: "Landed renovation", text: "Older terrace and semi-detached homes reviewed around layout, water, roofline, access and family use.", href: "/landed-renovation", image: assetUrl("/projects/landed-open-plan-living.jpg") },
@@ -22,7 +27,60 @@ export default function Home() {
 
   return (
     <>
-      <JsonLd data={{ "@context": "https://schema.org", "@type": "WebPage", name: "Landed, Residential & Commercial Renovation", url: site.domain }} />
+      <JsonLd data={{
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Organization",
+            "@id": `${site.domain}/#organization`,
+            name: site.name,
+            alternateName: site.shortName,
+            legalName: site.name,
+            url: site.domain,
+            description: "Singapore renovation company focused on practical planning, coordinated site execution, landed homes, residential interiors and selected commercial fit-outs.",
+            logo: {
+              "@type": "ImageObject",
+              url: `${site.domain}/brand/limm-mark-gold.svg`,
+              contentUrl: `${site.domain}/brand/limm-mark-gold.svg`,
+              width: 466,
+              height: 512,
+            },
+            image: `${site.domain}/opengraph-image`,
+            foundingDate: "2016",
+            telephone: `+${site.phone}`,
+            email: site.email,
+            areaServed: { "@type": "Country", name: "Singapore" },
+            contactPoint: {
+              "@type": "ContactPoint",
+              telephone: `+${site.phone}`,
+              email: site.email,
+              contactType: "sales",
+              areaServed: "SG",
+              availableLanguage: ["English"],
+            },
+            sameAs: [site.instagram, site.facebook],
+            knowsAbout: ["Landed renovation", "Additions and alterations", "Condo renovation", "HDB renovation", "Kitchen renovation", "Bathroom renovation", "Carpentry and built-in storage", "Commercial renovation"],
+          },
+          {
+            "@type": "WebSite",
+            "@id": `${site.domain}/#website`,
+            name: site.name,
+            alternateName: site.shortName,
+            url: site.domain,
+            publisher: { "@id": `${site.domain}/#organization` },
+            inLanguage: "en-SG",
+          },
+          {
+            "@type": "WebPage",
+            "@id": `${site.domain}/#webpage`,
+            name: "Landed, Residential & Commercial Renovation",
+            url: site.domain,
+            isPartOf: { "@id": `${site.domain}/#website` },
+            about: { "@id": `${site.domain}/#organization` },
+            inLanguage: "en-SG",
+          },
+        ],
+      }} />
 
       <section className="home-hero">
         <Image className="home-hero-image" src={assetUrl("/projects/landed-open-plan-living.jpg")} alt="Completed landed home with connected living and kitchen planning" width={1920} height={1200} sizes="100vw" preload />
