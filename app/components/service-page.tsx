@@ -15,11 +15,26 @@ export function ServicePage({ data }: { data: ServicePageData }) {
         "@graph": [
           {
             "@type": "Service",
+            "@id": `${site.domain}/${data.slug}#service`,
             name: data.metaTitle.replace(" | LIMM Works", ""),
+            serviceType: data.serviceTypes,
             provider: { "@id": `${site.domain}/#organization` },
             areaServed: { "@type": "Country", name: "Singapore" },
             url: `${site.domain}/${data.slug}`,
             description: data.metaDescription,
+            mainEntityOfPage: { "@id": `${site.domain}/${data.slug}#webpage` },
+            audience: { "@type": "Audience", audienceType: "Homeowners in Singapore" },
+          },
+          {
+            "@type": "WebPage",
+            "@id": `${site.domain}/${data.slug}#webpage`,
+            name: data.metaTitle.replace(" | LIMM Works", ""),
+            url: `${site.domain}/${data.slug}`,
+            description: data.metaDescription,
+            primaryImageOfPage: { "@type": "ImageObject", contentUrl: `${site.domain}${data.image}` },
+            mainEntity: { "@id": `${site.domain}/${data.slug}#service` },
+            about: { "@id": `${site.domain}/#organization` },
+            inLanguage: "en-SG",
           },
           {
             "@type": "FAQPage",
@@ -75,6 +90,27 @@ export function ServicePage({ data }: { data: ServicePageData }) {
         </div>
       </section>
 
+      {data.decisionGuide && (
+        <section className="section service-decision-section">
+          <div className="shell">
+            <SectionHeading eyebrow={data.decisionGuide.eyebrow} title={data.decisionGuide.title} text={data.decisionGuide.intro} />
+            <div className="decision-grid">
+              {data.decisionGuide.items.map((item, index) => (
+                <article key={item.title}>
+                  <span>0{index + 1}</span>
+                  <h3>{item.title}</h3>
+                  <p>{item.text}</p>
+                </article>
+              ))}
+            </div>
+            <div className="decision-cta">
+              <div><h3>{data.decisionGuide.ctaTitle}</h3><p>{data.decisionGuide.ctaText}</p></div>
+              <a className="button button-dark" href={whatsapp}>WhatsApp plans and photos</a>
+            </div>
+          </div>
+        </section>
+      )}
+
       <section className="section section-dark">
         <div className="shell split-content">
           <div>
@@ -88,6 +124,26 @@ export function ServicePage({ data }: { data: ServicePageData }) {
         </div>
       </section>
 
+      {data.planningFactors && (
+        <section className="section section-cream">
+          <div className="shell planning-factor-layout">
+            <div className="planning-factor-heading">
+              <span className="eyebrow">{data.planningFactors.eyebrow}</span>
+              <h2>{data.planningFactors.title}</h2>
+              <p>{data.planningFactors.intro}</p>
+            </div>
+            <div className="planning-factor-list">
+              {data.planningFactors.items.map((item, index) => (
+                <article key={item.title}>
+                  <span>0{index + 1}</span>
+                  <div><h3>{item.title}</h3><p>{item.text}</p></div>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
       <section className="section">
         <div className="shell project-feature">
           <div className="project-feature-image"><Image src={project.image} alt={project.alt} width={1920} height={1200} sizes="(max-width: 820px) 100vw, 55vw" /></div>
@@ -100,6 +156,29 @@ export function ServicePage({ data }: { data: ServicePageData }) {
           </div>
         </div>
       </section>
+
+      {data.officialGuidance && (
+        <section className="section official-guidance-section">
+          <div className="shell official-guidance-layout">
+            <div>
+              <span className="eyebrow">Official guidance</span>
+              <h2>{data.officialGuidance.title}</h2>
+              <p>{data.officialGuidance.intro}</p>
+              <small>Official requirements can change. Links below point to the current URA pages and open in a new tab.</small>
+            </div>
+            <div className="official-resource-list">
+              {data.officialGuidance.resources.map((resource) => (
+                <a href={resource.href} target="_blank" rel="noreferrer" key={resource.href}>
+                  <span>Urban Redevelopment Authority</span>
+                  <h3>{resource.title}</h3>
+                  <p>{resource.text}</p>
+                  <strong>Open official guidance ↗</strong>
+                </a>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       <section className="section section-cream">
         <div className="shell">
