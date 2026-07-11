@@ -8,7 +8,7 @@ export const site = {
   domain: "https://www.limmworks.com",
 };
 
-export const assetOrigin = "https://limmworks-growth.woc-marc.chatgpt.site";
+export const assetOrigin = "";
 
 export function assetUrl(path: string) {
   return `${assetOrigin}${path}`;

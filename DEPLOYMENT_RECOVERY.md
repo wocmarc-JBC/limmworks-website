@@ -16,7 +16,8 @@ Recovered on 11 July 2026 from the existing Vercel production deployment without
 - Domains: `limmworks.com`, `www.limmworks.com`, and existing Vercel aliases
 - Canonical host redirect: `limmworks.com` to `www.limmworks.com`
 - WhatsApp number: `6589898278`
-- Project photo origin: `https://limmworks-growth.woc-marc.chatgpt.site`
+- Project photo origin at recovery: `https://limmworks-growth.woc-marc.chatgpt.site`
+- Project photos self-hosted after recovery: `public/projects/`
 - Owner's Notes: 16 generated article routes
 - Projects: 6 generated project routes
 - Services: 8 generated service routes
