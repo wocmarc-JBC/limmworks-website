@@ -185,7 +185,7 @@ export type ServicePageData = {
   officialGuidance?: {
     title: string;
     intro: string;
-    resources: { title: string; text: string; href: string }[];
+    resources: { source: string; title: string; text: string; href: string }[];
   };
   projectIndex: number;
   relatedNotes: string[];
@@ -277,8 +277,8 @@ export const services: Record<string, ServicePageData> = {
       title: "Check the current rules against the actual proposal.",
       intro: "URA distinguishes between landed works that may not require planning permission and proposals that do. These official resources are useful starting points, but they do not replace project-specific advice from the relevant professional.",
       resources: [
-        { title: "URA: Land-titled residential", text: "Examples of common internal and external works and whether planning permission may be required.", href: "https://www.ura.gov.sg/guidelines/property-and-business-owners/property/renovating-private-residential-property/land-titled-residential/" },
-        { title: "URA: Landed Housing e-Advisor", text: "A quick visual check for selected alterations to bungalow, semi-detached and terrace houses.", href: "https://www.ura.gov.sg/guidelines/property-and-business-owners/property/renovating-private-residential-property/landed-housing-e-advisor/" },
+        { source: "Urban Redevelopment Authority", title: "URA: Land-titled residential", text: "Examples of common internal and external works and whether planning permission may be required.", href: "https://www.ura.gov.sg/guidelines/property-and-business-owners/property/renovating-private-residential-property/land-titled-residential/" },
+        { source: "Urban Redevelopment Authority", title: "URA: Landed Housing e-Advisor", text: "A quick visual check for selected alterations to bungalow, semi-detached and terrace houses.", href: "https://www.ura.gov.sg/guidelines/property-and-business-owners/property/renovating-private-residential-property/landed-housing-e-advisor/" },
       ],
     },
     projectIndex: 0,
@@ -357,9 +357,9 @@ export const services: Record<string, ServicePageData> = {
       title: "Use the prevailing URA criteria—not a simplified 50% slogan.",
       intro: "URA's current A&A criteria consider additional GFA, external-wall replacement, structural changes, roof works and attic additions. Proposals outside those criteria, an added storey or a change in landed housing form are treated as reconstruction.",
       resources: [
-        { title: "URA: A&A criteria for terrace houses", text: "Current additions-and-alterations criteria and treatment of proposals that become reconstruction.", href: "https://www.ura.gov.sg/guidelines/development-control/development-control-handbooks/residential/terrace/additions-alterations/" },
-        { title: "URA: A&A criteria for semi-detached houses", text: "The corresponding prevailing criteria for semi-detached landed housing.", href: "https://www.ura.gov.sg/guidelines/development-control/development-control-handbooks/residential/semi-detached-houses/additions-alterations/" },
-        { title: "URA: Land-titled residential", text: "A homeowner-oriented overview of common landed alterations and planning-permission examples.", href: "https://www.ura.gov.sg/guidelines/property-and-business-owners/property/renovating-private-residential-property/land-titled-residential/" },
+        { source: "Urban Redevelopment Authority", title: "URA: A&A criteria for terrace houses", text: "Current additions-and-alterations criteria and treatment of proposals that become reconstruction.", href: "https://www.ura.gov.sg/guidelines/development-control/development-control-handbooks/residential/terrace/additions-alterations/" },
+        { source: "Urban Redevelopment Authority", title: "URA: A&A criteria for semi-detached houses", text: "The corresponding prevailing criteria for semi-detached landed housing.", href: "https://www.ura.gov.sg/guidelines/development-control/development-control-handbooks/residential/semi-detached-houses/additions-alterations/" },
+        { source: "Urban Redevelopment Authority", title: "URA: Land-titled residential", text: "A homeowner-oriented overview of common landed alterations and planning-permission examples.", href: "https://www.ura.gov.sg/guidelines/property-and-business-owners/property/renovating-private-residential-property/land-titled-residential/" },
       ],
     },
     projectIndex: 1,
@@ -416,6 +416,7 @@ export const services: Record<string, ServicePageData> = {
     metaTitle: "HDB Renovation Singapore | LIMM Works",
     metaDescription:
       "Practical HDB renovation in Singapore for resale and new flats, with permit awareness, wet works, services, carpentry and household priorities coordinated early.",
+    serviceTypes: ["HDB renovation", "Resale flat renovation", "New flat renovation"],
     image: assetUrl("/projects/hdb-kitchen-green-cabinets.jpg"),
     imageAlt: "Completed HDB kitchen with green cabinets and practical storage",
     intro:
@@ -447,9 +448,19 @@ export const services: Record<string, ServicePageData> = {
     ],
     faq: [
       { question: "Does every HDB renovation need the same permits?", answer: "No. Requirements depend on the flat and the proposed works. The current HDB rules should be checked against the actual scope before work is confirmed." },
+      { question: "What contractor requirement should homeowners check?", answer: "HDB tells homeowners renovating their flat to engage a contractor listed in its Directory of Renovation Contractors. The current listing and any work-specific requirements should be confirmed against the intended scope." },
       { question: "Can LIMM review a resale flat with older finishes and services?", answer: "Yes. Current photos, the floor plan and known issues help the first review identify retained items, replacement priorities and areas that need a site check." },
       { question: "When should carpentry measurements be taken?", answer: "Final measurements should be taken when the surrounding site condition is ready enough for reliable fabrication and after key appliance details are confirmed." },
     ],
+    officialGuidance: {
+      title: "Use HDB's current renovation guidance and permit route.",
+      intro: "HDB directs homeowners to its renovation guidelines, approval process and important-information pages. These should be checked against the actual flat and proposed works before the programme is committed.",
+      resources: [
+        { source: "Housing & Development Board", title: "HDB: Renovation guidelines", text: "Current guidance intended to keep flat renovation works safe and compliant with statutory requirements.", href: "https://www.hdb.gov.sg/residential/living-in-an-hdb-flat/renovation/guidelines" },
+        { source: "Housing & Development Board", title: "HDB: Applying for approval", text: "The official starting point for checking whether intended renovation work needs a permit and how approval is obtained.", href: "https://www.hdb.gov.sg/residential/living-in-an-hdb-flat/renovation/applying-for-approval" },
+        { source: "Housing & Development Board", title: "HDB: Important information", text: "Current homeowner guidance on renovation responsibilities and what should be checked before works proceed.", href: "https://www.hdb.gov.sg/residential/living-in-an-hdb-flat/renovation/important-information" },
+      ],
+    },
     projectIndex: 3,
     relatedNotes: ["hdb-renovation-permits-rules-planning", "renovation-quotation-comparison-scope-exclusions"],
   },
@@ -926,10 +937,27 @@ export const notes: Note[] = [
     readTime: "7 min read",
     image: assetUrl("/projects/hdb-kitchen-green-cabinets.jpg"),
     serviceHref: "/hdb-renovation",
+    officialResources: [
+      {
+        title: "HDB: Renovation guidelines",
+        text: "The current official guidance for renovation work in an HDB flat.",
+        href: "https://www.hdb.gov.sg/residential/living-in-an-hdb-flat/renovation/guidelines",
+      },
+      {
+        title: "HDB: Applying for approval",
+        text: "HDB's official route for checking permit requirements and obtaining approval where required.",
+        href: "https://www.hdb.gov.sg/residential/living-in-an-hdb-flat/renovation/applying-for-approval",
+      },
+      {
+        title: "HDB: Important information",
+        text: "Current homeowner information on renovation responsibilities and permitted work.",
+        href: "https://www.hdb.gov.sg/residential/living-in-an-hdb-flat/renovation/important-information",
+      },
+    ],
     sections: [
       { heading: "Check the current requirements against the actual work", paragraphs: ["HDB renovation requirements can differ by work type. Hacking, replacement of finishes, changes in wet areas and other items should be checked against current guidance rather than assumed from another project.", "Use the existing floor plan and a clear scope list so permit-sensitive work can be identified early."] },
       { heading: "Plan around permitted work periods", paragraphs: ["Noisy work, deliveries, debris removal and neighbour-sensitive activities should be sequenced with the applicable work rules in mind. The programme should not assume every trade can operate at any hour."] },
-      { heading: "Keep responsibilities clear", paragraphs: ["Clarify who prepares applications, which contractor qualifications are required for the relevant work, and what documents the owner needs to provide. Do this before the intended start date becomes a commitment."] },
+      { heading: "Keep responsibilities clear", paragraphs: ["Clarify who prepares applications, which contractor qualifications are required for the relevant work, and what documents the owner needs to provide. Do this before the intended start date becomes a commitment.", "HDB tells homeowners renovating their flat to engage a contractor listed in its Directory of Renovation Contractors. The current listing and any work-specific requirements should be checked against the intended scope rather than assumed from a company name or a past project."] },
       { heading: "Use official guidance as the control point", paragraphs: ["Requirements can change. The latest HDB information and the actual permit response should govern the project when they differ from past experience or general advice."] },
     ],
   },

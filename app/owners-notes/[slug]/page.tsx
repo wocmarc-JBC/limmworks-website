@@ -50,14 +50,14 @@ export default async function NotePage({ params }: { params: Promise<{ slug: str
             {note.officialResources && (
               <section className="article-resource-section">
                 <span className="eyebrow eyebrow-gold">Official references</span>
-                <h2>Check the current URA guidance against the proposal.</h2>
-                <p>These links support the distinctions explained above. Requirements can change and the official pages should be checked again when the project scope is developed.</p>
+                <h2>Check the current official guidance against the proposal.</h2>
+                <p>These links support the planning points explained above. Requirements can change and the official pages should be checked again when the project scope is developed.</p>
                 <div className="article-resource-list">
                   {note.officialResources.map((resource) => (
                     <a href={resource.href} target="_blank" rel="noreferrer" key={resource.href}>
                       <strong>{resource.title}</strong>
                       <span>{resource.text}</span>
-                      <em>Open URA guidance ↗</em>
+                      <em>Open official guidance ↗</em>
                     </a>
                   ))}
                 </div>
