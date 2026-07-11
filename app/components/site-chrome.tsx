@@ -54,6 +54,7 @@ export function Footer() {
         </div>
         <div>
           <h3>Explore</h3>
+          <Link href="/residential">Residential services</Link>
           <Link href="/projects">Projects</Link>
           <Link href="/owners-notes">Owner&apos;s Notes</Link>
           <Link href="/about">About</Link>
