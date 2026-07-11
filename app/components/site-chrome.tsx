@@ -59,7 +59,8 @@ export function Footer() {
           <Link href="/owners-notes">Owner&apos;s Notes</Link>
           <Link href="/about">About</Link>
           <Link href="/contact">Contact</Link>
-          <a href={site.instagram} target="_blank" rel="noreferrer">Instagram</a>
+          <a href={site.instagram} target="_blank" rel="me noreferrer">Instagram</a>
+          <a href={site.facebook} target="_blank" rel="me noreferrer">Facebook</a>
         </div>
         <div>
           <h3>Start a review</h3>

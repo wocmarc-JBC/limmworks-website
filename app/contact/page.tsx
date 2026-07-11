@@ -27,7 +27,8 @@ export default function ContactPage() {
             <span className="eyebrow">What to send</span><h2>A clearer first message leads to a better review.</h2><p>Share the property type, rough scope, known issues, budget range and preferred timeline. Exact information can be clarified as the conversation develops.</p>
             <a className="contact-method contact-method-primary" href={whatsappHref("Contact page")}><span>WhatsApp</span><strong>{site.phoneDisplay}</strong><small>Send plans, photos and rough scope</small></a>
             <a className="contact-method" href={`mailto:${site.email}`}><span>Email</span><strong>{site.email}</strong></a>
-            <a className="contact-method" href={site.instagram} target="_blank" rel="noreferrer"><span>Portfolio</span><strong>Instagram @limmworks</strong></a>
+            <a className="contact-method" href={site.instagram} target="_blank" rel="me noreferrer"><span>Portfolio</span><strong>Instagram @limmworks</strong></a>
+            <a className="contact-method" href={site.facebook} target="_blank" rel="me noreferrer"><span>Social</span><strong>Facebook LIMM Works</strong></a>
             <div className="next-steps"><h3>What happens next</h3><p><strong>01</strong>LIMM reviews the property type, plans, photos and rough scope.</p><p><strong>02</strong>Missing details and required checks are identified before deeper costing.</p><p><strong>03</strong>The practical next stage is discussed around site condition, rules and timing.</p></div>
           </div>
           <EnquiryForm />
