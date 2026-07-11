@@ -169,7 +169,7 @@ export function ServicePage({ data }: { data: ServicePageData }) {
             <div className="official-resource-list">
               {data.officialGuidance.resources.map((resource) => (
                 <a href={resource.href} target="_blank" rel="noreferrer" key={resource.href}>
-                  <span>Urban Redevelopment Authority</span>
+                  <span>{resource.source}</span>
                   <h3>{resource.title}</h3>
                   <p>{resource.text}</p>
                   <strong>Open official guidance ↗</strong>
