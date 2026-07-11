@@ -1,6 +1,6 @@
 import type { NextConfig } from "next";
 
-const legacyPostRedirects = [
+const legacyRedirects = [
   {
     source: "/post/carpentry-paint-materials-singapore-plywood-laminate-hardware-glue",
     destination: "https://www.limmworks.com/owners-notes/carpentry-storage-before-fabrication",
@@ -69,12 +69,20 @@ const legacyPostRedirects = [
     source: "/post/why-in-house-carpentry-trade-teams-matter-renovation",
     destination: "https://www.limmworks.com/carpentry-storage",
   },
+  {
+    source: "/our-designers",
+    destination: "https://www.limmworks.com/about",
+  },
+  {
+    source: "/portfolio",
+    destination: "https://www.limmworks.com/projects",
+  },
 ] as const;
 
 const nextConfig: NextConfig = {
   async redirects() {
     return [
-      ...legacyPostRedirects.map((redirect) => ({ ...redirect, permanent: true })),
+      ...legacyRedirects.map((redirect) => ({ ...redirect, permanent: true })),
       {
         source: "/:path*",
         has: [{ type: "host", value: "limmworks.com" }],
