@@ -14,6 +14,5 @@ npm test
 ## Deployment safety
 
 - Production domains are managed by the existing Vercel project `limmworks-website`.
-- Project photos are referenced from `https://limmworks-growth.woc-marc.chatgpt.site/projects/`.
+- Project photos are versioned in `public/projects/` and served from the website origin.
 - Do not replace the photo origin or production aliases without first verifying all project and Owner's Notes routes.
-

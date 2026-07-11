@@ -225,7 +225,7 @@ p { color: var(--muted); line-height: 1.75; }
 .mobile-whatsapp { display: none; }
 
 .page-hero { padding: 118px 0 92px; background: var(--ink); color: white; }
-.page-hero-projects { background: linear-gradient(120deg, rgba(31, 38, 31, 0.99), rgba(50, 60, 51, 0.92)), url('https://limmworks-growth.woc-marc.chatgpt.site/projects/landed-open-plan-living.jpg') center/cover; }
+.page-hero-projects { background: linear-gradient(120deg, rgba(31, 38, 31, 0.99), rgba(50, 60, 51, 0.92)), url('/projects/landed-open-plan-living.jpg') center/cover; }
 .page-hero-notes { background: linear-gradient(120deg, rgba(31, 38, 31, 0.98), rgba(53, 62, 53, 0.9)); }
 .page-hero-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 95px; align-items: end; }
 .page-hero h1 { max-width: 760px; margin: 0; font-size: clamp(48px, 6vw, 77px); line-height: 1; font-weight: 630; }
