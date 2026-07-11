@@ -638,6 +638,12 @@ export type Note = {
   readTime: string;
   image: string;
   serviceHref: string;
+  relatedServices?: { label: string; href: string }[];
+  officialResources?: {
+    title: string;
+    text: string;
+    href: string;
+  }[];
   sections: { heading: string; paragraphs: string[] }[];
 };
 
@@ -661,15 +667,74 @@ export const notes: Note[] = [
     slug: "landed-renovation-vs-aa-works-difference",
     category: "Landed & A&A",
     title: "Landed renovation vs A&A works: what is the difference?",
-    excerpt: "A plain-English way to separate interior improvement from additions and alterations that need deeper checks.",
-    readTime: "7 min read",
+    excerpt: "A practical guide to renovation, additions and alterations, reconstruction criteria and the checks landed homeowners should make before committing.",
+    readTime: "8 min read",
     image: assetUrl("/projects/landed-glass-entry.jpg"),
     serviceHref: "/landed-aa-works",
+    relatedServices: [
+      { label: "Review landed renovation", href: "/landed-renovation" },
+      { label: "Review landed A&A works", href: "/landed-aa-works" },
+    ],
+    officialResources: [
+      {
+        title: "URA: A&A criteria for terrace houses",
+        text: "Current criteria covering additional GFA, external walls, structural changes, roof works, attics and reconstruction.",
+        href: "https://www.ura.gov.sg/guidelines/development-control/development-control-handbooks/residential/terrace/additions-alterations/",
+      },
+      {
+        title: "URA: A&A criteria for semi-detached houses",
+        text: "The corresponding prevailing criteria for additions and alterations to semi-detached landed housing.",
+        href: "https://www.ura.gov.sg/guidelines/development-control/development-control-handbooks/residential/semi-detached-houses/additions-alterations/",
+      },
+      {
+        title: "URA: Land-titled residential",
+        text: "A homeowner-oriented guide to examples of landed works and whether planning permission may be required.",
+        href: "https://www.ura.gov.sg/guidelines/property-and-business-owners/property/renovating-private-residential-property/land-titled-residential/",
+      },
+    ],
     sections: [
-      { heading: "Renovation improves the existing home", paragraphs: ["Landed renovation may focus on kitchens, bathrooms, flooring, carpentry, services, repairs, facade refreshes and practical layout improvements within the existing property condition.", "Even without an extension, older homes still need drainage, roofline, waterproofing, access and existing defects considered as part of the plan."] },
-      { heading: "A&A changes the property more deeply", paragraphs: ["Additions and alterations can include rear or side extensions, car porch changes, balconies, new openings, facade changes and other works that affect the building more deeply.", "These ideas may touch structure, the building envelope, drainage, planning controls or submission requirements. The correct professional and authority path depends on the actual property and proposal."] },
-      { heading: "The label does not decide feasibility", paragraphs: ["Calling a project renovation or A&A does not by itself determine whether it is straightforward. Existing structure, past alterations, technical requirements and the percentage or nature of change all matter.", "Owners should avoid committing to detailed finishes or construction dates until the main feasibility questions are identified."] },
-      { heading: "Start with the intended outcome", paragraphs: ["Explain what additional space or improvement the household needs, then review whether renovation, A&A or a more extensive route is the sensible response. The best answer comes from the site and priorities, not from choosing a label first."] },
+      {
+        heading: "Interior renovation is not automatically A&A",
+        paragraphs: [
+          "A landed renovation may focus on kitchens, bathrooms, flooring, carpentry, electrical and plumbing services, repairs and practical layout improvements within the approved house. It can still be complex, especially where an older home has leaks, previous alterations or outdated services.",
+          "URA's land-titled residential guidance gives examples of works that may not require planning permission when stated conditions are met, including selected internal room changes and like-for-like roof reconstruction. That does not remove the need to check other building, structural, drainage or technical requirements against the actual work.",
+        ],
+      },
+      {
+        heading: "A&A is assessed against several criteria—not one percentage",
+        paragraphs: [
+          "Under URA's prevailing landed-housing criteria, an A&A proposal is assessed across several dimensions. These include the additional gross floor area, how much of the approved external walls are removed and replaced, the extent of structural change, whether roof work creates an additional storey, and the GFA increase where an attic is added.",
+          "The familiar 50% shorthand is therefore incomplete. A proposal should be checked against every applicable criterion and the approved property records, not classified from the apparent size of one extension or from a contractor's label.",
+        ],
+      },
+      {
+        heading: "Some proposals are treated as reconstruction",
+        paragraphs: [
+          "URA states that proposals outside the A&A criteria are considered reconstruction. An increase in storey height, including roof work that creates an additional storey, or a change in landed housing form is also treated as reconstruction regardless of whether the proposal appears to remain below a single percentage threshold.",
+          "This distinction affects the design and approval route. It should be identified before owners rely on a construction price, submission timeline or promise that the existing structure can simply be retained.",
+        ],
+      },
+      {
+        heading: "The approved house and the existing house must be compared",
+        paragraphs: [
+          "Older landed homes may contain earlier additions, roof changes or other work that is not obvious from a viewing or marketing floor plan. Approved plans and previous records help the project team compare what was authorised with what is physically present.",
+          "The prevailing building envelope also matters. URA notes that new A&A works must comply with the envelope-control guidelines, and where an existing house already exceeds the permissible envelope, the new work must not further increase the building bulk and will be assessed on its merits.",
+        ],
+      },
+      {
+        heading: "Professional and authority checks follow the real scope",
+        paragraphs: [
+          "Structure, planning, building, drainage, fire-safety or other technical matters can require different professional input and submissions. The relevant architect, engineer, Qualified Person or authority path depends on the property and the work proposed.",
+          "Photos are valuable for an initial conversation but cannot confirm approval. Feasibility should be developed from the plans, site condition and required professional checks before the construction scope is treated as settled.",
+        ],
+      },
+      {
+        heading: "Prepare the information that makes the first review useful",
+        paragraphs: [
+          "Share approved and existing plans when available, current interior and exterior photos, the addition or alteration you want, known leaks or drainage concerns, and any previous approval records. Explain the household outcome rather than only naming a room or extension.",
+          "Include the budget range and preferred timing as planning boundaries. The first review should identify whether the brief is interior renovation, likely A&A or a more extensive route—and clearly list what must be checked next.",
+        ],
+      },
     ],
   },
   {
