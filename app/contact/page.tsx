@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import { JsonLd } from "../components/site-chrome";
 import { assetUrl, site, whatsappHref } from "../lib/site";
 import { EnquiryForm } from "./enquiry-form";
 
@@ -7,11 +8,14 @@ export const metadata: Metadata = {
   title: "Start Project Review",
   description: "Send LIMM Works your floor plan, site photos, property type, rough scope and preferred timeline for an initial renovation project review.",
   alternates: { canonical: "/contact" },
+  openGraph: { type: "website", title: "Start a Project Review | LIMM Works", description: "Send LIMM Works your floor plan, site photos, property type, rough scope and preferred timeline for an initial renovation project review.", url: "/contact", images: [{ url: "/projects/landed-dining-kitchen.jpg", alt: "LIMM Works renovation planning reference" }] },
+  twitter: { card: "summary_large_image", title: "Start a Project Review | LIMM Works", description: "Share your floor plan, current site photos and rough renovation scope.", images: ["/projects/landed-dining-kitchen.jpg"] },
 };
 
 export default function ContactPage() {
   return (
     <>
+      <JsonLd data={{ "@context": "https://schema.org", "@type": "ContactPage", "@id": `${site.domain}/contact#webpage`, name: "Start a project review with LIMM Works", description: metadata.description, url: `${site.domain}/contact`, about: { "@id": `${site.domain}/#organization` }, isPartOf: { "@id": `${site.domain}/#website` }, inLanguage: "en-SG" }} />
       <section className="contact-hero">
         <Image src={assetUrl("/projects/landed-dining-kitchen.jpg")} alt="LIMM Works renovation planning reference" width={1920} height={1200} sizes="100vw" preload />
         <div className="contact-hero-overlay" />
