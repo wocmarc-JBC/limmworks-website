@@ -5,6 +5,7 @@ export const site = {
   phone: "6589898278",
   email: "limmworks@gmail.com",
   instagram: "https://www.instagram.com/limmworks/",
+  facebook: "https://www.facebook.com/limmworks/",
   domain: "https://www.limmworks.com",
 };
 

@@ -64,7 +64,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
               areaServed: { "@type": "Country", name: "Singapore" },
               priceRange: "$$",
               contactPoint: { "@type": "ContactPoint", telephone: `+${site.phone}`, contactType: "sales", areaServed: "SG", availableLanguage: ["English"] },
-              sameAs: [site.instagram],
+              sameAs: [site.instagram, site.facebook],
               knowsAbout: ["Landed renovation", "Additions and alterations", "Condo renovation", "HDB renovation", "Kitchen renovation", "Bathroom renovation", "Carpentry and built-in storage", "Commercial renovation"],
             },
             { "@type": "WebSite", "@id": `${site.domain}/#website`, name: site.name, url: site.domain, publisher: { "@id": `${site.domain}/#organization` }, inLanguage: "en-SG" },
