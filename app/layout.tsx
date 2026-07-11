@@ -27,6 +27,12 @@ export const metadata: Metadata = {
     type: "website",
     images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "LIMM Works Pte Ltd — Planned properly. Built with care." }],
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "Landed, Residential & Commercial Renovation | LIMM Works",
+    description: "Planned properly. Built with care.",
+    images: ["/opengraph-image"],
+  },
   icons: { icon: "/brand/limm-mark-gold.svg", shortcut: "/brand/limm-mark-gold.svg" },
 };
 
@@ -44,9 +50,24 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <JsonLd data={{
           "@context": "https://schema.org",
           "@graph": [
-            { "@type": "Organization", name: site.name, url: site.domain, email: site.email, sameAs: [site.instagram] },
-            { "@type": "LocalBusiness", name: site.name, url: site.domain, telephone: `+${site.phone}`, email: site.email, areaServed: { "@type": "Country", name: "Singapore" }, priceRange: "$$" },
-            { "@type": "WebSite", name: site.name, url: site.domain },
+            {
+              "@type": ["Organization", "LocalBusiness", "HomeAndConstructionBusiness"],
+              "@id": `${site.domain}/#organization`,
+              name: site.name,
+              legalName: site.name,
+              url: site.domain,
+              logo: { "@type": "ImageObject", url: `${site.domain}/brand/limm-mark-gold.svg` },
+              image: `${site.domain}/opengraph-image`,
+              foundingDate: "2016",
+              telephone: `+${site.phone}`,
+              email: site.email,
+              areaServed: { "@type": "Country", name: "Singapore" },
+              priceRange: "$$",
+              contactPoint: { "@type": "ContactPoint", telephone: `+${site.phone}`, contactType: "sales", areaServed: "SG", availableLanguage: ["English"] },
+              sameAs: [site.instagram],
+              knowsAbout: ["Landed renovation", "Additions and alterations", "Condo renovation", "HDB renovation", "Kitchen renovation", "Bathroom renovation", "Carpentry and built-in storage", "Commercial renovation"],
+            },
+            { "@type": "WebSite", "@id": `${site.domain}/#website`, name: site.name, url: site.domain, publisher: { "@id": `${site.domain}/#organization` }, inLanguage: "en-SG" },
           ],
         }} />
         <Header />

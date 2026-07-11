@@ -1,5 +1,5 @@
-/* eslint-disable @next/next/no-img-element */
 import type { Metadata } from "next";
+import Image from "next/image";
 import { assetUrl, site, whatsappHref } from "../lib/site";
 import { EnquiryForm } from "./enquiry-form";
 
@@ -13,7 +13,7 @@ export default function ContactPage() {
   return (
     <>
       <section className="contact-hero">
-        <img src={assetUrl("/projects/landed-dining-kitchen.jpg")} alt="LIMM Works renovation planning reference" width="1920" height="1200" />
+        <Image src={assetUrl("/projects/landed-dining-kitchen.jpg")} alt="LIMM Works renovation planning reference" width={1920} height={1200} sizes="100vw" preload />
         <div className="contact-hero-overlay" />
         <div className="shell contact-hero-content"><span className="eyebrow eyebrow-light">Contact LIMM Works</span><h1>Start with the floor plan and current site photos.</h1><p>LIMM will review the practical context before advising the next useful step.</p></div>
       </section>

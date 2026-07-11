@@ -1,14 +1,9 @@
-import type { Metadata } from "next";
 import { ServicePage } from "../components/service-page";
+import { createServiceMetadata } from "../lib/metadata";
 import { services } from "../lib/site";
 
 const data = services["kitchen-renovation"];
 
-export const metadata: Metadata = {
-  title: data.metaTitle.replace(" | LIMM Works", ""),
-  description: data.metaDescription,
-  alternates: { canonical: `/${data.slug}` },
-  openGraph: { title: data.metaTitle, description: data.metaDescription, images: [{ url: data.image }] },
-};
+export const metadata = createServiceMetadata(data);
 
 export default function KitchenRenovationPage() { return <ServicePage data={data} />; }
