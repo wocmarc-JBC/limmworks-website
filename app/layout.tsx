@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     description: "Planned properly. Built with care.",
     images: ["/opengraph-image"],
   },
-  icons: { icon: "/brand/limm-mark-gold.svg", shortcut: "/brand/limm-mark-gold.svg" },
+  icons: { icon: "/brand/favicon.svg", shortcut: "/brand/favicon.svg" },
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
