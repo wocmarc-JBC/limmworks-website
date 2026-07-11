@@ -8,12 +8,14 @@ export const metadata: Metadata = {
   title: "About Us | Renovation Planning Singapore",
   description: "Meet LIMM Works, a Singapore renovation and project-planning company focused on practical scope, coordinated site work and clear first reviews.",
   alternates: { canonical: "/about" },
+  openGraph: { type: "website", title: "About LIMM Works | Renovation Planning Singapore", description: "Meet LIMM Works, a Singapore renovation and project-planning company focused on practical scope, coordinated site work and clear first reviews.", url: "/about", images: [{ url: "/projects/landed-dining-kitchen.jpg", alt: "Completed home interior by LIMM Works" }] },
+  twitter: { card: "summary_large_image", title: "About LIMM Works | Renovation Planning Singapore", description: "Practical renovation planning and coordinated site work in Singapore.", images: ["/projects/landed-dining-kitchen.jpg"] },
 };
 
 export default function AboutPage() {
   return (
     <>
-      <JsonLd data={{ "@context": "https://schema.org", "@type": "AboutPage", name: "About LIMM Works", url: `${site.domain}/about`, about: { "@type": "Organization", name: site.name } }} />
+      <JsonLd data={{ "@context": "https://schema.org", "@type": "AboutPage", "@id": `${site.domain}/about#webpage`, name: "About LIMM Works", url: `${site.domain}/about`, about: { "@id": `${site.domain}/#organization` }, isPartOf: { "@id": `${site.domain}/#website` }, inLanguage: "en-SG" }} />
       <section className="about-hero">
         <Image src={assetUrl("/projects/landed-dining-kitchen.jpg")} alt="Warm completed home interior by LIMM Works" width={1920} height={1200} sizes="100vw" preload />
         <div className="about-hero-overlay" />
