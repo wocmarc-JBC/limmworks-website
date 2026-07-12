@@ -37,8 +37,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
       images: imageUrls([project.image, ...projects.filter((item) => item.slug !== project.slug).slice(0, 3).map((item) => item.image)]),
     })),
     { url: `${site.domain}/residential`, lastModified: siteLaunchDate, changeFrequency: "monthly", priority: 0.8 },
-    { url: `${site.domain}/owners-notes`, lastModified: siteLaunchDate, changeFrequency: "weekly", priority: 0.8, images: noteIndexImages },
-    ...notes.map((note) => ({ url: `${site.domain}/owners-notes/${note.slug}`, lastModified: siteLaunchDate, changeFrequency: "monthly" as const, priority: 0.7, images: imageUrls([note.image]) })),
+    { url: `${site.domain}/owners-notes`, lastModified: businessDetailsUpdateDate, changeFrequency: "weekly", priority: 0.8, images: noteIndexImages },
+    ...notes.map((note) => ({
+      url: `${site.domain}/owners-notes/${note.slug}`,
+      lastModified: note.publishedDate ? new Date(note.publishedDate) : siteLaunchDate,
+      changeFrequency: "monthly" as const,
+      priority: 0.7,
+      images: imageUrls([note.image]),
+    })),
     { url: `${site.domain}/contact`, lastModified: businessDetailsUpdateDate, changeFrequency: "monthly", priority: 0.8, images: imageUrls(["/projects/landed-dining-kitchen.jpg"]) },
     { url: `${site.domain}/about`, lastModified: siteLaunchDate, changeFrequency: "yearly", priority: 0.65, images: imageUrls(["/projects/landed-dining-kitchen.jpg"]) },
   ];

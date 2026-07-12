@@ -15,7 +15,14 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     title: note.title,
     description: note.excerpt,
     alternates: { canonical: `/owners-notes/${slug}` },
-    openGraph: { type: "article", title: note.title, description: note.excerpt, url: `/owners-notes/${slug}`, images: [{ url: note.image }] },
+    openGraph: {
+      type: "article",
+      title: note.title,
+      description: note.excerpt,
+      url: `/owners-notes/${slug}`,
+      images: [{ url: note.image }],
+      ...(note.publishedDate ? { publishedTime: note.publishedDate, modifiedTime: note.publishedDate } : {}),
+    },
     twitter: { card: "summary_large_image", title: note.title, description: note.excerpt, images: [note.image] },
   };
 }
@@ -27,13 +34,16 @@ export default async function NotePage({ params }: { params: Promise<{ slug: str
   const relatedServices = note.relatedServices ?? [{ label: "Review related service", href: note.serviceHref }];
   const sameCategory = notes.filter((item) => item.slug !== note.slug && item.category === note.category);
   const related = [...sameCategory, ...notes.filter((item) => item.slug !== note.slug && item.category !== note.category)].slice(0, 2);
+  const publishedLabel = note.publishedDate
+    ? new Intl.DateTimeFormat("en-SG", { day: "numeric", month: "long", year: "numeric", timeZone: "Asia/Singapore" }).format(new Date(note.publishedDate))
+    : null;
 
   return (
     <>
-      <JsonLd data={{ "@context": "https://schema.org", "@graph": [{ "@type": "Article", headline: note.title, description: note.excerpt, image: `${site.domain}${note.image}`, author: { "@id": `${site.domain}/#organization` }, publisher: { "@id": `${site.domain}/#organization` }, mainEntityOfPage: `${site.domain}/owners-notes/${note.slug}`, isPartOf: { "@id": `${site.domain}/owners-notes#collection` }, citation: note.officialResources?.map((resource) => resource.href), about: relatedServices.map((service) => ({ "@id": `${site.domain}${service.href}#service`, "@type": "Service", name: service.label })), inLanguage: "en-SG" }, { "@type": "BreadcrumbList", itemListElement: [{ "@type": "ListItem", position: 1, name: "Home", item: site.domain }, { "@type": "ListItem", position: 2, name: "Owner's Notes", item: `${site.domain}/owners-notes` }, { "@type": "ListItem", position: 3, name: note.title, item: `${site.domain}/owners-notes/${note.slug}` }] }] }} />
+      <JsonLd data={{ "@context": "https://schema.org", "@graph": [{ "@type": "Article", headline: note.title, description: note.excerpt, image: `${site.domain}${note.image}`, author: { "@id": `${site.domain}/#organization` }, publisher: { "@id": `${site.domain}/#organization` }, mainEntityOfPage: `${site.domain}/owners-notes/${note.slug}`, isPartOf: { "@id": `${site.domain}/owners-notes#collection` }, citation: note.officialResources?.map((resource) => resource.href), about: relatedServices.map((service) => ({ "@id": `${site.domain}${service.href}#service`, "@type": "Service", name: service.label })), inLanguage: "en-SG", ...(note.publishedDate ? { datePublished: note.publishedDate, dateModified: note.publishedDate } : {}) }, { "@type": "BreadcrumbList", itemListElement: [{ "@type": "ListItem", position: 1, name: "Home", item: site.domain }, { "@type": "ListItem", position: 2, name: "Owner's Notes", item: `${site.domain}/owners-notes` }, { "@type": "ListItem", position: 3, name: note.title, item: `${site.domain}/owners-notes/${note.slug}` }] }] }} />
       <article>
         <header className="article-hero">
-          <div className="shell article-hero-inner"><span className="eyebrow eyebrow-light">{note.category} · {note.readTime}</span><h1>{note.title}</h1><p>{note.excerpt}</p></div>
+          <div className="shell article-hero-inner"><span className="eyebrow eyebrow-light">{note.category} · {note.readTime}{publishedLabel && <> · <time dateTime={note.publishedDate}>Published {publishedLabel}</time></>}</span><h1>{note.title}</h1><p>{note.excerpt}</p></div>
           <Image src={note.image} alt="" width={1920} height={1200} sizes="100vw" preload />
           <div className="article-hero-overlay" />
         </header>
