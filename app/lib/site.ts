@@ -658,6 +658,7 @@ export type Note = {
   publishedDate?: string;
   image: string;
   serviceHref: string;
+  relatedNotes: [string, string];
   relatedServices?: { label: string; href: string }[];
   officialResources?: {
     title: string;
@@ -676,6 +677,7 @@ export const notes: Note[] = [
     readTime: "6 min read",
     image: assetUrl("/projects/landed-dining-kitchen.jpg"),
     serviceHref: "/landed-renovation",
+    relatedNotes: ["renovation-timeline-sequencing-lead-times", "site-photos-for-renovation-review"],
     sections: [
       { heading: "Start with information that can be used", paragraphs: ["A floor plan, current site photos and a rough scope move the first discussion beyond general ideas. They help show the property type, current layout, visible conditions and the areas that need attention.", "For landed homes, include exterior views, roofline concerns, drainage issues and known leaks. For condos, include the management renovation guide when it is available."] },
       { heading: "Clarify the household and priorities", paragraphs: ["Explain who will use the space, what does not work today and which improvements matter most. Children, elderly family members, pets, work-from-home needs, cooking habits and storage requirements can all change the right layout.", "Separate must-have work from optional upgrades. This helps prevent visual finishes from absorbing the budget before essential wet works, services or repairs are understood."] },
@@ -691,6 +693,7 @@ export const notes: Note[] = [
     readTime: "8 min read",
     image: assetUrl("/projects/landed-glass-entry.jpg"),
     serviceHref: "/landed-aa-works",
+    relatedNotes: ["wet-kitchen-extension-landed-home-singapore", "landed-roof-drainage-waterproofing-warning-signs"],
     relatedServices: [
       { label: "Review landed renovation", href: "/landed-renovation" },
       { label: "Review landed A&A works", href: "/landed-aa-works" },
@@ -765,6 +768,7 @@ export const notes: Note[] = [
     readTime: "6 min read",
     image: assetUrl("/projects/condo-tv-feature-wall.jpg"),
     serviceHref: "/condo-renovation",
+    relatedNotes: ["wall-hacking-renovation-singapore-checks-approvals", "renovation-timeline-sequencing-lead-times"],
     sections: [
       { heading: "Management rules shape the programme", paragraphs: ["Condominiums commonly require renovation forms, deposits, insurance documents, contractor details, lift bookings and protection arrangements. The exact requirements vary by development.", "Read the management guide before confirming a start date. Restricted working hours or approval lead time can affect the sequence even when the interior design is already settled."] },
       { heading: "Protection is part of the renovation", paragraphs: ["Lift, corridor and floor protection allow workers, materials and debris to move through shared areas responsibly. It should be included in scope and programme rather than treated as an afterthought.", "Loading access, delivery sizes and waste-removal rules may also influence how materials are ordered and moved."] },
@@ -780,6 +784,7 @@ export const notes: Note[] = [
     readTime: "8 min read",
     image: assetUrl("/projects/bathroom-vanity-wide.jpg"),
     serviceHref: "/landed-renovation",
+    relatedNotes: ["aircon-electrical-carpentry-coordination", "bathroom-renovation-waterproofing-layout-coordination"],
     sections: [
       { heading: "Visible finishes are only part of the renovation", paragraphs: ["Tiles, laminates and paint are easy to compare because owners can see them. Pipes, cables, breakers, waterproofing transitions, supports and access provisions are less visible but often more important to safety and maintenance.", "A quotation should describe significant hidden scope clearly enough for the owner to understand what is being replaced, retained or excluded."] },
       { heading: "Electrical details need coordination", paragraphs: ["Cable sizing, circuit protection, distribution-board condition, isolators, earthing and the location of sockets should match the intended appliances and usage. New points should not be added without considering the existing supply and circuit arrangement.", "Final positions also need to be coordinated with carpentry, appliances and access panels before fabrication."] },
@@ -795,6 +800,7 @@ export const notes: Note[] = [
     readTime: "6 min read",
     image: assetUrl("/projects/kitchen-light-wood-cabinets.jpg"),
     serviceHref: "/condo-renovation",
+    relatedNotes: ["wet-kitchen-extension-landed-home-singapore", "aircon-electrical-carpentry-coordination"],
     sections: [
       { heading: "Plan around real cooking habits", paragraphs: ["Start with the way food is stored, prepared, cooked and cleaned up. The dry and wet zones, worktop space and movement between fridge, sink and hob should support the household rather than follow a generic arrangement."] },
       { heading: "Confirm appliances before fabrication", paragraphs: ["Fridge, oven, hob, hood, dishwasher, washer and small appliances affect cabinet openings, ventilation, power points and countertop cuts. Models and dimensions should be coordinated before production."] },
@@ -810,6 +816,7 @@ export const notes: Note[] = [
     readTime: "6 min read",
     image: assetUrl("/projects/bathroom-vanity-wide.jpg"),
     serviceHref: "/condo-renovation",
+    relatedNotes: ["hidden-renovation-materials-singapore", "renovation-material-selection-guide"],
     sections: [
       { heading: "Wet-area quality begins below the finish", paragraphs: ["Preparation, waterproofing transitions, drainage falls and penetrations influence the long-term performance of the bathroom. These details should be understood before tile selection becomes the main focus."] },
       { heading: "Fixture moves are not always simple", paragraphs: ["Changing the WC, basin or shower position can affect drainage, structure, floor levels and property rules. The actual site needs to be reviewed before a new layout is assumed to be feasible."] },
@@ -825,6 +832,7 @@ export const notes: Note[] = [
     readTime: "6 min read",
     image: assetUrl("/projects/carpentry-wardrobe-run.jpg"),
     serviceHref: "/condo-renovation",
+    relatedNotes: ["aircon-electrical-carpentry-coordination", "renovation-material-selection-guide"],
     sections: [
       { heading: "Measure at the right stage", paragraphs: ["Final dimensions should be taken when the surrounding site condition is ready enough for reliable fabrication. Measuring too early can create avoidable fillers, gaps or installation problems."] },
       { heading: "Plan what goes inside", paragraphs: ["Wardrobe hanging space, drawer heights, shoe storage, kitchen equipment and frequently used items should shape the internal layout. Exterior appearance is only half the design."] },
@@ -840,6 +848,7 @@ export const notes: Note[] = [
     readTime: "7 min read",
     image: assetUrl("/projects/landed-dining-kitchen.jpg"),
     serviceHref: "/landed-renovation",
+    relatedNotes: ["renovation-quotation-comparison-scope-exclusions", "carpentry-storage-before-fabrication"],
     sections: [
       { heading: "Choose in the order the site needs information", paragraphs: ["Not every finish needs to be decided on the first day. Materials that affect layout, service points, fabrication or wet works should be confirmed before items that can be selected later without holding up the programme.", "Appliances, sanitary fittings, tiles, worktops and key built-in materials often influence dimensions and junctions. Paint colours and selected loose items may have more flexibility, depending on the programme."] },
       { heading: "Compare performance as well as appearance", paragraphs: ["Ask where the material will be used, how it is cleaned, what it meets and what level of wear or moisture it may face. A sample viewed under showroom lighting may behave differently across a large surface at home.", "Edge treatment, grout, sealant, slip resistance, maintenance and replacement availability can matter as much as colour and pattern."] },
@@ -855,6 +864,7 @@ export const notes: Note[] = [
     readTime: "8 min read",
     image: assetUrl("/projects/carpentry-wardrobe-run.jpg"),
     serviceHref: "/hdb-renovation",
+    relatedNotes: ["how-to-shortlist-renovation-contractor-singapore", "renovation-budget-contingency-older-homes"],
     sections: [
       { heading: "Start by checking whether the scope is the same", paragraphs: ["Two totals are only comparable when they cover the same areas, quantities and level of work. One quotation may include disposal, protection, preparation or making-good while another leaves those items unstated.", "Mark each line as included, excluded, provisional or still unclear before comparing the price difference."] },
       { heading: "Look for measurable descriptions", paragraphs: ["Useful descriptions identify the location, approximate quantity, material or specification, and what preparation or installation is included. Vague lump-sum lines make it harder to understand what changes when the site condition becomes clearer.", "For hidden works, ask what is being replaced, retained, tested or excluded rather than relying only on a broad trade label."] },
@@ -870,6 +880,7 @@ export const notes: Note[] = [
     readTime: "7 min read",
     image: assetUrl("/projects/landed-glass-entry.jpg"),
     serviceHref: "/landed-renovation",
+    relatedNotes: ["wet-kitchen-extension-landed-home-singapore", "bathroom-renovation-waterproofing-layout-coordination"],
     sections: [
       { heading: "Document patterns, not only the latest stain", paragraphs: ["Photograph the affected area from close and wide angles, then note when it appears: during heavy rain, after wind-driven rain, after bathroom use or long after the weather clears. The timing can help narrow the areas that need inspection.", "Include the corresponding external wall, roof edge, balcony, gutter, downpipe or wet area when it is safe and practical to do so."] },
       { heading: "Watch the paths that water is meant to take", paragraphs: ["Blocked outlets, inadequate falls, overflowing gutters, disconnected downpipes and water trapped at junctions can move moisture away from the obvious source. New finishes should not be used to conceal an unresolved water path."] },
@@ -885,6 +896,7 @@ export const notes: Note[] = [
     readTime: "7 min read",
     image: assetUrl("/projects/landed-open-plan-living.jpg"),
     serviceHref: "/landed-renovation",
+    relatedNotes: ["renovation-quotation-comparison-scope-exclusions", "prepare-before-starting-renovation"],
     sections: [
       { heading: "Separate the budget into useful parts", paragraphs: ["Keep the core construction scope, owner-supplied items, professional or submission costs, temporary arrangements and contingency visible as separate planning lines. This makes the trade-offs clearer than one undifferentiated maximum figure."] },
       { heading: "Older homes contain more unknowns", paragraphs: ["Past alterations, concealed services, water damage, uneven substrates and inaccessible areas may only become clear after surveys or opening-up. The response should be to identify uncertainty early, not to pretend every condition is known from photographs."] },
@@ -900,6 +912,7 @@ export const notes: Note[] = [
     readTime: "7 min read",
     image: assetUrl("/projects/condo-tv-feature-wall.jpg"),
     serviceHref: "/carpentry-storage",
+    relatedNotes: ["carpentry-storage-before-fabrication", "kitchen-renovation-storage-workflow-details"],
     sections: [
       { heading: "Draw what will be hidden", paragraphs: ["Air-conditioning pipes and drains, electrical routes, sockets, isolators, data points and access panels can disappear behind ceilings or built-ins. Their intended locations should be coordinated on drawings before fabrication and closing-up."] },
       { heading: "Check equipment and maintenance clearances", paragraphs: ["Fan-coil units, condensate drains, distribution boards, drivers, routers and appliances need room for servicing and replacement. A flush panel is useful only when the person maintaining the equipment can actually remove it."] },
@@ -915,6 +928,7 @@ export const notes: Note[] = [
     readTime: "7 min read",
     image: assetUrl("/projects/kitchen-light-wood-cabinets.jpg"),
     serviceHref: "/commercial-renovation",
+    relatedNotes: ["prepare-before-starting-renovation", "commercial-renovation-access-handover-reinstatement"],
     sections: [
       { heading: "A programme begins before site work", paragraphs: ["Applications, professional review, material selection, appliance confirmation and long-lead ordering can affect the start even when no one is yet working inside the property. These activities should be visible rather than treated as background administration."] },
       { heading: "Trades depend on completed information", paragraphs: ["Wet works, services, ceilings, painting, final measurements, carpentry, worktops and fittings follow a sequence. Starting one activity without the information or site condition it needs can create rework instead of saving time."] },
@@ -930,6 +944,7 @@ export const notes: Note[] = [
     readTime: "5 min read",
     image: assetUrl("/projects/landed-dining-kitchen.jpg"),
     serviceHref: "/landed-renovation",
+    relatedNotes: ["how-to-shortlist-renovation-contractor-singapore", "prepare-before-starting-renovation"],
     sections: [
       { heading: "Begin with one continuous walk-through", paragraphs: ["Start at the entrance and photograph each room from more than one corner. Include doorways and connections between spaces so the images explain the layout instead of showing only isolated finishes."] },
       { heading: "Pair wide views with close details", paragraphs: ["For every leak, crack, damaged finish, pipe, distribution board or awkward junction, take one close photograph and another that shows where it sits in the room. Add a short note describing what happens and when."] },
@@ -945,6 +960,7 @@ export const notes: Note[] = [
     readTime: "7 min read",
     image: assetUrl("/projects/hdb-kitchen-green-cabinets.jpg"),
     serviceHref: "/hdb-renovation",
+    relatedNotes: ["wall-hacking-renovation-singapore-checks-approvals", "how-to-shortlist-renovation-contractor-singapore"],
     officialResources: [
       {
         title: "HDB: Renovation guidelines",
@@ -978,6 +994,7 @@ export const notes: Note[] = [
     publishedDate: "2026-07-12T00:00:00+08:00",
     image: assetUrl("/projects/condo-tv-feature-wall.jpg"),
     serviceHref: "/condo-renovation",
+    relatedNotes: ["hdb-renovation-permits-rules-planning", "condo-renovation-management-rules-planning"],
     relatedServices: [
       { label: "Review HDB renovation", href: "/hdb-renovation" },
       { label: "Review condo renovation", href: "/condo-renovation" },
@@ -1054,6 +1071,7 @@ export const notes: Note[] = [
     publishedDate: "2026-07-12T00:00:00+08:00",
     image: assetUrl("/projects/kitchen-light-wood-cabinets.jpg"),
     serviceHref: "/landed-aa-works",
+    relatedNotes: ["landed-renovation-vs-aa-works-difference", "landed-roof-drainage-waterproofing-warning-signs"],
     relatedServices: [
       { label: "Review landed A&A works", href: "/landed-aa-works" },
       { label: "Review landed renovation", href: "/landed-renovation" },
@@ -1137,6 +1155,7 @@ export const notes: Note[] = [
     publishedDate: "2026-07-12T00:00:00+08:00",
     image: assetUrl("/projects/landed-dining-kitchen.jpg"),
     serviceHref: "/landed-renovation",
+    relatedNotes: ["renovation-quotation-comparison-scope-exclusions", "site-photos-for-renovation-review"],
     relatedServices: [
       { label: "Review landed renovation", href: "/landed-renovation" },
       { label: "Review condo renovation", href: "/condo-renovation" },
@@ -1219,6 +1238,7 @@ export const notes: Note[] = [
     readTime: "7 min read",
     image: assetUrl("/projects/commercial-dining-fitout.jpg"),
     serviceHref: "/commercial-renovation",
+    relatedNotes: ["renovation-timeline-sequencing-lead-times", "renovation-quotation-comparison-scope-exclusions"],
     sections: [
       { heading: "Start with the tenancy and building documents", paragraphs: ["The landlord or management fit-out guide, approved-use information, access procedures and reinstatement clauses can affect the design and programme. Review them with the floor plan and intended operations before treating the scope as fixed."] },
       { heading: "Map how work enters and leaves the building", paragraphs: ["Loading bays, lift dimensions, protection, security access, delivery booking, debris routes and permitted work windows can determine how materials and trades are sequenced."] },
@@ -1229,3 +1249,10 @@ export const notes: Note[] = [
 ];
 
 export const notesBySlug = Object.fromEntries(notes.map((note) => [note.slug, note]));
+
+for (const note of notes) {
+  const uniqueRelated = new Set(note.relatedNotes);
+  if (uniqueRelated.size !== 2 || note.relatedNotes.includes(note.slug) || note.relatedNotes.some((slug) => !notesBySlug[slug])) {
+    throw new Error(`Invalid related Owner's Notes for ${note.slug}`);
+  }
+}

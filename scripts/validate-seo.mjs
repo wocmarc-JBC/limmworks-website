@@ -117,6 +117,16 @@ for (const url of uniqueUrls) {
     if (!html.includes(`"datePublished":"${publishedDate}"`)) fail(`${url}: Article schema is missing its publication date`);
   }
 
+  const pathname = new URL(url).pathname;
+  if (pathname.startsWith("/owners-notes/") && pathname !== "/owners-notes/") {
+    const sectionStart = html.indexOf('<section class="section section-notes">');
+    const sectionEnd = sectionStart >= 0 ? html.indexOf("</section>", sectionStart) : -1;
+    const continueReading = sectionStart >= 0 && sectionEnd > sectionStart ? html.slice(sectionStart, sectionEnd) : "";
+    const relatedArticlePaths = [...continueReading.matchAll(/<a class="note-card" href="(\/owners-notes\/[^"]+)"/g)].map((match) => match[1]);
+    if (relatedArticlePaths.length !== 2 || new Set(relatedArticlePaths).size !== 2) fail(`${url}: expected two unique curated related articles`);
+    if (relatedArticlePaths.includes(pathname)) fail(`${url}: related-article section links to itself`);
+  }
+
   for (const block of jsonLdBlocks) {
     try {
       JSON.parse(block);
