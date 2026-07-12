@@ -289,7 +289,7 @@ export const services: Record<string, ServicePageData> = {
       ],
     },
     projectIndex: 0,
-    relatedNotes: ["landed-renovation-vs-aa-works-difference", "hidden-renovation-materials-singapore"],
+    relatedNotes: ["wet-kitchen-extension-landed-home-singapore", "wall-hacking-renovation-singapore-checks-approvals", "landed-renovation-vs-aa-works-difference"],
   },
   "landed-aa-works": {
     slug: "landed-aa-works",
@@ -370,7 +370,7 @@ export const services: Record<string, ServicePageData> = {
       ],
     },
     projectIndex: 1,
-    relatedNotes: ["landed-renovation-vs-aa-works-difference", "prepare-before-starting-renovation"],
+    relatedNotes: ["wet-kitchen-extension-landed-home-singapore", "landed-renovation-vs-aa-works-difference", "wall-hacking-renovation-singapore-checks-approvals"],
   },
   "condo-renovation": {
     slug: "condo-renovation",
@@ -414,7 +414,7 @@ export const services: Record<string, ServicePageData> = {
       { question: "When should appliances be confirmed?", answer: "Key appliance models and dimensions should be confirmed before carpentry drawings and countertop details are finalised." },
     ],
     projectIndex: 2,
-    relatedNotes: ["condo-renovation-management-rules-planning", "prepare-before-starting-renovation"],
+    relatedNotes: ["wall-hacking-renovation-singapore-checks-approvals", "condo-renovation-management-rules-planning", "prepare-before-starting-renovation"],
   },
   "hdb-renovation": {
     slug: "hdb-renovation",
@@ -463,13 +463,13 @@ export const services: Record<string, ServicePageData> = {
       title: "Use HDB's current renovation guidance and permit route.",
       intro: "HDB directs homeowners to its renovation guidelines, approval process and important-information pages. These should be checked against the actual flat and proposed works before the programme is committed.",
       resources: [
-        { source: "Housing & Development Board", title: "HDB: Renovation guidelines", text: "Current guidance intended to keep flat renovation works safe and compliant with statutory requirements.", href: "https://www.hdb.gov.sg/residential/living-in-an-hdb-flat/renovation/guidelines" },
-        { source: "Housing & Development Board", title: "HDB: Applying for approval", text: "The official starting point for checking whether intended renovation work needs a permit and how approval is obtained.", href: "https://www.hdb.gov.sg/residential/living-in-an-hdb-flat/renovation/applying-for-approval" },
-        { source: "Housing & Development Board", title: "HDB: Important information", text: "Current homeowner guidance on renovation responsibilities and what should be checked before works proceed.", href: "https://www.hdb.gov.sg/residential/living-in-an-hdb-flat/renovation/important-information" },
+        { source: "Housing & Development Board", title: "HDB: Renovation guidelines", text: "Current guidance intended to keep flat renovation works safe and compliant with statutory requirements.", href: "https://www.hdb.gov.sg/managing-my-home/renovation-and-maintenance/renovation/renovation-guidelines" },
+        { source: "Housing & Development Board", title: "HDB: Renovation permit", text: "The official starting point for checking whether intended renovation work needs a permit and how approval is obtained.", href: "https://www.hdb.gov.sg/managing-my-home/renovation-and-maintenance/renovation/application-for-a-renovation-permit" },
+        { source: "Housing & Development Board", title: "HDB: Important information", text: "Current homeowner guidance on renovation responsibilities and what should be checked before works proceed.", href: "https://www.hdb.gov.sg/managing-my-home/renovation-and-maintenance/renovation/important-information-on-renovations" },
       ],
     },
     projectIndex: 3,
-    relatedNotes: ["hdb-renovation-permits-rules-planning", "renovation-quotation-comparison-scope-exclusions"],
+    relatedNotes: ["wall-hacking-renovation-singapore-checks-approvals", "hdb-renovation-permits-rules-planning", "how-to-shortlist-renovation-contractor-singapore"],
   },
   "kitchen-renovation": {
     slug: "kitchen-renovation",
@@ -655,6 +655,7 @@ export type Note = {
   title: string;
   excerpt: string;
   readTime: string;
+  publishedDate?: string;
   image: string;
   serviceHref: string;
   relatedServices?: { label: string; href: string }[];
@@ -948,17 +949,17 @@ export const notes: Note[] = [
       {
         title: "HDB: Renovation guidelines",
         text: "The current official guidance for renovation work in an HDB flat.",
-        href: "https://www.hdb.gov.sg/residential/living-in-an-hdb-flat/renovation/guidelines",
+        href: "https://www.hdb.gov.sg/managing-my-home/renovation-and-maintenance/renovation/renovation-guidelines",
       },
       {
-        title: "HDB: Applying for approval",
+        title: "HDB: Renovation permit",
         text: "HDB's official route for checking permit requirements and obtaining approval where required.",
-        href: "https://www.hdb.gov.sg/residential/living-in-an-hdb-flat/renovation/applying-for-approval",
+        href: "https://www.hdb.gov.sg/managing-my-home/renovation-and-maintenance/renovation/application-for-a-renovation-permit",
       },
       {
         title: "HDB: Important information",
         text: "Current homeowner information on renovation responsibilities and permitted work.",
-        href: "https://www.hdb.gov.sg/residential/living-in-an-hdb-flat/renovation/important-information",
+        href: "https://www.hdb.gov.sg/managing-my-home/renovation-and-maintenance/renovation/important-information-on-renovations",
       },
     ],
     sections: [
@@ -966,6 +967,248 @@ export const notes: Note[] = [
       { heading: "Plan around permitted work periods", paragraphs: ["Noisy work, deliveries, debris removal and neighbour-sensitive activities should be sequenced with the applicable work rules in mind. The programme should not assume every trade can operate at any hour."] },
       { heading: "Keep responsibilities clear", paragraphs: ["Clarify who prepares applications, which contractor qualifications are required for the relevant work, and what documents the owner needs to provide. Do this before the intended start date becomes a commitment.", "HDB tells homeowners renovating their flat to engage a contractor listed in its Directory of Renovation Contractors. The current listing and any work-specific requirements should be checked against the intended scope rather than assumed from a company name or a past project."] },
       { heading: "Use official guidance as the control point", paragraphs: ["Requirements can change. The latest HDB information and the actual permit response should govern the project when they differ from past experience or general advice."] },
+    ],
+  },
+  {
+    slug: "wall-hacking-renovation-singapore-checks-approvals",
+    category: "Planning & approvals",
+    title: "Can You Hack This Wall? Checks Before Wall Removal in Singapore",
+    excerpt: "An answer-first guide to plans, wall type, structural review, concealed services and property-specific approval before demolition starts.",
+    readTime: "9 min read",
+    publishedDate: "2026-07-12T00:00:00+08:00",
+    image: assetUrl("/projects/condo-tv-feature-wall.jpg"),
+    serviceHref: "/condo-renovation",
+    relatedServices: [
+      { label: "Review HDB renovation", href: "/hdb-renovation" },
+      { label: "Review condo renovation", href: "/condo-renovation" },
+      { label: "Review landed renovation", href: "/landed-renovation" },
+    ],
+    officialResources: [
+      {
+        title: "HDB: Building works guidelines",
+        text: "Current permit and condition tables for demolition, alteration and erection of walls in HDB flats.",
+        href: "https://www.hdb.gov.sg/managing-my-home/renovation-and-maintenance/renovation/renovation-guidelines/building-works",
+      },
+      {
+        title: "BCA: Structural plan submission",
+        text: "Current guidance on structural-plan approval, permits and the role of the Qualified Person for structural works.",
+        href: "https://www1.bca.gov.sg/safety-and-standards/applications-and-licenses/structural-plan-submission/",
+      },
+      {
+        title: "URA: Land-titled residential",
+        text: "Planning-permission examples for alterations to terrace, semi-detached and detached houses.",
+        href: "https://www.ura.gov.sg/guidelines/property-and-business-owners/property/renovating-private-residential-property/land-titled-residential/",
+      },
+    ],
+    sections: [
+      {
+        heading: "The short answer: do not decide from appearance alone",
+        paragraphs: [
+          "A wall that looks thin may still conceal services, connect to another element or be subject to an approval condition. A wall that is described casually as a partition may not match the approved plan or the construction found on site.",
+          "Before demolition is priced as confirmed work, establish the property type, obtain the available approved or as-built plan, identify the wall construction and record the approval or professional checks that apply. A photograph is useful context, but it is not structural clearance.",
+        ],
+      },
+      {
+        heading: "For HDB flats, use the current wall-specific table",
+        paragraphs: [
+          "HDB's current Building Works guidelines mark demolition or alteration of internal lightweight partition walls as permit-required work. They also state that demolition or alteration of walls can proceed only after HDB approval and that existing reinforced-concrete structures must not be tampered with during the work.",
+          "The same table sets additional requirements for selected non-load-bearing reinforced-concrete elements, including supervision by a Professional Engineer for civil or structural works. If steel bars are discovered while an approved lightweight wall is being demolished, HDB instructs that work be stopped and HDB informed. The exact row and approval conditions should be checked against the actual wall before site work begins.",
+        ],
+      },
+      {
+        heading: "For condos, management acceptance and structural clearance answer different questions",
+        paragraphs: [
+          "The condominium renovation guide may control submissions, deposits, working hours, protection and the documents the management requires. It does not turn a visual assumption about a wall into a structural conclusion.",
+          "Send the marked-up floor plan and proposed opening with the management guide. Where the wall type or effect on the building is uncertain, obtain the appropriate professional review before treating the layout as feasible or releasing demolition work.",
+        ],
+      },
+      {
+        heading: "For landed and other private homes, separate planning from structure",
+        paragraphs: [
+          "Changing an internal room arrangement and altering a structural element are not the same assessment. URA's landed-home guidance gives planning-permission examples, while BCA's structural process addresses structural plans and permits. One answer does not automatically provide the other.",
+          "BCA states that a permit is required for building works unless they fall within the listed insignificant-building-work exceptions, and that structural-plan approval is applied for by a Qualified Person who is a registered civil or structural Professional Engineer. The appropriate route depends on what the proposed opening actually affects.",
+        ],
+      },
+      {
+        heading: "Check what runs through and around the wall",
+        paragraphs: [
+          "Electrical wiring, plumbing, air-conditioning routes, data cables, waterproofing upturns and built-in supports can change the demolition sequence and making-good scope. Adjacent ceilings, floors, cabinets and doors may also depend on the wall's position or finish build-up.",
+          "Mark the intended opening dimensions, retained edges and nearby fixtures. The review should show how services will be isolated or rerouted and how the remaining surfaces will be repaired—not only where the hacking line appears on a layout.",
+        ],
+      },
+      {
+        heading: "Prepare a wall-removal review pack before asking for a firm price",
+        paragraphs: [
+          "Include the property type and address, approved or existing plan, a plan with the wall highlighted, photographs from both sides, the intended opening or room connection, and any management or authority documents already available.",
+          "Ask the quotation to distinguish confirmed demolition, professional or submission work, service diversion, temporary protection, debris removal and making good. If feasibility is still unresolved, label it as a dependency rather than hiding it inside a lump-sum promise.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "wet-kitchen-extension-landed-home-singapore",
+    category: "Landed & A&A",
+    title: "Wet Kitchen Extension for a Landed Home: What to Check First",
+    excerpt: "Plan the approved footprint, structure, roof junctions, drainage, ventilation, services and construction access before cabinetry is designed.",
+    readTime: "9 min read",
+    publishedDate: "2026-07-12T00:00:00+08:00",
+    image: assetUrl("/projects/kitchen-light-wood-cabinets.jpg"),
+    serviceHref: "/landed-aa-works",
+    relatedServices: [
+      { label: "Review landed A&A works", href: "/landed-aa-works" },
+      { label: "Review landed renovation", href: "/landed-renovation" },
+      { label: "Review kitchen renovation", href: "/kitchen-renovation" },
+    ],
+    officialResources: [
+      {
+        title: "URA: Land-titled residential",
+        text: "A homeowner-oriented guide to landed alterations and examples of when planning permission may be required.",
+        href: "https://www.ura.gov.sg/guidelines/property-and-business-owners/property/renovating-private-residential-property/land-titled-residential/",
+      },
+      {
+        title: "URA: Landed Housing e-Advisor",
+        text: "A quick visual check for selected alterations to bungalow, semi-detached and terrace houses, with stated limitations.",
+        href: "https://www.ura.gov.sg/guidelines/property-and-business-owners/property/renovating-private-residential-property/landed-housing-e-advisor/",
+      },
+      {
+        title: "URA: A&A criteria for terrace houses",
+        text: "Current criteria for additions and alterations, reconstruction and the prevailing building envelope.",
+        href: "https://www.ura.gov.sg/guidelines/development-control/development-control-handbooks/residential/terrace/additions-alterations/",
+      },
+    ],
+    sections: [
+      {
+        heading: "The short answer: treat it as an extension before treating it as a kitchen",
+        paragraphs: [
+          "A wet-kitchen extension can affect the approved building footprint, gross floor area, external walls, structure, roof, drainage and neighbour-facing conditions. Cabinet layout matters, but it comes after the route for the added space is understood.",
+          "Start with the approved and existing plans, current rear-yard condition and the outcome the household needs. Ask whether the proposal is internal reorganisation, an addition within the applicable rules, or a larger alteration requiring a different professional and approval route.",
+        ],
+      },
+      {
+        heading: "Compare the proposed space with the approved house",
+        paragraphs: [
+          "URA states that enlarging or relocating rooms within a landed house may not require planning permission in the examples and conditions it describes. That should not be read as automatic permission to enclose or extend an external area.",
+          "For terrace-house A&A, URA's current criteria consider additional gross floor area, external-wall replacement, structural changes, roof works and the prevailing building envelope. The familiar 50% shorthand is only one part of that assessment. A Qualified Person should check the real proposal and property records where the work goes beyond an interior layout change.",
+        ],
+      },
+      {
+        heading: "Resolve the connection between new and existing structure",
+        paragraphs: [
+          "The rear wall, existing columns and beams, floor slab, foundations and the proposed opening all affect how the extension meets the house. A wide opening for an indoor-outdoor kitchen cannot be assumed to be a finishing decision.",
+          "Record which elements are retained, removed or newly supported. Structural feasibility and temporary-work needs should be established before the roof, glazing or cabinet set-out is treated as final.",
+        ],
+      },
+      {
+        heading: "Design the roof and weather junction as one system",
+        paragraphs: [
+          "An extension creates edges where new roof work meets an older wall, roof or upper-storey facade. Falls, flashings, gutters, downpipes, penetrations and maintenance access need coordinated details rather than separate trade assumptions.",
+          "Photograph existing stains, ponding, overflowing gutters and low points before work starts. New ceilings or cabinets should not conceal an unresolved water path.",
+        ],
+      },
+      {
+        heading: "Map rainwater, kitchen wastewater and floor levels early",
+        paragraphs: [
+          "Show existing drains, downpipes, sanitary points, inspection access, external ground levels and the intended sink or floor-trap positions. The project team can then identify which routes must be checked and which technical requirements may apply.",
+          "The finished floor, threshold and external falls should be reviewed together so routine washing or heavy rain does not create an avoidable backflow, ponding or step problem at the new junction.",
+        ],
+      },
+      {
+        heading: "Coordinate heat, ventilation, gas and electrical loads",
+        paragraphs: [
+          "Confirm the actual hob, hood, ovens, refrigerators, freezers, water heaters and other heavy-use appliances. Their power, ventilation, clearance and service-access needs affect the wall, ceiling and cabinet plan.",
+          "A wet kitchen that is partially enclosed also needs a deliberate path for heat, odour and make-up air. Equipment specifications and the applicable professional or authority requirements should govern the solution, not a generic kitchen drawing.",
+        ],
+      },
+      {
+        heading: "Plan access, neighbours and temporary household use",
+        paragraphs: [
+          "Rear extensions can involve excavation, structural work, roofing, wet trades and debris movement in a constrained area. Identify how workers and materials reach the rear, what must be protected, and whether the existing kitchen or services remain usable during each stage.",
+          "For the first review, send the approved and existing plans, rear and side photographs, known drainage or leak issues, the appliances to be used, desired enclosure, budget range and target timing. The useful outcome is a list of feasibility checks—not an instant promise that every square metre can be enclosed.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "how-to-shortlist-renovation-contractor-singapore",
+    category: "Project preparation",
+    title: "How to Shortlist a Renovation Contractor in Singapore",
+    excerpt: "Use registrations, comparable work, scope clarity, payment milestones, variation controls and delivery evidence to compare contractors responsibly.",
+    readTime: "9 min read",
+    publishedDate: "2026-07-12T00:00:00+08:00",
+    image: assetUrl("/projects/landed-dining-kitchen.jpg"),
+    serviceHref: "/landed-renovation",
+    relatedServices: [
+      { label: "Review landed renovation", href: "/landed-renovation" },
+      { label: "Review condo renovation", href: "/condo-renovation" },
+      { label: "Review HDB renovation", href: "/hdb-renovation" },
+    ],
+    officialResources: [
+      {
+        title: "HDB: Looking for renovation contractors",
+        text: "HDB's explanation of its Directory of Renovation Contractors, private contractual responsibility and consumer-support routes.",
+        href: "https://www.hdb.gov.sg/managing-my-home/renovation-and-maintenance/renovation/looking-for-renovation-contractors",
+      },
+      {
+        title: "CASE: Consumer guide",
+        text: "CASE's current consumer resources, including its renovation-contractor guide.",
+        href: "https://www.case.org.sg/consumer-guide/",
+      },
+      {
+        title: "CASE: CaseTrust for renovation",
+        text: "The controls consumers can expect from a currently accredited renovation business under the scheme.",
+        href: "https://www.case.org.sg/casetrust/casetrust-accreditation-for-renovation-businesses/",
+      },
+    ],
+    sections: [
+      {
+        heading: "The short answer: shortlist evidence, not the lowest headline total",
+        paragraphs: [
+          "A useful shortlist compares the contracting entity, work relevant to your property type, the people who will manage the site, the completeness of the scope, the payment and variation controls, and what happens at handover. A polished proposal or large photo gallery answers only part of that review.",
+          "Use the same floor plan, photos, priorities and scope brief for each candidate. If every company is pricing a different interpretation, the totals are not yet a reliable comparison.",
+        ],
+      },
+      {
+        heading: "Treat registrations as entry checks, not quality guarantees",
+        paragraphs: [
+          "For an HDB flat, HDB tells homeowners to engage a contractor listed in its Directory of Renovation Contractors for renovation work. HDB also states that a DRC listing means the contractor is aware of HDB requirements; it does not endorse or guarantee the quality of the contractor's work.",
+          "Verify the current listing against the legal entity that will sign the contract. For other work, check the registrations, professional appointments or trade qualifications that actually apply to the proposed scope rather than relying on a logo shown without context.",
+        ],
+      },
+      {
+        heading: "Match completed evidence to the project you are planning",
+        paragraphs: [
+          "Ask for recent examples that resemble the property type and difficult parts of your scope: an older landed house, a condo under management rules, wet-area replacement, structural coordination, occupied work or commercial handover. One attractive room does not demonstrate every capability.",
+          "Ask who led those projects, which parts were self-performed or subcontracted, and who will be accountable on your site. References or site visits should be arranged only with the previous client's permission.",
+        ],
+      },
+      {
+        heading: "Compare the scope line by line before comparing price",
+        paragraphs: [
+          "Mark quantities, specifications, preparation, protection, disposal, testing, making good, professional fees, submissions, owner-supplied items and exclusions. Identify allowances and site conditions that cannot yet be priced firmly.",
+          "A lower total can be legitimate, but it should be explainable through scope, specification or method. Unstated work is not automatically included, and a vague lump sum makes later changes harder to assess.",
+        ],
+      },
+      {
+        heading: "Use clear contract, payment and variation controls",
+        paragraphs: [
+          "CASE's CaseTrust renovation scheme offers a useful benchmark for accredited businesses: a standard renovation contract, payment by agreed milestones, transparent pricing, written agreement for variations, warranty terms and prepayment protection. These protections should not be assumed for a business that is not currently accredited.",
+          "Whatever contractor you consider, ask for a written programme, milestone definitions, variation procedure, warranty terms, termination position and dispute route. Confirm that the company name and payment instructions match the contracting entity before transferring money.",
+        ],
+      },
+      {
+        heading: "Interview the delivery team, not only the salesperson",
+        paragraphs: [
+          "Ask who prepares drawings, coordinates trades, checks dimensions, reports progress, records concealed work, obtains approvals where applicable and closes defects. Find out how often the responsible person attends site and how decisions are documented.",
+          "A credible team should be willing to identify what is still unknown. Promises that structural feasibility, authority approval, hidden conditions or completion dates are certain before the required checks deserve closer scrutiny.",
+        ],
+      },
+      {
+        heading: "Use a final shortlist sheet before appointment",
+        paragraphs: [
+          "For each candidate, record the legal entity, current relevant registrations, comparable projects, named project lead, scope gaps, provisional sums, exclusions, programme, payment milestones, variation method, warranty and outstanding questions.",
+          "Choose only after the important differences are visible. The aim is not to eliminate every project risk; it is to select a team whose scope, controls and evidence make those risks easier to manage openly.",
+        ],
+      },
     ],
   },
   {

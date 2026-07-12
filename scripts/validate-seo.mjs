@@ -69,9 +69,17 @@ function internalPath(href) {
 const sitemapXml = readFileSync(sitemapPath, "utf8");
 const sitemapUrls = [...sitemapXml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => decodeHtml(match[1]));
 const uniqueUrls = new Set(sitemapUrls);
+const newArticleDates = new Map([
+  ["/owners-notes/wall-hacking-renovation-singapore-checks-approvals", "2026-07-12T00:00:00+08:00"],
+  ["/owners-notes/wet-kitchen-extension-landed-home-singapore", "2026-07-12T00:00:00+08:00"],
+  ["/owners-notes/how-to-shortlist-renovation-contractor-singapore", "2026-07-12T00:00:00+08:00"],
+]);
 
-if (sitemapUrls.length !== 36) fail(`Expected 36 canonical sitemap URLs, found ${sitemapUrls.length}`);
+if (sitemapUrls.length !== 39) fail(`Expected 39 canonical sitemap URLs, found ${sitemapUrls.length}`);
 if (uniqueUrls.size !== sitemapUrls.length) fail("Sitemap contains duplicate URLs");
+for (const path of newArticleDates.keys()) {
+  if (!uniqueUrls.has(`${siteOrigin}${path}`)) fail(`New article is missing from the sitemap: ${path}`);
+}
 
 const pages = [];
 const inboundLinks = new Map([...uniqueUrls].map((url) => [new URL(url).pathname.replace(/\/$/, "") || "/", 0]));
@@ -103,6 +111,12 @@ for (const url of uniqueUrls) {
   if (!html.includes('href="https://wa.me/')) fail(`${url}: missing WhatsApp enquiry path`);
   if (jsonLdBlocks.length === 0) fail(`${url}: missing JSON-LD`);
 
+  const publishedDate = newArticleDates.get(new URL(url).pathname);
+  if (publishedDate) {
+    if (!html.includes(`dateTime="${publishedDate}"`)) fail(`${url}: publication date is not visible in a time element`);
+    if (!html.includes(`"datePublished":"${publishedDate}"`)) fail(`${url}: Article schema is missing its publication date`);
+  }
+
   for (const block of jsonLdBlocks) {
     try {
       JSON.parse(block);
@@ -119,6 +133,7 @@ for (const url of uniqueUrls) {
   }
 
   if (html.includes("limmworks-growth.woc-marc.chatgpt.site")) fail(`${url}: contains retired external asset host`);
+  if (html.includes("/residential/living-in-an-hdb-flat/renovation/")) fail(`${url}: contains a retired HDB renovation URL`);
   pages.push({ url, pageTitle, description });
 }
 

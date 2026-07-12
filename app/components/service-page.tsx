@@ -164,7 +164,7 @@ export function ServicePage({ data }: { data: ServicePageData }) {
               <span className="eyebrow">Official guidance</span>
               <h2>{data.officialGuidance.title}</h2>
               <p>{data.officialGuidance.intro}</p>
-              <small>Official requirements can change. Links below point to the current URA pages and open in a new tab.</small>
+              <small>Official requirements can change. Links below point to the current official pages and open in a new tab.</small>
             </div>
             <div className="official-resource-list">
               {data.officialGuidance.resources.map((resource) => (

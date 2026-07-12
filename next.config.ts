@@ -55,7 +55,7 @@ const legacyRedirects = [
   },
   {
     source: "/post/wet-kitchen-extension-landed-homes-singapore",
-    destination: "https://www.limmworks.com/landed-aa-works",
+    destination: "https://www.limmworks.com/owners-notes/wet-kitchen-extension-landed-home-singapore",
   },
   {
     source: "/post/what-is-a-a-works-for-landed-homes-in-singapore",
