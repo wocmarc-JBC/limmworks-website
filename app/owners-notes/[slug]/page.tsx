@@ -32,8 +32,7 @@ export default async function NotePage({ params }: { params: Promise<{ slug: str
   const note = notesBySlug[slug];
   if (!note) notFound();
   const relatedServices = note.relatedServices ?? [{ label: "Review related service", href: note.serviceHref }];
-  const sameCategory = notes.filter((item) => item.slug !== note.slug && item.category === note.category);
-  const related = [...sameCategory, ...notes.filter((item) => item.slug !== note.slug && item.category !== note.category)].slice(0, 2);
+  const related = note.relatedNotes.map((relatedSlug) => notesBySlug[relatedSlug]);
   const publishedLabel = note.publishedDate
     ? new Intl.DateTimeFormat("en-SG", { day: "numeric", month: "long", year: "numeric", timeZone: "Asia/Singapore" }).format(new Date(note.publishedDate))
     : null;
