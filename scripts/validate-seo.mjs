@@ -154,6 +154,18 @@ if (!homeSchemas.some((schema) => schema["@id"] === `${siteOrigin}/#website`)) f
 if (!homeSchemas.some((schema) => schema["@id"] === `${siteOrigin}/#webpage`)) fail("Homepage is missing the WebPage entity");
 
 const routesManifest = JSON.parse(readFileSync(routesManifestPath, "utf8"));
+const globalHeaders = routesManifest.headers.find((route) => route.source === "/:path*")?.headers ?? [];
+const headerMap = new Map(globalHeaders.map((header) => [header.key, header.value]));
+const expectedHeaders = {
+  "X-Content-Type-Options": "nosniff",
+  "X-Frame-Options": "SAMEORIGIN",
+  "Referrer-Policy": "strict-origin-when-cross-origin",
+  "Permissions-Policy": "camera=(), microphone=(), geolocation=()",
+};
+for (const [key, value] of Object.entries(expectedHeaders)) {
+  if (headerMap.get(key) !== value) fail(`Missing or unexpected global response header: ${key}`);
+}
+
 const legacyRedirects = routesManifest.redirects.filter((redirect) => redirect.source.startsWith("/post/") || ["/our-designers", "/portfolio"].includes(redirect.source));
 if (legacyRedirects.length !== 19) fail(`Expected 19 Search Console legacy redirects, found ${legacyRedirects.length}`);
 if (legacyRedirects.some((redirect) => redirect.statusCode !== 308)) fail("A legacy redirect is not permanent (308)");
