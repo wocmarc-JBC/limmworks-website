@@ -2,6 +2,7 @@ import type { MetadataRoute } from "next";
 import { notes, projects, services, site } from "./lib/site";
 
 const siteLaunchDate = new Date("2026-07-11T00:00:00+08:00");
+const businessDetailsUpdateDate = new Date("2026-07-12T00:00:00+08:00");
 
 function imageUrls(paths: string[]) {
   return [...new Set(paths)].map((path) => `${site.domain}${path}`);
@@ -19,7 +20,7 @@ const noteIndexImages = imageUrls(notes.map((note) => note.image));
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
-    { url: site.domain, lastModified: siteLaunchDate, changeFrequency: "weekly", priority: 1, images: homepageImages },
+    { url: site.domain, lastModified: businessDetailsUpdateDate, changeFrequency: "weekly", priority: 1, images: homepageImages },
     ...Object.values(services).map((service) => ({
       url: `${site.domain}/${service.slug}`,
       lastModified: siteLaunchDate,
@@ -38,7 +39,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${site.domain}/residential`, lastModified: siteLaunchDate, changeFrequency: "monthly", priority: 0.8 },
     { url: `${site.domain}/owners-notes`, lastModified: siteLaunchDate, changeFrequency: "weekly", priority: 0.8, images: noteIndexImages },
     ...notes.map((note) => ({ url: `${site.domain}/owners-notes/${note.slug}`, lastModified: siteLaunchDate, changeFrequency: "monthly" as const, priority: 0.7, images: imageUrls([note.image]) })),
-    { url: `${site.domain}/contact`, lastModified: siteLaunchDate, changeFrequency: "monthly", priority: 0.8, images: imageUrls(["/projects/landed-dining-kitchen.jpg"]) },
+    { url: `${site.domain}/contact`, lastModified: businessDetailsUpdateDate, changeFrequency: "monthly", priority: 0.8, images: imageUrls(["/projects/landed-dining-kitchen.jpg"]) },
     { url: `${site.domain}/about`, lastModified: siteLaunchDate, changeFrequency: "yearly", priority: 0.65, images: imageUrls(["/projects/landed-dining-kitchen.jpg"]) },
   ];
 }

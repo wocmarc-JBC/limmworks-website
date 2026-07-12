@@ -31,7 +31,7 @@ export default function Home() {
         "@context": "https://schema.org",
         "@graph": [
           {
-            "@type": "Organization",
+            "@type": "HomeAndConstructionBusiness",
             "@id": `${site.domain}/#organization`,
             name: site.name,
             alternateName: site.shortName,
@@ -49,6 +49,13 @@ export default function Home() {
             foundingDate: "2016",
             telephone: `+${site.phone}`,
             email: site.email,
+            address: {
+              "@type": "PostalAddress",
+              streetAddress: site.address.streetAddress,
+              addressLocality: site.address.addressLocality,
+              postalCode: site.address.postalCode,
+              addressCountry: site.address.addressCountry,
+            },
             areaServed: { "@type": "Country", name: "Singapore" },
             contactPoint: {
               "@type": "ContactPoint",

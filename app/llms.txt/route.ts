@@ -10,6 +10,7 @@ export function GET() {
     "",
     `Official website: ${site.domain}`,
     `Contact: ${site.email} | ${site.phoneDisplay}`,
+    `Office: ${site.address.display}`,
     `Project enquiries: ${site.domain}/contact`,
     "",
     "## Core services",
