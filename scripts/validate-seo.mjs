@@ -6,6 +6,7 @@ const siteOrigin = "https://www.limmworks.com";
 const sitemapPath = resolve(root, ".next/server/app/sitemap.xml.body");
 const routesManifestPath = resolve(root, ".next/routes-manifest.json");
 const notFoundPath = resolve(root, ".next/server/app/_not-found.html");
+const llmsPath = resolve(root, ".next/server/app/llms.txt.body");
 const failures = [];
 
 function fail(message) {
@@ -148,8 +149,19 @@ const homeSchemas = [...homeHtml.matchAll(/<script type="application\/ld\+json">
   .map((match) => JSON.parse(match[1]))
   .flatMap((schema) => schema["@graph"] ?? [schema]);
 const organization = homeSchemas.find((schema) => schema["@id"] === `${siteOrigin}/#organization`);
-if (!organization) fail("Homepage is missing the connected Organization entity");
-if (organization?.["@type"] !== "Organization") fail("Homepage Organization entity must use valid Organization markup without an invented address");
+if (!organization) fail("Homepage is missing the connected business entity");
+if (organization?.["@type"] !== "HomeAndConstructionBusiness") fail("Homepage business entity must use HomeAndConstructionBusiness markup");
+const expectedAddress = {
+  streetAddress: "49 Niven Road",
+  addressLocality: "Singapore",
+  postalCode: "228397",
+  addressCountry: "SG",
+};
+for (const [key, value] of Object.entries(expectedAddress)) {
+  if (organization?.address?.[key] !== value) fail(`Homepage business address is missing or incorrect: ${key}`);
+}
+if (!homeHtml.includes("49 Niven Road, Singapore 228397")) fail("Confirmed business address is not visible on the homepage");
+if (!readFileSync(llmsPath, "utf8").includes("Office: 49 Niven Road, Singapore 228397")) fail("Confirmed business address is missing from llms.txt");
 if (!homeSchemas.some((schema) => schema["@id"] === `${siteOrigin}/#website`)) fail("Homepage is missing the WebSite entity");
 if (!homeSchemas.some((schema) => schema["@id"] === `${siteOrigin}/#webpage`)) fail("Homepage is missing the WebPage entity");
 

@@ -71,7 +71,7 @@ export function Footer() {
       </div>
       <div className="shell footer-bottom">
         <span>© 2026 LIMM Works Pte Ltd</span>
-        <span>Singapore</span>
+        <span>{site.address.display}</span>
       </div>
     </footer>
   );

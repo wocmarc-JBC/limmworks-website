@@ -7,6 +7,13 @@ export const site = {
   instagram: "https://www.instagram.com/limmworks/",
   facebook: "https://www.facebook.com/limmworks/",
   domain: "https://www.limmworks.com",
+  address: {
+    streetAddress: "49 Niven Road",
+    addressLocality: "Singapore",
+    postalCode: "228397",
+    addressCountry: "SG",
+    display: "49 Niven Road, Singapore 228397",
+  },
 };
 
 export const assetOrigin = "";

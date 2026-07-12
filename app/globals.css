@@ -355,10 +355,12 @@ p { color: var(--muted); line-height: 1.75; }
 .contact-grid { display: grid; grid-template-columns: 0.75fr 1.25fr; gap: 70px; align-items: start; }
 .contact-details h2 { margin-bottom: 24px; font-size: clamp(36px, 4.3vw, 54px); line-height: 1.05; font-weight: 630; }
 .contact-method { margin-top: 12px; padding: 18px 20px; border: 1px solid var(--line); border-radius: 6px; background: rgba(251, 248, 242, 0.65); display: grid; gap: 6px; }
+.contact-details address.contact-method { font-style: normal; }
 .contact-method-primary { margin-top: 35px; background: var(--ink); color: white; }
 .contact-method > span { color: var(--gold); font-size: 10px; font-weight: 850; letter-spacing: 0.08em; text-transform: uppercase; }
 .contact-method strong { font-size: 15px; }
 .contact-method small { color: rgba(255, 255, 255, 0.55); font-size: 11px; }
+.contact-method:not(.contact-method-primary) small { color: var(--muted); }
 .next-steps { margin-top: 30px; padding-top: 28px; border-top: 1px solid var(--line); }
 .next-steps h3 { margin-bottom: 20px; font-size: 20px; }
 .next-steps p { padding: 12px 0; margin: 0; border-bottom: 1px solid var(--line); display: flex; gap: 16px; font-size: 12px; }
