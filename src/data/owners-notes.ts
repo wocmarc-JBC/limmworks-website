@@ -5,6 +5,8 @@ export type OwnerNote = {
   date: string;
   readingTime: string;
   category: string;
+  resources?: { title: string; href: string }[];
+  relatedService?: { title: string; href: string };
   sections: {
     heading: string;
     body: string[];
@@ -12,6 +14,76 @@ export type OwnerNote = {
 };
 
 export const ownerNotes: OwnerNote[] = [
+  {
+    slug: "wet-kitchen-extension-landed-home-singapore",
+    category: "Landed & A&A",
+    title: "Wet Kitchen Extension for a Landed Home in Singapore",
+    description: "What to check before extending a rear wet kitchen, from the approved footprint and structure to roof junctions, drainage and ventilation.",
+    date: "2026-07-12",
+    readingTime: "5 min read",
+    relatedService: { title: "Landed additions and alterations", href: "/landed-aa-works" },
+    resources: [
+      {
+        title: "URA guidance for landed home renovations",
+        href: "https://www.ura.gov.sg/guidelines/property-and-business-owners/property/renovating-private-residential-property/land-titled-residential/",
+      },
+      {
+        title: "URA additions and alterations criteria for terrace houses",
+        href: "https://www.ura.gov.sg/guidelines/development-control/development-control-handbooks/residential/terrace/additions-alterations/",
+      },
+    ],
+    sections: [
+      {
+        heading: "The short answer: treat it as an extension before treating it as a kitchen",
+        body: [
+          "A wet-kitchen extension can affect the approved building footprint, gross floor area, external walls, structure, roof, drainage and neighbour-facing conditions. Cabinet layout matters, but it comes after the route for the added space is understood.",
+          "Start with the approved and existing plans, current rear-yard condition and the outcome the household needs. Ask whether the proposal is internal reorganisation, an addition within the applicable rules, or a larger alteration requiring a different professional and approval route.",
+        ],
+      },
+      {
+        heading: "Compare the proposed space with the approved house",
+        body: [
+          "URA states that enlarging or relocating rooms within a landed house may not require planning permission in the examples and conditions it describes. Check proposed enclosures and extensions separately against the approved plans.",
+          "For terrace-house A&A, URA's current criteria consider additional gross floor area, external-wall replacement, structural changes, roof works and the prevailing building envelope. A Qualified Person should check the real proposal and property records where the work goes beyond an interior layout change.",
+        ],
+      },
+      {
+        heading: "Resolve the connection between new and existing structure",
+        body: [
+          "The rear wall, existing columns and beams, floor slab, foundations and the proposed opening all affect how the extension meets the house. A wide opening for an indoor-outdoor kitchen cannot be assumed to be a finishing decision.",
+          "Record which elements are retained, removed or newly supported. Structural feasibility and temporary-work needs should be established before the roof, glazing or cabinet set-out is treated as final.",
+        ],
+      },
+      {
+        heading: "Design the roof and weather junction as one system",
+        body: [
+          "An extension creates edges where new roof work meets an older wall, roof or upper-storey facade. Falls, flashings, gutters, downpipes, penetrations and maintenance access need coordinated details.",
+          "Photograph existing stains, ponding, overflowing gutters and low points before work starts. New ceilings or cabinets should not conceal an unresolved water path.",
+        ],
+      },
+      {
+        heading: "Map rainwater, kitchen wastewater and floor levels early",
+        body: [
+          "Show existing drains, downpipes, sanitary points, inspection access, external ground levels and the intended sink or floor-trap positions. The project team can then identify which routes must be checked and which technical requirements may apply.",
+          "The finished floor, threshold and external falls should be reviewed together so routine washing or heavy rain does not create an avoidable backflow, ponding or step problem at the new junction.",
+        ],
+      },
+      {
+        heading: "Coordinate heat, ventilation, gas and electrical loads",
+        body: [
+          "Confirm the actual hob, hood, ovens, refrigerators, freezers, water heaters and other heavy-use appliances. Their power, ventilation, clearance and service-access needs affect the wall, ceiling and cabinet plan.",
+          "A wet kitchen that is partially enclosed also needs a plan for extracting heat and odours and supplying replacement air. Equipment specifications and the applicable professional or authority requirements should govern the solution.",
+        ],
+      },
+      {
+        heading: "Plan access, neighbours and temporary household use",
+        body: [
+          "Rear extensions can involve excavation, structural work, roofing, wet trades and debris movement in a constrained area. Identify how workers and materials reach the rear, what must be protected, and whether the existing kitchen or services remain usable during each stage.",
+          "For the first review, send the approved and existing plans, rear and side photographs, known drainage or leak issues, the appliances to be used, desired enclosure, budget range and target timing. That gives the project team enough information to identify the feasibility checks.",
+        ],
+      },
+    ],
+  },
   {
     slug: "prepare-before-starting-renovation",
     title: "What Homeowners Should Prepare Before Starting a Renovation",

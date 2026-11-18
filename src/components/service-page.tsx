@@ -83,7 +83,7 @@ const serviceProfiles: Record<
   },
 };
 
-export function ServicePage({ service }: { service: Service }) {
+export function ServicePage({ service, children }: { service: Service; children?: React.ReactNode }) {
   const quickAnswerAudience =
     service.slug === "commercial-renovation" ? "businesses" : "homeowners";
   const profile = serviceProfiles[service.slug];
@@ -307,6 +307,7 @@ export function ServicePage({ service }: { service: Service }) {
           <FaqList faqs={service.faqs} />
         </div>
       </MotionSection>
+      {children ? <div className="mx-auto max-w-7xl px-4 pb-12 sm:px-6 lg:px-8">{children}</div> : null}
       <CtaBand serviceSlug={service.slug} />
     </>
   );

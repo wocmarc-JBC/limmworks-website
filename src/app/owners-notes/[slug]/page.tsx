@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import { JsonLd } from "@/components/json-ld";
 import { ownerNotes, getOwnerNote } from "@/data/owners-notes";
@@ -89,6 +90,21 @@ export default async function OwnerNotePage({ params }: Props) {
               </section>
             ))}
           </div>
+          {note.resources?.length ? (
+            <section className="mt-10">
+              <h2 className="text-xl font-semibold text-[var(--limm-ink)]">Official guidance</h2>
+              <ul className="mt-3 space-y-2">
+                {note.resources.map(({ title, href }) => (
+                  <li key={href}><a className="underline" href={href}>{title}</a></li>
+                ))}
+              </ul>
+            </section>
+          ) : null}
+          {note.relatedService ? (
+            <p className="mt-8">
+              <Link className="underline" href={note.relatedService.href}>{note.relatedService.title}</Link>
+            </p>
+          ) : null}
         </div>
       </article>
     </>

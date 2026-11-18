@@ -27,6 +27,7 @@ const socialPreview = getExistingPublicAsset(brandAssets.socialPreview);
 
 export const metadata: Metadata = {
   metadataBase: new URL(getSiteUrl()),
+  verification: { google: "0MotSkTZEheCTDuaQPWlDZVZE8Q8783DyRPl4DDfMGI" },
   title: {
     default: `${siteConfig.name} | ${siteConfig.tagline}`,
     template: `%s | ${siteConfig.shortName}`,

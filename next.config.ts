@@ -3,6 +3,7 @@ import type { NextConfig } from "next";
 const legacyRoutes = [
   ["/portfolio", "/projects"],
   ["/blog", "/owners-notes"],
+  ["/post/wet-kitchen-extension-landed-homes-singapore", "/owners-notes/wet-kitchen-extension-landed-home-singapore"],
   ["/our-designers", "/about"],
   ["/landed-a-a", "/landed-aa-works"],
   ["/post/what-is-a-a-works-for-landed-homes-in-singapore", "/landed-aa-works"],
