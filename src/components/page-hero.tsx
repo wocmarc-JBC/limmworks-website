@@ -13,6 +13,12 @@ export function PageHero({
   ctaHref,
   ctaLabel = "Start Project Review",
   serviceSlug,
+  reviewItems = [
+    "Floor plan or existing layout",
+    "Site photos and rough scope",
+    "Budget range and preferred timing",
+  ],
+  secondaryAction = { href: "/gallery", label: "View Our Works" },
 }: {
   eyebrow: string;
   title: string;
@@ -23,6 +29,8 @@ export function PageHero({
   ctaHref?: string;
   ctaLabel?: string;
   serviceSlug?: string;
+  reviewItems?: string[];
+  secondaryAction?: { href: string; label: string };
 }) {
   const primaryCtaEvent = ctaHref ? "start_project_review_click" : "whatsapp_click";
 
@@ -63,11 +71,11 @@ export function PageHero({
               {ctaLabel}
             </ButtonLink>
             <ButtonLink
-              href="/gallery"
+              href={secondaryAction.href}
               icon={<ArrowRight aria-hidden="true" size={18} />}
               variant="ghost"
             >
-              View Our Works
+              {secondaryAction.label}
             </ButtonLink>
           </div>
         </div>
@@ -81,11 +89,9 @@ export function PageHero({
               <p className="text-xs text-white/66">Prepare practical project context.</p>
             </div>
           </div>
-          <div className="mt-5 grid gap-2 text-sm text-white/78">
-            <p>Floor plan or existing layout</p>
-            <p>Site photos and rough scope</p>
-            <p>Budget range and preferred timing</p>
-          </div>
+          <ul className="mt-5 grid gap-2 text-sm text-white/78">
+            {reviewItems.map((item) => <li key={item}>{item}</li>)}
+          </ul>
         </div>
       </div>
     </section>

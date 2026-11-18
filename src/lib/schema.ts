@@ -131,7 +131,7 @@ export function articleSchema(note: OwnerNote) {
     headline: note.title,
     description: note.description,
     datePublished: note.date,
-    dateModified: note.date,
+    dateModified: note.updated ?? note.date,
     author: {
       "@id": absoluteUrl("/#organization"),
     },

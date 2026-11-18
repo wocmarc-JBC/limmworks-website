@@ -41,17 +41,22 @@ export default async function OwnerNotePage({ params }: Props) {
     notFound();
   }
 
+  const noteUrl = `/owners-notes/${note.slug}`;
+
   return (
     <>
-      <JsonLd data={webPageSchema(note.title, note.description, `/owners-notes/${note.slug}`)} />
-      <JsonLd data={articleSchema(note)} />
-      <JsonLd
-        data={breadcrumbSchema([
-          { name: "Home", path: "/" },
-          { name: "Owner's Notes", path: "/owners-notes" },
-          { name: note.title, path: `/owners-notes/${note.slug}` },
-        ])}
-      />
+      <JsonLd data={{
+        "@context": "https://schema.org",
+        "@graph": [
+          webPageSchema(note.title, note.description, noteUrl),
+          articleSchema(note),
+          breadcrumbSchema([
+            { name: "Home", path: "/" },
+            { name: "Owner's Notes", path: "/owners-notes" },
+            { name: note.title, path: noteUrl },
+          ]),
+        ],
+      }} />
       <article className="px-4 py-16 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-3xl">
           <p className="text-sm font-semibold text-[var(--limm-clay)]">
@@ -64,7 +69,8 @@ export default async function OwnerNotePage({ params }: Props) {
             {note.description}
           </p>
           <p className="mt-4 text-sm text-[var(--limm-muted)]">
-            Updated {note.date} / {note.readingTime}
+            By LIMM Works · {note.updated ? "Updated" : "Published"}{" "}
+            <time dateTime={note.updated ?? note.date}>{note.updated ?? note.date}</time> · {note.readingTime}
           </p>
           <div className="mt-8 rounded-lg border border-[var(--limm-line)] bg-[var(--limm-paper)] p-5 text-sm leading-6 text-[var(--limm-muted)]">
             These notes are general renovation planning guidance. Actual scope
@@ -100,10 +106,15 @@ export default async function OwnerNotePage({ params }: Props) {
               </ul>
             </section>
           ) : null}
-          {note.relatedService ? (
-            <p className="mt-8">
-              <Link className="underline" href={note.relatedService.href}>{note.relatedService.title}</Link>
-            </p>
+          {note.relatedLinks?.length ? (
+            <nav aria-label="Related services and guides" className="mt-8">
+              <h2 className="text-xl font-semibold">Related services and guides</h2>
+              <ul className="mt-3 space-y-2">
+                {note.relatedLinks.map(({ title, href }) => (
+                  <li key={href}><Link className="underline" href={href}>{title}</Link></li>
+                ))}
+              </ul>
+            </nav>
           ) : null}
         </div>
       </article>

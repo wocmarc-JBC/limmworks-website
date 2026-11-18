@@ -5,6 +5,7 @@ import { ButtonLink } from "@/components/button-link";
 import { JsonLd } from "@/components/json-ld";
 import { CtaBand } from "@/components/cta-band";
 import { FaqList } from "@/components/faq-list";
+import { HomeRenovationPage } from "@/components/home-renovation-page";
 import { MotionSection } from "@/components/motion-section";
 import { PageHero } from "@/components/page-hero";
 import { SectionHeader } from "@/components/section-header";
@@ -25,27 +26,6 @@ const serviceProfiles: Record<
     scopeBody: string;
   }
 > = {
-  "landed-renovation": {
-    heroPosition: "center 56%",
-    scopeEyebrow: "Landed scope profile",
-    scopeTitle: "Older landed homes need a fuller site read before scope is fixed.",
-    scopeBody:
-      "Layout, drainage, roofline, waterproofing, access and family routines should be reviewed together so the renovation plan starts from the real property condition.",
-  },
-  "landed-aa-works": {
-    heroPosition: "center 48%",
-    scopeEyebrow: "A&A scope profile",
-    scopeTitle: "Extensions and alterations need careful review before works move ahead.",
-    scopeBody:
-      "Car porch, side-yard, rear kitchen, facade and roofline ideas should be checked against site condition and relevant professional or approval requirements where applicable.",
-  },
-  "condo-renovation": {
-    heroPosition: "center 50%",
-    scopeEyebrow: "Condo scope profile",
-    scopeTitle: "Condo works are shaped by management rules as much as interior choices.",
-    scopeBody:
-      "Lift booking, common-area protection, working hours, access and paperwork can affect sequencing before kitchen, bathroom, flooring or carpentry works begin.",
-  },
   "hdb-renovation": {
     heroPosition: "center 50%",
     scopeEyebrow: "HDB scope profile",
@@ -83,7 +63,23 @@ const serviceProfiles: Record<
   },
 };
 
-export function ServicePage({ service, children }: { service: Service; children?: React.ReactNode }) {
+const homeHeroPositions: Record<string, string> = {
+  "landed-renovation": "center 56%",
+  "landed-aa-works": "center 48%",
+  "condo-renovation": "center 50%",
+};
+
+export function ServicePage({ service }: { service: Service }) {
+  if (service.homeownerGuide) {
+    return (
+      <HomeRenovationPage
+        service={service}
+        guide={service.homeownerGuide}
+        imagePosition={homeHeroPositions[service.slug]}
+      />
+    );
+  }
+
   const quickAnswerAudience =
     service.slug === "commercial-renovation" ? "businesses" : "homeowners";
   const profile = serviceProfiles[service.slug];
@@ -307,7 +303,6 @@ export function ServicePage({ service, children }: { service: Service; children?
           <FaqList faqs={service.faqs} />
         </div>
       </MotionSection>
-      {children ? <div className="mx-auto max-w-7xl px-4 pb-12 sm:px-6 lg:px-8">{children}</div> : null}
       <CtaBand serviceSlug={service.slug} />
     </>
   );

@@ -18,6 +18,15 @@ export type ServiceDetailSection = {
   note?: string;
 };
 
+export type HomeownerGuide = {
+  title: string;
+  scopeTitle: string;
+  quoteTitle: string;
+  enquiryItems: string[];
+  links: { label: string; href: string }[];
+  updated: string;
+};
+
 export type Service = {
   slug: string;
   title: string;
@@ -35,6 +44,7 @@ export type Service = {
   safeNotice?: string;
   faqs: FaqItem[];
   answers: AnswerItem[];
+  homeownerGuide?: HomeownerGuide;
 };
 
 const planningSteps = [
@@ -44,8 +54,10 @@ const planningSteps = [
   "Align on next steps before detailed costing, fabrication or site works proceed.",
 ];
 
-const landedNotice =
-  "Landed renovation and A&A works may require checks depending on site condition, existing structure, property type and relevant approval requirements. Necessary professional review or submission should be completed before works proceed where applicable.";
+const uraLandedHomes =
+  "https://www.ura.gov.sg/guidelines/property-and-business-owners/property/renovating-private-residential-property/land-titled-residential/";
+const uraTerraceAa =
+  "https://www.ura.gov.sg/guidelines/development-control/development-control-handbooks/residential/terrace/additions-alterations/";
 
 export const services: Service[] = [
   {
@@ -53,65 +65,79 @@ export const services: Service[] = [
     title: "Landed Renovation",
     navTitle: "Landed Renovation",
     path: "/landed-renovation",
-    eyebrow: "Landed home renovation planning",
+    eyebrow: "Terrace houses, semi-detached homes and bungalows",
     summary:
-      "Practical renovation planning for old landed homes, inter-terrace houses, semi-detached homes and larger family properties where structure, water, roofline and site access matter.",
+      "LIMM Works renovates existing landed homes in Singapore, from ground-floor layouts and wet areas to drainage, waterproofing and built-in carpentry.",
     metaDescription:
-      "LIMM Works plans landed renovation in Singapore with practical scope review for layout, kitchens, bathrooms, facade, drainage, waterproofing and site coordination.",
+      "Renovate your Singapore landed home with LIMM Works. Get a site review for terrace, semi-detached and bungalow upgrades, with in-house trades and carpentry.",
     image: projectImages.landed,
-    imageAlt: "Completed landed home interior with open living and kitchen planning",
+    imageAlt: "Completed landed home with adjoining living, dining and kitchen areas",
+    homeownerGuide: {
+      title: "Landed House Renovation in Singapore",
+      scopeTitle: "Renovation for existing landed homes",
+      quoteTitle: "What affects a landed renovation quote",
+      enquiryItems: [
+        "Existing floor plans and house type",
+        "Photos of areas to upgrade or repair",
+        "Budget range and target move-in date",
+      ],
+      links: [
+        { label: "Landed additions and alterations services", href: "/landed-aa-works" },
+        { label: "Landed renovation, A&A and reconstruction explained", href: "/owners-notes/landed-renovation-vs-aa-works-difference" },
+        { label: "Wall hacking and approval checks", href: "/owners-notes/wall-hacking-renovation-singapore-checks-approvals" },
+        { label: "URA guidance for landed homes", href: uraLandedHomes },
+      ],
+      updated: "2026-11-18",
+    },
     focus: [
-      "Old landed homes, inter-terrace, semi-detached and landed family houses.",
-      "Layout improvement, bathroom and kitchen reconfiguration and better daily flow.",
-      "Wet kitchen extension, backyard, side-yard, car porch and shelter considerations.",
-      "Facade refresh, roofline, drainage and waterproofing awareness.",
-      "Practical planning before works start so scope, site access and sequencing are clearer.",
+      "Ground-floor layouts, kitchens, bathrooms and storage for terrace houses, semi-detached homes and bungalows.",
+      "Hacking, electrical, plumbing and tiling coordinated with in-house teams and our carpentry workshop.",
+      "Roof and façade repairs, waterproofing and drainage works, with the scope confirmed after a site review.",
+      "Site protection and sequencing for occupied homes, narrow access and shared boundaries.",
     ],
     uniqueSection: {
-      eyebrow: "Older landed homes",
-      title: "Layout upgrades need drainage, roofline and water details in view.",
-      body: "For older landed properties, the useful renovation conversation starts before finishes. Existing site falls, roof junctions, wet areas and daily flow should be reviewed together.",
+      eyebrow: "Existing condition",
+      title: "What to check in an older landed house",
+      body: "The site review starts with the existing layout, rainwater routes, wet areas and access. These conditions determine which repairs should go into the scope before finish and carpentry decisions.",
       points: [
-        "Check visible drainage paths, roofline junctions and waterproofing-sensitive areas early.",
-        "Review layout improvement around family routines, light, ventilation and movement through the home.",
-        "Plan wet kitchen, backyard, car porch and side-yard needs with access and sequencing in mind.",
+        "Check where rainwater travels at the roof, downpipes, yard and thresholds. Photograph active leaks and recurring ponding before opening up walls or floors.",
+        "Map kitchens, bathrooms and electrical points against the intended layout. Check floor levels, usable access and routes for new services.",
+        "Flag proposed openings or changes to load-bearing elements for qualified review. Bring any approved plans you have.",
       ],
     },
     considerations: [
-      "Existing structure and site condition can affect feasibility and sequencing.",
-      "Drainage, waterproofing and roofline details should be reviewed early.",
-      "Access, neighbours, protection and material movement need practical coordination.",
-      "Approval or professional review may be needed depending on the scope.",
+      "How much of the home is being renovated, which rooms stay in use and whether the works will be phased.",
+      "Condition of the existing roof, drainage, electrical and plumbing services, including what can be confirmed before opening up.",
+      "What the quote covers for protection, disposal, waterproofing, supply allowances and reinstatement.",
+      "Drawings, qualified professional fees or submissions to include separately if the scope requires them.",
     ],
-    reviewSteps: planningSteps,
-    safeNotice: landedNotice,
+    reviewSteps: [
+      "Share the floor plan, affected rooms and photos of any leaks or visible defects.",
+      "Review access, existing services and changes to the layout at the property.",
+      "Agree the scope, exclusions, allowances and sequence before work starts.",
+    ],
     faqs: [
       {
-        question: "Can LIMM Works review older landed homes?",
+        question: "Can LIMM Works renovate the ground floor of an older terrace house?",
         answer:
-          "Yes. The initial project review can look at age, layout, visible site condition, intended scope and likely checks before a clearer renovation plan is prepared.",
+          "Yes. LIMM Works can review the living, dining and kitchen layout together and plan the hacking, plumbing, electrical work, tiling and carpentry. The site review covers retained walls, drainage, access and any professional checks the proposed layout requires.",
       },
       {
-        question: "Can landed renovation include kitchen or bathroom changes?",
+        question: "Can we stay in the house while it is renovated?",
         answer:
-          "Yes. Kitchens, bathrooms, storage and layout changes can be reviewed together, subject to site condition, structure, waterproofing and approval needs where applicable.",
+          "It depends on the extent of hacking, dust and service shutdowns and whether the home can retain a safe route and a usable bathroom. LIMM Works can review phased areas and discuss when temporary accommodation should be planned.",
       },
       {
-        question: "Can feasibility be confirmed from photos alone?",
+        question: "Can you give a landed renovation quote from a floor plan?",
         answer:
-          "Photos and floor plans help with early discussion, but feasibility depends on the actual site, existing structure and any required professional or authority checks.",
+          "A floor plan and photos help define a preliminary scope. A detailed quote depends on measurements, access, what is being retained, and which hidden conditions or approval items need an allowance or a separate check.",
       },
     ],
     answers: [
       {
-        question: "What is landed renovation?",
+        question: "When should a landed renovation be reviewed as A&A?",
         answer:
-          "Landed renovation covers interior and exterior improvement works for landed homes, including layout, kitchens, bathrooms, facade, drainage, waterproofing and site coordination.",
-      },
-      {
-        question: "What affects landed renovation scope and timeline?",
-        answer:
-          "Existing structure, site access, waterproofing, roofline, drainage, material lead time and approval requirements can all affect scope and timing.",
+          "Get early advice if the proposal extends the house, changes the roof or façade, or affects structural elements. A Qualified Person can check the approved plans and confirm the relevant requirements for the proposed works.",
       },
     ],
   },
@@ -120,65 +146,78 @@ export const services: Service[] = [
     title: "Landed A&A Works",
     navTitle: "Landed A&A Works",
     path: "/landed-aa-works",
-    eyebrow: "Additions and alterations",
+    eyebrow: "Landed property additions and alterations",
     summary:
-      "A practical review path for additions and alterations such as small extensions, car porch changes, rear kitchen works, side-yard upgrades and facade changes.",
+      "LIMM Works reviews and coordinates landed A&A projects in Singapore, including rear wet-kitchen extensions, car-porch changes, side-yard works and alterations to existing homes.",
     metaDescription:
-      "LIMM Works supports landed A&A works in Singapore with practical scope review for extensions, car porch, wet kitchen, facade, drainage and approval awareness.",
+      "Plan landed A&A works in Singapore with LIMM Works, from wet-kitchen extensions and car porches to approved scope, drainage and construction sequencing.",
     image: projectImages.landedAa,
-    imageAlt: "Landed home glass door and entry area works",
+    imageAlt: "Completed landed entry glazing and sheltered transition",
+    homeownerGuide: {
+      title: "Landed A&A Works in Singapore",
+      scopeTitle: "Additions and alterations we can review",
+      quoteTitle: "What affects an A&A quote",
+      enquiryItems: [
+        "Approved and existing floor plans",
+        "Photos of the proposed extension area",
+        "What you want to add, enclose or change",
+      ],
+      links: [
+        { label: "Rear wet-kitchen extension guide", href: "/owners-notes/wet-kitchen-extension-landed-home-singapore" },
+        { label: "Existing landed home renovation services", href: "/landed-renovation" },
+        { label: "URA A&A criteria for terrace houses", href: uraTerraceAa },
+      ],
+      updated: "2026-11-18",
+    },
     focus: [
-      "Additions and alterations for landed homes where existing structure and authority requirements matter.",
-      "Small extensions, wet kitchen or rear extension planning and side-yard works.",
-      "Car porch, balcony, shelter and facade change considerations.",
-      "Drainage, waterproofing and roofline awareness before works proceed.",
-      "Practical scope review before design, submission or site execution decisions.",
+      "Rear wet-kitchen extensions and changes where new work meets the existing house.",
+      "Car-porch, shelter, side-yard, entry and façade alterations.",
+      "Early construction review covering drainage, weather-facing junctions, site access and trade sequencing.",
+      "Construction coordination against the agreed scope and professional drawings where required.",
     ],
     uniqueSection: {
-      eyebrow: "Additions and alterations",
-      title: "Small extensions still need careful review before works move ahead.",
-      body: "A&A planning often touches the existing building in ways that are more involved than a simple interior refresh, especially around car porch, side-yard and rear works.",
+      eyebrow: "Scope and approvals",
+      title: "How to establish whether the works qualify as A&A",
+      body: "Start by comparing the approved house with the proposed footprint, walls, roof and structure. For terrace houses, URA’s A&A criteria cover added floor area, wall replacement and structural changes, among other factors.",
       points: [
-        "Review small extensions, rear kitchen works, side-yard upgrades and car porch changes as connected scopes.",
-        "Surface drainage, waterproofing, roofline and structural considerations before committing to details.",
-        "Allow for professional review or submission where the property and proposed works require it.",
+        "For rear and side extensions, identify the approved footprint, boundary conditions and where the proposed roof and drains would connect.",
+        "Ask a Qualified Person to assess the proposal when professional review is needed. Establish who will prepare drawings, submit applications and coordinate structural input.",
+        "Check early whether a proposal falls under reconstruction. URA treats an added storey or a change in landed housing form as reconstruction.",
       ],
     },
     considerations: [
-      "A&A feasibility cannot be confirmed without proper review.",
-      "Professional input or submissions may be needed depending on scope.",
-      "Structural, waterproofing and drainage implications should be surfaced early.",
-      "Neighbours, site access and construction sequencing need careful coordination.",
+      "Extent of demolition, structural work and the connection between new construction and the existing house.",
+      "What is included for drainage, waterproofing, roof junctions, reinstatement and protection.",
+      "Access for workers, materials and debris, especially at the rear of an inter-terrace house.",
+      "Professional fees, application fees, investigations and other items priced separately from construction.",
     ],
-    reviewSteps: planningSteps,
-    safeNotice: landedNotice,
+    reviewSteps: [
+      "Share approved plans, photos and a sketch of the area you want to change.",
+      "Review access, existing conditions and which parts need qualified assessment.",
+      "Use the confirmed work scope and required drawings to plan construction and sequence the trades.",
+    ],
     faqs: [
       {
-        question: "Does LIMM handle landed A&A works?",
+        question: "Can I enclose the rear yard to extend my wet kitchen?",
         answer:
-          "LIMM Works can help review and coordinate practical landed A&A scopes, while required professional checks or submissions should be completed where applicable.",
+          "That depends on the approved footprint, proposed enclosure, setbacks, structure and the relevant planning and building requirements. Gather the approved plans and photos so your project team can assess the proposal before pricing the extension.",
       },
       {
-        question: "Can A&A approval be assumed before review?",
+        question: "Who handles the drawings and approvals for landed A&A?",
         answer:
-          "No. Approval depends on property details, proposed works and relevant requirements. Any needed review or submission should happen before works proceed.",
+          "Where submissions are needed, the appropriate Qualified Person prepares or coordinates them. Ask who is appointed, which drawings and submissions are included, and which conditions the construction programme needs to allow for.",
       },
       {
-        question: "What should owners prepare for an A&A review?",
+        question: "When can LIMM Works price construction?",
         answer:
-          "Share the floor plan, site photos, desired changes, known defects and any previous plans or approvals so the review can start with better context.",
+          "An initial review can identify the items likely to affect cost. Detailed pricing should use measured scope, site conditions and any required drawings, with allowances identified for work that can only be confirmed after investigation.",
       },
     ],
     answers: [
       {
-        question: "What is the difference between landed renovation and A&A?",
+        question: "What is the difference between A&A and reconstruction?",
         answer:
-          "Landed renovation may focus on interior and repair works, while A&A usually involves additions or alterations to the existing property that may require deeper checks.",
-      },
-      {
-        question: "What approval or management checks may be needed?",
-        answer:
-          "Checks vary by property and scope. Structural changes, extensions, drainage, facade works and other items may require professional review or authority submission.",
+          "A&A is work to an existing landed home that meets the applicable URA criteria. Proposals outside those criteria may be treated as reconstruction. The assessment depends on the whole scope, including floor area, structure and changes to the building form.",
       },
     ],
   },
@@ -187,64 +226,79 @@ export const services: Service[] = [
     title: "Condo Renovation",
     navTitle: "Condo Renovation",
     path: "/condo-renovation",
-    eyebrow: "Condo interior works",
+    eyebrow: "New and resale condominiums",
     summary:
-      "Condo renovation planning with attention to management rules, working hours, protection, access and coordination across kitchen, bathroom, flooring, electrical and carpentry works.",
+      "LIMM Works renovates Singapore condos, coordinating hacking, waterproofing, electrical, plumbing, tiling and in-house carpentry around your development’s MCST rules.",
     metaDescription:
-      "Condo renovation in Singapore by LIMM Works, with practical planning for management rules, lift protection, floor protection, kitchen, bathroom and carpentry works.",
+      "Condo renovation in Singapore for new and resale units. Plan kitchens, bathrooms, electrical and in-house carpentry around MCST rules with LIMM Works.",
     image: projectImages.condo,
-    imageAlt: "Condo interior TV feature wall and living area finish",
+    imageAlt: "Completed condo living room with timber feature wall and flush television",
+    homeownerGuide: {
+      title: "Condo Renovation Contractor in Singapore",
+      scopeTitle: "Renovation for new and resale condos",
+      quoteTitle: "What to check in a condo renovation quote",
+      enquiryItems: [
+        "Floor plan and current unit photos",
+        "Condo renovation rules or MCST forms",
+        "Key collection date and target move-in",
+      ],
+      links: [
+        { label: "Condo renovation and MCST checklist", href: "/owners-notes/condo-renovation-management-rules-planning" },
+        { label: "Wall hacking and approval checks", href: "/owners-notes/wall-hacking-renovation-singapore-checks-approvals" },
+        { label: "Bathroom renovation and waterproofing", href: "/bathroom-renovation" },
+        { label: "Built-in carpentry and storage", href: "/carpentry-storage" },
+      ],
+      updated: "2026-11-18",
+    },
     focus: [
-      "Management rules, working hours, deposits, insurance and access planning where applicable.",
-      "Lift, corridor and floor protection before materials and works move through the site.",
-      "Kitchen, bathroom, carpentry, flooring, electrical and painting coordination.",
-      "Practical interior upgrades for everyday living, storage and maintainability.",
-      "Clear scope alignment before fabrication or wet works begin.",
+      "Resale condo renovations covering kitchens, bathrooms, flooring, electrical work and new built-ins.",
+      "New condo upgrades such as wardrobes, storage, feature walls and lighting, with a plan for what to keep.",
+      "Hacking, electrical, plumbing and tiling coordinated with in-house teams and our carpentry workshop.",
+      "Working hours, lift bookings, protection and deliveries planned around your development’s renovation rules.",
     ],
     uniqueSection: {
-      eyebrow: "Condo coordination",
-      title: "Management rules and common-area protection shape the programme.",
-      body: "Condo renovation is not just about the unit interior. Lift booking, protection requirements, working hours and paperwork can affect how smoothly site works proceed.",
+      eyebrow: "MCST requirements",
+      title: "Check management rules before scheduling works",
+      body: "Ask your condominium management or MCST for its current renovation forms and by-laws. Confirm what it needs to review, when contractors can work and how materials and debris can move through common areas.",
       points: [
-        "Review management renovation rules, permitted working hours and submission requirements.",
-        "Plan lift, corridor, floor and common-area protection before deliveries and debris movement.",
-        "Check deposit, insurance and access requirements where the condominium applies them.",
+        "Confirm application lead time, documents, deposits, insurance and contractor access requirements with the management office.",
+        "Check permitted hacking hours and reserve the service lift where required. Agree protection for corridors, lifts and doorways.",
+        "Flag changes to walls, floor slabs, windows, façade or shared services early. Check any required management, professional or authority approvals before proceeding.",
       ],
     },
     considerations: [
-      "Each condominium may have different renovation rules and submission requirements.",
-      "Protection, debris movement and delivery timing should be planned before site works.",
-      "Hacking, wet works and noisy works may need additional management checks.",
-      "Material and fixture lead times can affect scheduling.",
+      "Room-by-room list of what stays, what is removed and what the contractor supplies and installs.",
+      "Hacking and disposal, protection, waterproofing and testing where in scope, plus reinstatement after works.",
+      "Tile and fixture allowances, carpentry finishes, hardware and provision for actual appliance dimensions.",
+      "How the quote handles MCST deposits and admin fees, and when additional work needs a written variation.",
     ],
-    reviewSteps: planningSteps,
+    reviewSteps: [
+      "Share the plan, photos, key collection date and any MCST documents you already have.",
+      "Review the rooms, retained finishes, planned changes and management requirements at the unit.",
+      "Plan protection and approvals, schedule hacking and wet works, then measure built-ins against site conditions.",
+    ],
     faqs: [
       {
-        question: "What should condo owners send first?",
+        question: "What should I ask my MCST before renovating my condo?",
         answer:
-          "Send the floor plan, management renovation guide if available, site photos, intended scope and preferred timing for an initial project review.",
+          "Ask for the current renovation form, permitted hours, restrictions on hacking and wet works, lift booking and protection rules, deposit requirements and any insurance or contractor documents needed. The rules can vary by development.",
       },
       {
-        question: "Can condo renovation include carpentry and bathrooms?",
+        question: "Can I hack or move a wall in a resale condo?",
         answer:
-          "Yes. Carpentry, kitchen, bathroom, flooring, electrical and painting scopes can be reviewed together for better sequencing.",
+          "The wall needs to be identified from the plans and site condition first. Structural elements and shared services can require management and professional review or authority approval. Confirm the route before any hacking is scheduled.",
       },
       {
-        question: "Do all condos have the same rules?",
+        question: "Can LIMM Works do the kitchen, bathrooms and carpentry together?",
         answer:
-          "No. Management rules, working hours, protection, deposits and paperwork vary by condominium.",
+          "Yes. LIMM Works can coordinate wet works, plumbing, electrical work, tiling and custom carpentry in one programme. The scope review establishes what to retain, where services need to move and when to measure for fabrication.",
       },
     ],
     answers: [
       {
-        question: "What affects condo renovation planning?",
+        question: "What affects the timeline for a condo renovation?",
         answer:
-          "Management rules, lift access, working hours, protection requirements, wet works, deliveries and material lead times affect planning.",
-      },
-      {
-        question: "Does LIMM support condo renovation in Singapore?",
-        answer:
-          "Yes. LIMM Works supports condo interior renovation with practical planning, coordination and execution for residential units.",
+          "Scope, available working hours, approval and lift-booking lead times, material availability and carpentry fabrication all affect the schedule. Opened-up conditions in resale units can affect the work once existing finishes are removed.",
       },
     ],
   },

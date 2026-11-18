@@ -9,10 +9,13 @@ const staticRoutes = ["/", "/gallery", "/projects", "/owners-notes", "/about", "
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
     ...staticRoutes.map((path) => ({ url: absoluteUrl(path) })),
-    ...services.map((service) => ({ url: absoluteUrl(service.path) })),
+    ...services.map((service) => ({
+      url: absoluteUrl(service.path),
+      lastModified: service.homeownerGuide?.updated,
+    })),
     ...ownerNotes.map((note) => ({
       url: absoluteUrl(`/owners-notes/${note.slug}`),
-      lastModified: note.date,
+      lastModified: note.updated ?? note.date,
     })),
     ...projects.map((project) => ({
       url: absoluteUrl(projectPath(project.slug)),
