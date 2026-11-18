@@ -1,3 +1,5 @@
+import Link from "next/link";
+import { projectPath, projects } from "@/data/projects";
 import { BookOpen, CheckCircle2, Images, Send } from "lucide-react";
 import { ButtonLink } from "@/components/button-link";
 import { JsonLd } from "@/components/json-ld";
@@ -216,6 +218,18 @@ export function ServicePage({ service }: { service: Service }) {
           </div>
         </div>
       </MotionSection>
+      {projects.some((project) => project.servicePath === service.path) && (
+        <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+          <h2 className="text-2xl font-semibold text-[var(--limm-ink)]">Completed work</h2>
+          <ul className="mt-4 space-y-3">
+            {projects.filter((project) => project.servicePath === service.path).map((project) => (
+              <li key={project.slug}>
+                <Link className="underline" href={projectPath(project.slug)}>{project.title}</Link>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
       <MotionSection className="bg-[var(--limm-ink)] px-4 py-14 text-white sm:px-6 lg:px-8">
         <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
           <div>
@@ -265,7 +279,6 @@ export function ServicePage({ service }: { service: Service }) {
           <SectionHeader
             eyebrow="Quick answers"
             title={`${service.title} questions ${quickAnswerAudience} often ask`}
-            body="Concise answers for search, AI results and early project planning."
           />
           <div className="mt-10 grid gap-4 md:grid-cols-2">
             {service.answers.map((answer) => (

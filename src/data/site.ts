@@ -6,6 +6,8 @@ export const siteConfig = {
     "LIMM Works Pte Ltd supports residential, landed and commercial renovation in Singapore with practical planning, coordination and site execution.",
   eventualProductionUrl: "https://www.limmworks.com",
   email: "limmworks@gmail.com",
+  registrationNumber: "201613071M",
+  facebook: "https://www.facebook.com/limmworks/",
   instagram: "https://www.instagram.com/limmworks/",
   whatsapp: {
     display: "+65 8989 8278",
@@ -41,6 +43,10 @@ export const primaryNav = [
 ] as const;
 
 export function getSiteUrl() {
+  if (process.env.VERCEL_ENV === "production") {
+    return siteConfig.eventualProductionUrl;
+  }
+
   const explicit = process.env.NEXT_PUBLIC_SITE_URL;
   const vercel = process.env.VERCEL_URL;
 

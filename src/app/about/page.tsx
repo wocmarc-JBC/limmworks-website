@@ -39,7 +39,7 @@ export default function AboutPage() {
         ])}
       />
       <PageHero
-        body="LIMM Works Pte Ltd is a Singapore renovation, project planning and renovation works company for homeowners and businesses who value clearer scope and practical coordination."
+        body="LIMM Works Pte Ltd is a Singapore renovation contractor for landed homes, A&A works, condos, HDB flats and commercial interiors. Singapore UEN 201613071M."
         eyebrow="About LIMM Works"
         image={projectImages.about}
         imageAlt="Warm renovation planning interior"
@@ -50,8 +50,8 @@ export default function AboutPage() {
           <SectionHeader
             className="mx-0"
             eyebrow="Positioning"
-            title="Practical renovation planning, not just interior styling."
-            body="LIMM Works is built around renovation planning, site coordination and execution. It supports landed renovation and A&A, condo, HDB, commercial interiors, kitchens, bathrooms and built-in works with practical review before works proceed."
+            title="Renovation planning and site execution"
+            body="LIMM Works coordinates site preparation, hacking, electrical, plumbing, tiling and custom carpentry through in-house trade teams and its carpentry workshop."
           />
           <div className="grid gap-4 sm:grid-cols-2">
             {values.map((value) => (

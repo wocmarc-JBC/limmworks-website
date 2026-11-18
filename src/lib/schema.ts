@@ -11,7 +11,7 @@ type BreadcrumbItem = {
 export function baseGraphSchema() {
   return {
     "@context": "https://schema.org",
-    "@graph": [organizationSchema(), localBusinessSchema(), websiteSchema()],
+    "@graph": [organizationSchema(), websiteSchema()],
   };
 }
 
@@ -26,25 +26,18 @@ export function organizationSchema() {
   };
 
   return {
-    "@type": "Organization",
+    "@type": "HomeAndConstructionBusiness",
     "@id": absoluteUrl("/#organization"),
     name: siteConfig.name,
     url: absoluteUrl("/"),
     logo: absoluteUrl(brandAssets.logoDark),
     email: siteConfig.email,
-    sameAs: [siteConfig.instagram],
+    legalName: siteConfig.name,
+    alternateName: siteConfig.shortName,
+    identifier: { "@type": "PropertyValue", propertyID: "SG UEN", value: siteConfig.registrationNumber },
+    sameAs: [siteConfig.instagram, siteConfig.facebook],
     contactPoint: [contactPoint],
-  };
-}
-
-export function localBusinessSchema() {
-  return {
-    "@type": "LocalBusiness",
-    "@id": absoluteUrl("/#localbusiness"),
-    name: siteConfig.name,
-    url: absoluteUrl("/"),
     image: absoluteUrl(brandAssets.socialPreview),
-    email: siteConfig.email,
     ...(hasConfirmedWhatsapp() ? { telephone: siteConfig.whatsapp.display } : {}),
     address: {
       "@type": "PostalAddress",
@@ -55,7 +48,6 @@ export function localBusinessSchema() {
       "@type": "Country",
       name: "Singapore",
     },
-    priceRange: "$$",
   };
 }
 

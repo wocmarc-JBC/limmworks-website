@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { MessageCircle, Send } from "lucide-react";
 import { ButtonLink } from "@/components/button-link";
 import { GalleryCard } from "@/components/gallery-card";
@@ -61,6 +62,7 @@ export default function GalleryPage() {
               </p>
             ))}
           </div>
+          <Link className="mt-8 inline-block font-semibold underline" href="/projects">See completed renovation projects</Link>
           <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
             {galleryCategories.map((item) => (
               <GalleryCard item={item} key={item.slug} />

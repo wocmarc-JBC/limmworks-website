@@ -25,9 +25,9 @@ import { buildMetadata } from "@/lib/seo";
 import { faqSchema, webPageSchema } from "@/lib/schema";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Residential, Landed & Commercial Renovation",
+  title: "Renovation Contractor Singapore | Landed, A&A, Condo & HDB",
   description:
-    "LIMM Works helps homeowners and businesses in Singapore plan practical renovation works with clearer scope, coordination and site execution.",
+    "LIMM Works is a Singapore renovation contractor for landed homes, A&A works, condos and HDB flats, with in-house carpentry and trade teams.",
   path: "/",
 });
 
@@ -148,15 +148,15 @@ export default function Home() {
               LIMM Works Pte Ltd
             </p>
             <h1 className="mt-5 max-w-4xl text-balance text-4xl font-semibold leading-tight md:text-[4.75rem]">
-              Renovation planning for homes, landed properties and commercial spaces.
+              Singapore renovation contractor for landed homes, A&A, condos and HDB.
             </h1>
             <p className="mt-5 text-2xl font-semibold text-white md:text-3xl">
               Planned properly. Built with care.
             </p>
             <p className="mt-5 max-w-2xl text-pretty text-base leading-7 text-white/82 md:text-lg">
-              Share your floor plan, site photos and rough scope. LIMM Works
-              reviews the site context, coordination needs and practical
-              renovation path before works move too far.
+              LIMM Works plans and manages residential renovations with in-house
+              carpentry, hacking, electrical, plumbing and tiling teams. Share
+              your floor plan and site photos to start an initial project review.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
               <ButtonLink
